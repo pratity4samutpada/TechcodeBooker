@@ -18,13 +18,13 @@ class Companies (models.Model):
 
 
 class Bookings (models.Model):
-        start_time = models.DateTimeField("Time the room was booked for")
-        end_time = models.DateTimeField("Time the room was booked for")
+        room = models.ForeignKey('Rooms', on_delete=models.CASCADE)
+        start_time = models.DateTimeField("From")
+        end_time = models.DateTimeField("To")
         booking_time = models.DateField("Time the booking was made",auto_now_add=True)
         company = models.ForeignKey('Companies',on_delete=models.CASCADE)
-        room = models.ForeignKey('Rooms', on_delete=models.CASCADE)
-        email = models.EmailField('User email')
-        booked_by = models.CharField('Booked by', max_length=50)
+        email = models.EmailField('Your Email')
+        booked_by = models.CharField('Full Name', max_length=50)
         def __str__(self):
             return "Booking from: "+str(self.start_time)+" to "+str(self.end_time)
         # status = models.CharField()
