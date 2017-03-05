@@ -1,6 +1,8 @@
 from django.shortcuts import render
+from .forms import BookingForm
 
 # Create your views here.
 
 def index(request):
-    return render(request,'roombooker/index.html',{})
+    return render(request,'roombooker/booking.html',{'form':BookingForm()})
+
