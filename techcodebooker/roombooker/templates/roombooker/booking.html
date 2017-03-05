@@ -1,11 +1,29 @@
 <!DOCTYPE html>
-{%load staticfiles%}
+{% load staticfiles %}
+{% load static %}
+
+{% csrf_token %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Room Booker</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/roombooker.css' %}">
 </head>
 <body>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <div>
+        <img src ="{% static 'img/techcode_logo.png' %}" alt="My image" class = "logo">
+    </div>
+</nav>
+<div class = "container">
+    <div class = "row">
+        <div class="col col-md-12 header">
+            <h1>Room Booker</h1>
+        </div>
+    </div>
+
     <form action="/index" method="post">
     {% csrf_token %}
     {{ form }}
