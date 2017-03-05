@@ -8,3 +8,6 @@ def index(request):
 
 def book(request):
     return render(request, 'roombooker/booking.html',{'form':BookingForm()})
+
+def confirmation(request):
+    return render(request, 'roombooker/confirmation/html',{})
