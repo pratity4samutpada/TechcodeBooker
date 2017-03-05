@@ -7,22 +7,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Room Booker</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/roombooker.css' %}">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/roombooker.css' %}">
+
 </head>
 <body>
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-    <div>
-        <img src ="{% static 'img/techcode_logo.png' %}" alt="My image" class = "logo">
+
+<div class="wrap">
+    <div class="head">
+        <span class="logo">
+            <a href="http://www.techcode.com/en/"><img src ="{% static 'img/techcode_logo.png' %}" alt="My image" class = "logo"> </a>
+        </span>
+        <span class="language">
+            <a href="#">中文</a>
+            <a href="#">/en/</a>
+        </span>
+
+        <span class="header-right-side">
+            <a class="about" href="#">About_Us</a>
+            <a class="home" href="#">Home</a>
+        </span>
+
     </div>
-</nav>
-<div class = "container">
-    <div class = "row">
-        <div class="col col-md-12 header">
-            <h1>Room Booker</h1>
-        </div>
-    </div>
+</div>
+
 
 </body>
 </html>

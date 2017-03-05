@@ -1,3 +1,53 @@
-.header {
-    text-align: center;
+
+
+.wrap {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1700px;
+    min-width: 1200px;
+
+}
+
+a:link, a:visited {
+    color:black;
+    font-size:20px;
+    text-decoration: none;
+}
+
+a:active{
+    color:#0091db;
+}
+
+
+.head {
+    height: 60px;
+    line-height: 60px;
+    width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+}
+
+.logo img {
+    padding: 0 20px;
+}
+
+fieldset, img {
+    border: 0;
+    vertical-align: middle;
+}
+
+.language {
+    font-size: 14px;
+    color: #999;
+    line-height: 50px;
+    margin-top: 10px;
+}
+
+.header-right-side{
+    float:right;
+    margin-right:40px;
+}
+
+.home{
+    margin-left:30px;
 }
