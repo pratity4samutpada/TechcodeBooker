@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load static %}
+
+{% csrf_token %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room Booker</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/roombooker.css' %}">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+</head>
+<body>
+
+<div class="wrap">
+    <div class="head">
+        <span class="logo">
+            <a href="http://www.techcode.com/en/"><img src ="{% static 'img/techcode_logo.png' %}" alt="My image" class = "logo"> </a>
+        </span>
+        <span class="language">
+            <a href="#">中文</a>
+            <a href="#">/en/</a>
+        </span>
+
+        <span class="header-right-side">
+            <a class="about" href="#">About_Us</a>
+            <a class="home" href="#">Home</a>
+        </span>
+    </div>
+</div>
+{% block content %}
+<div></div>
+{% endblock %}
+<script src="{% static 'js/roombooker.js' %}">
+</script>
+</body>
+</html>
