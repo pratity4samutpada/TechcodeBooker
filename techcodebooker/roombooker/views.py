@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import room_form, booking_form, confirm_booking
 from formtools.wizard.views import SessionWizardView, WizardView
+from .models import Rooms
 
 # Create your views here.
 
@@ -28,6 +29,9 @@ class BookingWizard(SessionWizardView):
 
     def get_template_names(self):
         return [TEMPLATES[self.steps.current]]
+
+    def rooms(self):
+        return Rooms.objects.all()
 
     def done(self, form_list, **kwargs):
         return render('roombooker/done.html',{})
