@@ -1,6 +1,67 @@
 {% extends "roombooker/base.html" %}
 
 {% block content %}
+
+    <div class = "container-fluid roombooker">
+        <div class = "row">
+            <div class="col-md-6 first-container">
+                <div class = "available-rooms">Available Rooms</div>
+                 <div class="row img-container">
+                     <div class="col-md-4">
+                         <div class="thumbnail">
+                             <a href="/w3images/lights.jpg">
+                                 <img src="/w3images/lights.jpg" alt="Lights" style="width:100%">
+                                 <div class="caption">
+                                     <p>Lorem ipsum...</p>
+                                 </div>
+                             </a>
+                         </div>
+                     </div>
+                     <div class="col-md-4">
+                         <div class="thumbnail">
+                             <a href="/w3images/nature.jpg">
+                                 <img src="/w3images/nature.jpg" alt="Nature" style="width:100%">
+                                 <div class="caption">
+                                     <p>Lorem ipsum...</p>
+                                 </div>
+                             </a>
+                         </div>
+                     </div>
+                     <div class="col-md-4">
+                         <div class="thumbnail">
+                             <a href="/w3images/fjords.jpg">
+                                 <img src="/w3images/fjords.jpg" alt="Fjords" style="width:100%">
+                                 <div class="caption">
+                                     <p>Lorem ipsum...</p>
+                                 </div>
+                             </a>
+                         </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href="/w3images/fjords.jpg">
+                                <img src="/w3images/fjords.jpg" alt="Fjords" style="width:100%">
+                                <div class="caption">
+                                    <p>Lorem ipsum...</p>
+                                </div>
+                            </a>
+                        </div>
+                     </div>
+                 </div>
+            </div>
+            <div class="col-md-6 second-container">
+                <div class = "available-room-info">Room Information</div>
+                <div class = "description-container">
+                    <div class = "room-description">This room is equipped with a ping pong table and a projector. <br>It seats 8 people and is aesthetically pleasing.</div>
+                </div>
+                <button type="button" class = "book">Book Now</button>
+            </div>
+        </div>
+    </div>
+<div class = "bottom-container">
+
+</div>
+
     <!--<form method="post" class = "signup_form" action="/billboard/newusercreated/">-->
     <!--{% csrf_token %}-->
         <!--{{ form.as_p }}-->

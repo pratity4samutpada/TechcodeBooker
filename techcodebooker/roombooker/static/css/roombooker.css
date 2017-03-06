@@ -49,3 +49,60 @@ fieldset, img {
 .home{
     margin-left:30px;
 }
+
+/*for roombooker.html*/
+.roombooker {
+    background-color: grey;
+    width: 100%;
+}
+
+.first-container {
+    text-align: center;
+    /*margin-left: 3%;*/
+}
+
+.available-rooms {
+    margin-top: 8%;
+    font-size: 20px;
+    font-weight: bold;
+}
+.img-container {
+    margin-top: 8%;
+}
+
+.img-pads {
+    /*margin-left: 2%;*/
+    /*margin-right: 2%;*/
+    /*margin-bottom: 2%;*/
+}
+
+.second-container {
+    text-align: center;
+
+    /*margin-left: 3%;*/
+}
+
+.available-room-info {
+    margin-top: 8%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.description-container {
+    /*background-color: white;*/
+}
+.room-description {
+    margin-top: 4%;
+    font-size: 18px;
+    color: white;
+
+}
+
+.book {
+    margin-top: 3%;
+}
+
+.bottom-container {
+    background-color: #f18d00;
+    height: 200px;
+}
