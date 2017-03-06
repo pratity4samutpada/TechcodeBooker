@@ -14,7 +14,7 @@
                  <div class="row img-container">
                      {%for room in view.rooms%}
                      <div class="col-md-4">
-                         <div data-value={{room.id}} class="thumbnail ">
+                         <div data-value={{room.id}} class="thumbnail room-option clickable">
                                  <img src="{{room.room_image.url}}" alt="Lights" style="width:100%">
                                  <div class="caption">
                                      <p>{{room.room_name}}</p>

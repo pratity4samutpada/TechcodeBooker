@@ -106,3 +106,7 @@ fieldset, img {
     background-color: #f18d00;
     height: 200px;
 }
+
+.clickable{
+    cursor: pointer;
+}

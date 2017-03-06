@@ -21,7 +21,7 @@ class Bookings (models.Model):
         room = models.ForeignKey('Rooms', on_delete=models.CASCADE)
         start_time = models.TimeField("From")
         end_time = models.TimeField("To")
-        date = models.DateField("Date")
+        date = models.DateField("Date", default=timezone.now)
         booking_time = models.DateField("Time the booking was made",auto_now_add=True)
         company = models.ForeignKey('Companies',on_delete=models.CASCADE)
         email = models.EmailField('Your Email')
