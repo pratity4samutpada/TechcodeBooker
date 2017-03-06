@@ -5,7 +5,7 @@ from django.utils import timezone
 
 class Rooms (models.Model):
     room_name = models.CharField(max_length=200)
-    room_image = models.FileField()
+    room_image = models.ImageField(upload_to="roomimages")
     room_capacity = models.IntegerField()
     room_fac = models.CharField("Room Facilities",max_length=999)
     def __str__(self):
@@ -19,8 +19,9 @@ class Companies (models.Model):
 
 class Bookings (models.Model):
         room = models.ForeignKey('Rooms', on_delete=models.CASCADE)
-        start_time = models.DateTimeField("From")
-        end_time = models.DateTimeField("To")
+        start_time = models.TimeField("From")
+        end_time = models.TimeField("To")
+        date = models.DateField("Date")
         booking_time = models.DateField("Time the booking was made",auto_now_add=True)
         company = models.ForeignKey('Companies',on_delete=models.CASCADE)
         email = models.EmailField('Your Email')

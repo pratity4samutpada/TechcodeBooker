@@ -1,4 +1,9 @@
 {% extends "roombooker/base.html" %}
+{% load i18n %}
+
+{% block head %}
+{{ wizard.form.media }}
+{% endblock %}
 
 {% block content %}
 
@@ -54,7 +59,12 @@
                 <div class = "description-container">
                     <div class = "room-description">This room is equipped with a ping pong table and a projector. <br>It seats 8 people and is aesthetically pleasing.</div>
                 </div>
-                <button type="button" class = "book">Book Now</button>
+                <form action="" method="post">{% csrf_token %}
+                    {{ wizard.management_form }}
+                    {{ wizard.form }}
+                <input type="submit" value="{% trans 'Book Now' %}"/>
+
+                </form>
             </div>
         </div>
     </div>
