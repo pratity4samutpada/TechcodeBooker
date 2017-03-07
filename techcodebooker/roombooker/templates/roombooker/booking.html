@@ -6,13 +6,24 @@
 {% endblock %}
 
 {% block content %}
-    <form action="" method="post">
-    {% csrf_token %}
-    {{ wizard.management_form }}
-        {{ wizard.form }}
-    <input type="submit" value="{% trans 'Submit' %}" />
 
-</form>
-    <a href="/booker"><button name="wizard_goto_step" value="{{ wizard.steps.prev }}">Back to Room Selection</button></a>
+<div class="container">
+    <div class="row middle-center">
+        <div class="col-md-8" >Calendar Section</div>
+
+        <div class="col-md-4 form-background">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ wizard.management_form }}
+                {{ wizard.form }}
+            <input class="btn-block" type="submit" value="{% trans 'Submit' %}" />
+
+            </form>
+                <a href="/booker"><button name="wizard_goto_step" value="{{ wizard.steps.prev }}">Back to Room Selection</button></a>
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}
+
