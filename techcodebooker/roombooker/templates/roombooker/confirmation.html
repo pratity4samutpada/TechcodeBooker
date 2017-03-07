@@ -1,11 +1,18 @@
-<!DOCTYPE html>
-{%load staticfiles%}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "roombooker/base.html" %}
+{% load i18n %}
 
-</body>
-</html>
+{% block head %}
+{{ wizard.form.media }}
+{% endblock %}
+{%load staticfiles%}
+
+{% block content %}
+<form action="" method="post">
+    <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+{% csrf_token %}
+{{ wizard.management_form }}
+{{ wizard.form }}
+
+<input type="submit" value="{% trans 'Confirm Booking' %}"/>
+</form>
+{% endblock %}

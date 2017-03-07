@@ -26,6 +26,9 @@ class Bookings (models.Model):
         company = models.ForeignKey('Companies',on_delete=models.CASCADE)
         email = models.EmailField('Your Email')
         booked_by = models.CharField('Full Name', max_length=50)
+        status=models.BooleanField('Pending',default=False)
+
+
         def __str__(self):
             return "Booking from: "+str(self.start_time)+" to "+str(self.end_time)
         # status = models.CharField()

@@ -16,7 +16,7 @@ class room_form(forms.Form):
     room_id = forms.IntegerField(min_value=0,widget=forms.HiddenInput())
 
 class booking_form(forms.Form):
-    company= forms.ModelChoiceField(queryset=Rooms.objects.all())
+    company= forms.ModelChoiceField(queryset=Companies.objects.all())
     email = forms.EmailField()
     booked_by = forms.CharField(max_length=200)
     day_of_booking = forms.DateField(widget=SelectDateWidget())
@@ -24,5 +24,5 @@ class booking_form(forms.Form):
     end_time = forms.TimeField()
 
 class confirm_booking(forms.Form):
-    room_id = forms.CharField(initial="confirmed", widget=forms.HiddenInput())
+    status = forms.CharField(initial="confirmed", widget=forms.HiddenInput())
 

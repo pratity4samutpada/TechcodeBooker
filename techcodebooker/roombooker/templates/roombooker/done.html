@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "roombooker/base.html" %}
+{% load i18n %}
 
-</body>
-</html>
+{% block head %}
+{{ wizard.form.media }}
+{% endblock %}
+{%load staticfiles%}
+
+{% block content %}
+
+{{ wizard.management_form }}
+
+{%if error%}
+<p>{{error}}</p>
+{%endif%}
+
+ROOM BOOKED BABY!
+{%for data in form_data%}
+<p>{{data}}</p>
+{%endfor%}
+
+{% endblock %}
