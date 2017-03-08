@@ -1,5 +1,6 @@
 {% extends "roombooker/base.html" %}
 {% load i18n %}
+{% load static%}
 
 {% block head %}
 {{ wizard.form.media }}
@@ -8,14 +9,26 @@
 {% block content %}
 
 <div class="container">
-    <div class="row middle-center">
-        <div class="col-md-8" >Calendar Section</div>
+    <div class="row">
+        <div class="col-md-8" id="calendar">
+            <div class="month">
+                <ul>
+                    <li class="prev" id = "btn-prev"><a href="#">&#10094;</a></li>
+                    <li class="next" id = "btn-next"><a href="#">&#10095;</a></li>
+                    <li>
+                        Month<br>
+                    <span style="font-size:18px">Year</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         <div class="col-md-4 form-background">
             <form action="" method="post">
-                <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
                 {% csrf_token %}
                 {{ wizard.management_form }}
                 {{ wizard.form }}
+                <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
             <input class="btn-block" type="submit" value="{% trans 'Submit' %}" />
 
             </form>
@@ -23,7 +36,7 @@
         </div>
     </div>
 </div>
-
-
+<script src="{% static 'js/calendar.js' %}"></script>
 {% endblock %}
+
 
