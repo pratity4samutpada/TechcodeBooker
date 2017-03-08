@@ -27,7 +27,7 @@ class Bookings (models.Model):
         email = models.EmailField('Your Email')
         booked_by = models.CharField('Full Name', max_length=50)
         status=models.BooleanField('Pending',default=False)
-
+        # Add a data-attribute for a combined start_time, end_time and date.
 
         def __str__(self):
             return "Booking from: "+str(self.start_time)+" to "+str(self.end_time)

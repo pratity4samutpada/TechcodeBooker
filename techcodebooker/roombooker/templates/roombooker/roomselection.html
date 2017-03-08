@@ -29,7 +29,11 @@
             <div class="col-md-6 second-container">
                 <div class = "available-room-info">Room Information</div>
                 <div class = "description-container">
-                    <div class = "room-description">This room is equipped with a ping pong table and a projector. <br>It seats 8 people and is aesthetically pleasing.</div>
+                    <h2 id="room-name" class="room-name"></h2>
+                    <div class = "room-description">
+                        <div id="room-facilities" class="room-detail"></div>
+                        <div id="room-capacity" class="room-detail"></div>
+                    </div>
                 </div>
                 <form action="" method="post">{% csrf_token %}
                     {{ wizard.management_form }}

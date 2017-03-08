@@ -18,8 +18,28 @@ Roombooker.selectRoom = function(){
     $(this).addClass("selected");
     var roomId = $(this).attr("data-value");
     $("#id_Rooms-room_id").val(roomId);
-    console.log($("#id_Rooms-room_id").val());
+    Roombooker.showRoomInfo(roomId);
+
 };
 
+Roombooker.showRoomInfo = function(roomId){
+
+   $.ajax({
+        url:"getroominfo",
+        method:"GET",
+        data: {
+            id: roomId
+        },
+        success: function(result){
+            var resFields = result[0].fields
+            var name = resFields.room_name
+            var fac = resFields.room_fac
+            var cap = resFields.room_capacity
+            $("#room-name").html(name)
+            $("#room-facilities").html(fac)
+            $("#room-capacity").html(cap)
+        }
+   })
+}
 
 Roombooker.init();

@@ -2,6 +2,7 @@ from django import forms
 from .models import Bookings, Companies, Rooms
 from django.utils.html import conditional_escape, mark_safe
 from django.forms.extras.widgets import SelectDateWidget
+import datetime
 
 
 
@@ -19,7 +20,7 @@ class booking_form(forms.Form):
     company= forms.ModelChoiceField(queryset=Companies.objects.all())
     email = forms.EmailField()
     booked_by = forms.CharField(max_length=200)
-    day_of_booking = forms.DateField(widget=SelectDateWidget())
+    booking_date = forms.DateField(initial=datetime.date.today, widget=SelectDateWidget())
     start_time = forms.TimeField()
     end_time = forms.TimeField()
 
