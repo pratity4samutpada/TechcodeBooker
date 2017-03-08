@@ -20,7 +20,9 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 
+
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^booker/', include('roombooker.urls'))
+    url(r'^booker/', include('roombooker.urls')),
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

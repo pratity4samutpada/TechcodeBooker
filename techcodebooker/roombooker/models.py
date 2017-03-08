@@ -1,6 +1,7 @@
 from django.db import models
 from django.forms import ModelForm
 from django.utils import timezone
+import datetime
 # Create your models here.
 
 class Rooms (models.Model):
@@ -18,6 +19,10 @@ class Companies (models.Model):
 
 
 class Bookings (models.Model):
+
+        def combine_dt(self,date,time):
+           return datetime.datetime.combine(date,time)
+
         room = models.ForeignKey('Rooms', on_delete=models.CASCADE)
         start_time = models.TimeField("From")
         end_time = models.TimeField("To")
@@ -31,6 +36,8 @@ class Bookings (models.Model):
 
         def __str__(self):
             return "Booking from: "+str(self.start_time)+" to "+str(self.end_time)
+
+
         # status = models.CharField()
 
         # def set_status(self): if total time booked > 2 hours, will set the status to pending + send email to CM.

@@ -61,7 +61,5 @@ class BookingWizard(SessionWizardView):
 def get_room_info(request):
     id = request.GET.get('id')
     room = Rooms.objects.get(pk=id)
-
     result = serializers.serialize('json', [room], fields=('room_name','room_capacity','room_fac'))
-
     return HttpResponse(result,content_type='application/json')

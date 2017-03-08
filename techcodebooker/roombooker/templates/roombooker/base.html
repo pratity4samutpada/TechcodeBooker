@@ -9,7 +9,7 @@
     <title>Room Booker</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/roombooker.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/booking.css' %}">
-     <link rel="stylesheet" type="text/css" href="{% static 'css/general.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/general.css' %}">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <script
@@ -28,6 +28,11 @@
         </span>
         <span class="header-right-side">
             <a class="home" href="#">Home</a>
+            {% if user.is_anonymous %}
+            <a href="{% url 'login' %}">login</a>
+            {% else %}
+            <a href="{% url 'logout' %}">logout</a>
+            {% endif %}
         </span>
     </div>
 </div>
