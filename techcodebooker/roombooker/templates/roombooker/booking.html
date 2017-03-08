@@ -12,10 +12,10 @@
         <div class="col-md-8" >Calendar Section</div>
         <div class="col-md-4 form-background">
             <form action="" method="post">
+                <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
                 {% csrf_token %}
                 {{ wizard.management_form }}
                 {{ wizard.form }}
-                <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
             <input class="btn-block" type="submit" value="{% trans 'Submit' %}" />
 
             </form>
