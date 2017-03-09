@@ -5,5 +5,7 @@ import json
 from django.core import serializers
 
 def dashboard(request):
-
-    return render(request,'communitymanager/dashboard.html',{})
+    rooms = Rooms.objects.all()
+    bookings = Bookings.objects.all().order_by('-date')
+    context = {'rooms':rooms,'bookings':bookings}
+    return render(request,'communitymanager/dashboard.html',context)

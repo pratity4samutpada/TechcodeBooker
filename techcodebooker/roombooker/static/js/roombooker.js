@@ -10,10 +10,13 @@ Roombooker.init = function(){
 };
 
 Roombooker.bindEventListeners = function(){
-    $(".room-option").off().on("click",Roombooker.selectRoom)
+
+    $(".room-option").off().on("click",Roombooker.selectRoom);
 };
 
+
 Roombooker.selectRoom = function(){
+    $("#avail-title").fadeIn()
     $(".room-option").removeClass("selected");
     $(this).addClass("selected");
     var roomId = $(this).attr("data-value");
