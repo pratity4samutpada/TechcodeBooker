@@ -7,14 +7,14 @@
 
 {% block content %}
 
-    <div class = "container-fluid roombooker">
+    <div class = "container-fluid room-selection-container">
         <div class = "row">
             <div class="col-md-6 first-container">
                 <div class = "available-rooms">Available Rooms</div>
                 <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
                  <div class="row img-container">
                      {%for room in view.rooms%}
-                     <div class="col-md-4">
+                     <div class="col-md-4 img-divs">
                          <div data-value={{room.id}} class="thumbnail room-option clickable">
                                  <img src="{{room.room_image.url}}" alt="Lights" style="width:100%">
                                  <div class="caption">
@@ -35,12 +35,13 @@
                         <div id="room-capacity" class="room-detail"></div>
                     </div>
                 </div>
-                <form action="" method="post">{% csrf_token %}
-                    {{ wizard.management_form }}
-                    {{ wizard.form }}
-                <input type="submit" value="{% trans 'Book Now' %}"/>
-
+                <div class = "form-1-container">
+                    <form action="" method="post">{% csrf_token %}
+                        {{ wizard.management_form }}
+                        {{ wizard.form }}
+                    <input type="submit" value="{% trans 'Book Now' %}" class = "form-1-btn"/>
                 </form>
+                </div>
             </div>
         </div>
     </div>

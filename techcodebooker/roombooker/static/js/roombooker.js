@@ -40,6 +40,6 @@ Roombooker.showRoomInfo = function(roomId){
             $("#room-capacity").html(cap)
         }
    })
-}
+};
 
 Roombooker.init();

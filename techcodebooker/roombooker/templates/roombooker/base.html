@@ -12,19 +12,17 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/general.css' %}">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <script
-            src="https://code.jquery.com/jquery-3.1.1.min.js"
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
 
 </head>
 <body>
 
-<div class="wrap">
+<div class="navbar">
     <div class="head">
         <span class="logo">
-            <a href="http://www.techcode.com/en/"><img src="{% static 'img/techcode_logo.png' %}" alt="My image"
-                                                       class="logo"> </a>
+            <a href="http://www.techcode.com/en/"><img src="{% static 'img/techcode_logo.png' %}" alt="My image" class="logo"> </a>
         </span>
         <span class="header-right-side">
             <a class="home" href="#">Home</a>
@@ -36,9 +34,13 @@
         </span>
     </div>
 </div>
+
 {% block content %}
 
 {% endblock %}
+<div class = "footer">
+    <div class = "footer-txt">@2015 All Copyright Reserved By Techcode.com</div>
+</div>
 <script src="{% static 'js/roombooker.js' %}">
 </script>
 </body>

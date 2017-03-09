@@ -1,9 +1,5 @@
-.wrap {
-    width: 100%;
-    margin: 0 auto;
-    max-width: 1700px;
-    min-width: 1200px;
-
+body {
+    margin: auto;
 }
 
 a:link, a:visited {
@@ -18,79 +14,79 @@ a:active{
 
 
 .head {
-    height: 60px;
-    line-height: 60px;
-    width: 1200px;
-    margin: 0 auto;
-    background: #fff;
+    /*line-height: 60px;*/
+    /*margin: 0 auto;*/
 }
 
 .logo img {
-    padding: 0 20px;
+    margin-left: 2%;
+    /*margin-top: 0.5%;*/
 }
 
-fieldset, img {
-    border: 0;
-    vertical-align: middle;
-}
 
-.language {
-    font-size: 14px;
-    color: #999;
-    line-height: 50px;
-    margin-top: 10px;
-}
-
-.header-right-side{
-    float:right;
-    margin-right:40px;
-}
+/*.header-right-side{*/
+    /*float:right;*/
+    /*margin-right:40px;*/
+/*}*/
 
 .home{
-    margin-left:30px;
+    margin-left: 63%;
+    margin-right: 1%;
 }
 
 /*for roombooker.html*/
-.roombooker {
-    background-color: #F18D00;
+.room-selection-container {
+    background-color: #1F2C5C;
+    color: white;
     width: 100%;
+    background-image: url("https://images.pexels.com/photos/1984/black-and-white-city-man-people.jpg?h=350&auto=compress&cs=tinysrgb");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
 }
 
 .first-container {
     text-align: center;
     /*margin-left: 3%;*/
+    /*background-image: url("https://images.pexels.com/photos/296883/pexels-photo-296883.jpeg?h=350&auto=compress&cs=tinysrgb");*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: 0 0;*/
+    /*background-size: cover;*/
+
 }
 
 .available-rooms {
-    margin-top: 8%;
-    font-size: 20px;
+    margin-top: 5%;
+    font-size: 25px;
     font-weight: bold;
 }
-.img-container {
-    margin-top: 8%;
-}
+/*.img-container {*/
+    /*margin-top: 5%;*/
+    /*margin-left: 6%;*/
+/*}*/
 
-.img-pads {
+/*.img-divs {*/
+    /*padding: 1%;*/
     /*margin-left: 2%;*/
-    /*margin-right: 2%;*/
-    /*margin-bottom: 2%;*/
-}
+
+/*}*/
 
 .second-container {
     text-align: center;
+    /*background-image: url("https://images.pexels.com/photos/263189/pexels-photo-263189.jpeg?h=350&auto=compress&cs=tinysrgb");*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: 0 0;*/
+    /*background-size: cover;*/
 
     /*margin-left: 3%;*/
 }
 
 .available-room-info {
-    margin-top: 8%;
-    font-size: 20px;
+    margin-top: 5%;
+    font-size: 25px;
     font-weight: bold;
 }
 
-.description-container {
-    /*background-color: white;*/
-}
 .room-description {
     margin-top: 4%;
     font-size: 18px;
@@ -98,14 +94,29 @@ fieldset, img {
 
 }
 
-.book {
-    margin-top: 3%;
+.form-1-container {
+    /*position: absolute;*/
+    margin-top: 20%;
+    color: black;
+
 }
 
-.bottom-container {
-    background-color: #f18d00;
-    height: 200px;
+.form-1-btn {
+    margin-bottom: 0%;
+
 }
+
+/*.book {*/
+    /*margin-top: 3%;*/
+/*}*/
+.footer {
+   text-align: center;
+    color: #9dafc0;
+    background-color: #1F2C5C;
+    color: #9dafc0;
+    height: 100px;
+}
+
 
 /*GENERIC CLASSES*/
 .clickable{
