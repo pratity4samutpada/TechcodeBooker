@@ -24,17 +24,17 @@
         </div>
 
         <div class="col-md-4 form-background">
-            <div></div>
+        <h3>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</h3>
             <form action="" method="post">
                 {% csrf_token %}
                 {{ wizard.management_form }}
                 {{ wizard.form }}
-                <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
-            <input disabled class="btn-block" id="submit-btn" type="submit" value="{% trans 'Submit' %}" />
+
+            <input class="btn btn-primary btn-lg center-block" id="submit-btn" type="submit" value="{% trans 'Submit' %}" />
 
             </form>
-                <a href="/booker"><button name="wizard_goto_step" value="{{ wizard.steps.prev }}">Back to Room Selection</button></a>
-        </div>
+                <a href="/booker"><button class="btn btn-danger btn-lg center-block button-margin" name="wizard_goto_step" value="{{ wizard.steps.prev }}">Back</button></a>
+          </div>
     </div>
 </div>
 <script src="{% static 'js/calendar.js' %}"></script>

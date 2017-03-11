@@ -7,12 +7,17 @@
 {%load staticfiles%}
 
 {% block content %}
-<form action="" method="post">
-    <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
-{% csrf_token %}
-{{ wizard.management_form }}
-{{ wizard.form }}
 
-<input type="submit" value="{% trans 'Confirm Booking' %}"/>
-</form>
+<div class="middle-center">
+
+    <form action="" method="post">
+        <h3>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</h3>
+    {% csrf_token %}
+    {{ wizard.management_form }}
+    {{ wizard.form }}
+
+    <input class="btn btn-primary btn-lg" type="submit" value="{% trans 'Confirm Booking' %}"/>
+    </form>
+
+</div>
 {% endblock %}

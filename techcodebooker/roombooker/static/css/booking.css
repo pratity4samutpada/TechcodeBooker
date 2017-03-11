@@ -23,6 +23,9 @@ input[type=text]:focus {
     border: 2px solid #555;
 }
 
+.button-margin{
+    margin:1em;
+}
 
 #calendar {
     margin-top: 4%;
