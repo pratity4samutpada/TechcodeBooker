@@ -5,6 +5,7 @@ from django.forms.extras.widgets import SelectDateWidget
 import datetime
 
 
+
 class room_form(forms.Form):
     room_id = forms.IntegerField(min_value=0,widget=forms.HiddenInput())
 
@@ -12,9 +13,9 @@ class booking_form(forms.Form):
     company= forms.ModelChoiceField(queryset=Companies.objects.all(),empty_label="Company")
     email = forms.EmailField(widget = forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email'}))
     booked_by = forms.CharField(max_length=200,widget = forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Name'}))
-    booking_date = forms.DateField(initial=datetime.date.today, widget=SelectDateWidget())
-    start_time = forms.TimeField()
-    end_time = forms.TimeField()
+    booking_date = forms.DateField(initial=datetime.date.today, widget=SelectDateWidget(attrs={'class':'book-date'}))
+    start_time = forms.ChoiceField(choices=((i,str(i)+':00') for i in range(24)), widget=forms.Select())
+    end_time = forms.ChoiceField(choices=((i,str(i)+':00') for i in range(24)), widget=forms.Select())
 
     def __init__(self, *args, **kwargs):
         super(booking_form, self).__init__(*args, **kwargs)

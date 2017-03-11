@@ -1,6 +1,15 @@
 /**
  * Created by itc_user1 on 3/8/2017.
  */
+Bookings = {};
+
+Bookings.init = function(){
+    $(document).ready(function(){
+        Calendar.init()
+        Validate.init()
+    })
+};
+
 
 Calendar = {};
 
@@ -10,10 +19,8 @@ Calendar.years = [];
 Calendar.times = [];
 
 Calendar.init = function(){
-    $(document).ready(function(){
         Calendar.generateCalendar();
-    })
-};
+    }
 
 Calendar.generateCalendar = function() {
     // var date = new Date();
@@ -64,8 +71,65 @@ Calendar.generateCalendar = function() {
 // 			var m = date.getMonth();
 // 			var y = date.getFullYear();
 
+Validate = {}
 
+Validate.init = function(){
+    Validate.bindEventListeners()
+}
 
+Validate.bindEventListeners = function(){
+    $("#id_Booking-start_time").off().on("change",Validate.adjustEndTime).on("change",Validate.validateTime);
+    $("#id_Booking-end_time").off().on("change",Validate.validateTime);
+    $(".book-date").off().on("change",Validate.validateTime);
+}
 
+Validate.adjustEndTime = function(){
+    var st = parseInt(($(this).val()))
+    var etOptions = $("#id_Booking-end_time option")
+    for (var i =0; i<etOptions.length; i++){
+        var opt = $(etOptions[i])
+        if (st >= parseInt(opt.val())){
+        opt.hide()
+        }else{
+        opt.show()
+            }
+        }
+    $("#id_Booking-end_time option[value="+(st+1)+"]").prop('selected',true)
+    Validate.validateTime()
 
-Calendar.init();
+    }
+
+Validate.validateTime = function(){
+    var startTime = $("#id_Booking-start_time option:selected").val()
+    var endTime = $("#id_Booking-end_time option:selected").val()
+    var year = $("#id_Booking-booking_date_year option:selected").val()
+    var month = $("#id_Booking-booking_date_month option:selected").val()
+    var day = $("#id_Booking-booking_date_day option:selected").val()
+    var room =$("#id_Booking-company option:selected").val()
+
+    $.ajax({
+        url:"validatetime",
+        method:"GET",
+        data: {
+            start: startTime,
+            end: endTime,
+            year: year,
+            month: month,
+            day: day
+        },
+        success: function(result){
+            var button = $("#submit-btn");
+            if(result.hasOwnProperty('error')){
+            button.prop("disabled",true);
+            alert(result.error)}
+            else{
+            button.prop("disabled",false);
+            alert(result.success);
+            }
+        }
+   })
+
+    //get time info from form, query db. For bookings on date, see if startTime and endTime are in a suitable range.
+}
+
+Bookings.init();

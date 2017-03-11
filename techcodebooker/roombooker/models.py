@@ -24,27 +24,19 @@ class Bookings (models.Model):
            return dt.datetime.combine(date,time)
 
         room = models.ForeignKey('Rooms', on_delete=models.CASCADE)
-        start_time = models.TimeField("From")
-        end_time = models.TimeField("To")
+        start_time = models.IntegerField("From")
+        end_time = models.IntegerField("To")
         date = models.DateField("Date", default=timezone.now)
         booking_time = models.DateField("Time the booking was made",auto_now_add=True)
         company = models.ForeignKey('Companies',on_delete=models.CASCADE)
         email = models.EmailField('Your Email')
         booked_by = models.CharField('Full Name', max_length=50)
         status=models.BooleanField('Pending',default=False)
-        start_datetime = models.DateTimeField("Start Time & Date of Booking", null=True, blank=True)
-        end_datetime = models.DateTimeField("End Time & Date of Booking", null=True, blank=True)
-        # Add a data-attribute for a combined start_time, end_time and date.
+
 
         def __str__(self):
             return "Booking from: "+str(self.start_time)+" to "+str(self.end_time)
 
-        def save(self, *args, **kwargs):
-            if not self.start_datetime:
-                self.start_datetime = dt.datetime.combine(self.date,self.start_time)
-            if not self.end_datetime:
-                self.end_datetime = dt.datetime.combine(self.date,self.end_time)
-            super(Bookings, self).save(*args, **kwargs)
 
 
 #We might have to make a seperate model that holds a list of every object's start_datetime and end_datetime that allows us
