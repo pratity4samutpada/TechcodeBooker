@@ -94,6 +94,7 @@ Validate.adjustEndTime = function(){
         opt.show()
             }
         }
+
     $("#id_Booking-end_time option[value="+(st+1)+"]").prop('selected',true)
     Validate.validateTime()
 

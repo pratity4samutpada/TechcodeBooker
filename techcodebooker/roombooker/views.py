@@ -34,6 +34,17 @@ class BookingWizard(SessionWizardView):
     def rooms(self):
         return Rooms.objects.all()
 
+#Grabs info from previous form inputs for use in later form steps.
+    def get_context_data(self, form, **kwargs):
+            context = super(BookingWizard, self).get_context_data(form=form, **kwargs)
+            if self.steps.step1==2:
+                print(self.get_cleaned_data_for_step('Rooms'))
+                id = self.get_cleaned_data_for_step('Rooms')['room_id']
+                room = Rooms.objects.get(pk=id)
+                context.update({'data_from_step_1': room})
+            return context
+
+
     #For saving form data to the db in a Bookings object.
     def newBookingObject(self, room, booking, status):
         r, b, s = room, booking, status
@@ -69,6 +80,8 @@ class BookingWizard(SessionWizardView):
 
         return render_to_response('roombooker/done.html', context)
 
+
+
 # SERVICES HANDLING AJAX REQUESTS WITHIN SPECIFIC FORM STEPS.
 #Retrieves the data about each room and sends it to ajax callback.
 def get_room_info(request):
@@ -79,6 +92,7 @@ def get_room_info(request):
     result = serializers.serialize('json', room, fields=('room_name','room_capacity','room_fac'))
     return HttpResponse(result,content_type='application/json')
 
+#Gets time info & room info from form and checks whether or not the time is available for that room.
 def validate_time(request):
 
     v_start = request.GET.get('start')

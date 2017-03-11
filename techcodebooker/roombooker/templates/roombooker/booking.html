@@ -24,13 +24,17 @@
         </div>
 
         <div class="col-md-4 form-background">
+            <div data-room-id="{{data_from_step_1.id}}" id="selected-room">
+                <img src="{{data_from_step_1.room_image.url}}">
+                <h4>{{data_from_step_1.room_name}}</h4>
+            </div>
         <h3>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</h3>
             <form action="" method="post">
                 {% csrf_token %}
                 {{ wizard.management_form }}
                 {{ wizard.form }}
-
-            <input class="btn btn-primary btn-lg center-block" id="submit-btn" type="submit" value="{% trans 'Submit' %}" />
+                <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+            <input disabled class="btn-block" id="submit-btn" type="submit" value="{% trans 'Submit' %}" />
 
             </form>
                 <a href="/booker"><button class="btn btn-danger btn-lg center-block button-margin" name="wizard_goto_step" value="{{ wizard.steps.prev }}">Back</button></a>
