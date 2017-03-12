@@ -43,8 +43,9 @@ class BookingWizard(SessionWizardView):
                 if self.steps.step1 == 3:
                     booking = self.get_cleaned_data_for_step('Booking')
                     new_context['data_from_step_2'] = booking
-                    if booking.status:
-                        new_context['message'] = {'msg':"Your reservation will be pending approval. An email will be sent to the Community Manager."}
+                    print(booking)
+                    if booking['status']:
+                        new_context['message'] = {'msg':"Your reservation is longer than two hours and will be pending approval. An email will be sent to the Community Manager."}
                     else:
                         new_context['message'] = {'msg':"An email with reservation details will be sent to the address you provided."}
                 context.update(new_context)
