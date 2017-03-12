@@ -9,6 +9,13 @@
 {% block content %}
 
 <div class="middle-center">
+    <div id="user">
+    <img src="{{data_from_step_1.room_image.url}}"/>
+    {{data_from_step_1.room_name}}
+    {{data_from_step_2.date}}
+    {{data_from_step_2.start_time}}
+    {{data_from_step_2.end_time}}
+    </div>
 
     <form action="" method="post">
         <h3>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</h3>

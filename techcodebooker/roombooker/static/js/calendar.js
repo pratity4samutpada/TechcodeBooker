@@ -106,7 +106,7 @@ Validate.validateTime = function(){
     var year = $("#id_Booking-booking_date_year option:selected").val()
     var month = $("#id_Booking-booking_date_month option:selected").val()
     var day = $("#id_Booking-booking_date_day option:selected").val()
-    var room =$("#id_Booking-company option:selected").val()
+    var room = $("#selected-room").attr("data-room-id")
 
     $.ajax({
         url:"validatetime",
@@ -116,7 +116,8 @@ Validate.validateTime = function(){
             end: endTime,
             year: year,
             month: month,
-            day: day
+            day: day,
+            room: room
         },
         success: function(result){
             var button = $("#submit-btn");

@@ -1,10 +1,8 @@
-from django.shortcuts import render
 from .forms import room_form, booking_form, confirm_booking
 from formtools.wizard.views import SessionWizardView
 from .models import Rooms, Bookings
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
-from django.template import RequestContext
 import json,datetime
 from django.core import serializers
 
@@ -37,11 +35,14 @@ class BookingWizard(SessionWizardView):
 #Grabs info from previous form inputs for use in later form steps.
     def get_context_data(self, form, **kwargs):
             context = super(BookingWizard, self).get_context_data(form=form, **kwargs)
-            if self.steps.step1==2:
-                print(self.get_cleaned_data_for_step('Rooms'))
+            new_context = {}
+            if self.steps.step1==2 or self.steps.step1==3:
                 id = self.get_cleaned_data_for_step('Rooms')['room_id']
                 room = Rooms.objects.get(pk=id)
-                context.update({'data_from_step_1': room})
+                new_context['data_from_step_1']=room
+                if self.steps.step1 == 3:
+                    new_context['data_from_step_2'] = self.get_cleaned_data_for_step('Booking')
+                context.update(new_context)
             return context
 
 
@@ -100,8 +101,10 @@ def validate_time(request):
     day = request.GET.get('day')
     month = request.GET.get('month')
     year = request.GET.get('year')
+    room = request.GET.get('room')
     d = datetime.date(int(year),int(month),int(day))
-    bookings_on_d =Bookings.objects.filter(date=d)
+    bookings_on_d =Bookings.objects.filter(date=d,room=int(room))
+
     context = {}
 
     if is_conflict(bookings_on_d,int(v_start),int(v_end)):

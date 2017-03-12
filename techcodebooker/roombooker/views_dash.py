@@ -1,6 +1,6 @@
 from .models import Rooms, Bookings
 from django.http import HttpResponse
-from django.shortcuts import render_to_response, render
+from django.shortcuts import render
 import json
 from django.core import serializers
 
