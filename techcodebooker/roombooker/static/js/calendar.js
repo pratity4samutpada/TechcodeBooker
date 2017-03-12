@@ -122,10 +122,10 @@ Validate.validateTime = function(){
             }
             else{
                 if(result.hasOwnProperty('pending')){
-                      $("#id_Booking-status").val(true);
+                      $("#id_Booking-status").val("pending");
                       $("#user-message").text(result.pending);
                    }else{
-                       $("#id_Booking-status").val(false);
+                       $("#id_Booking-status").val("approved");
                        $("#user-message").text("");
                     }
             button.prop("disabled",false);

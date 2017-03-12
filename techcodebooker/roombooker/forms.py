@@ -16,7 +16,7 @@ class booking_form(forms.Form):
     booking_date = forms.DateField(initial=datetime.date.today, widget=SelectDateWidget(attrs={'class':'book-date'}))
     start_time = forms.ChoiceField(choices=((i,str(i)+':00') for i in range(24)), widget=forms.Select())
     end_time = forms.ChoiceField(choices=((i,str(i)+':00') for i in range(24)), widget=forms.Select())
-    status = forms.BooleanField(initial=False,widget=forms.HiddenInput())
+    status = forms.CharField(initial="",widget=forms.HiddenInput())
 
     def __init__(self, *args, **kwargs):
         super(booking_form, self).__init__(*args, **kwargs)

@@ -44,7 +44,7 @@ class BookingWizard(SessionWizardView):
                     booking = self.get_cleaned_data_for_step('Booking')
                     new_context['data_from_step_2'] = booking
                     print(booking)
-                    if booking['status']:
+                    if booking['status'] == 'pending':
                         new_context['message'] = {'msg':"Your reservation is longer than two hours and will be pending approval. An email will be sent to the Community Manager."}
                     else:
                         new_context['message'] = {'msg':"An email with reservation details will be sent to the address you provided."}
@@ -56,10 +56,14 @@ class BookingWizard(SessionWizardView):
     def newBookingObject(self, room, booking, status):
         r, b, s = room, booking, status
         r_obj = Rooms.objects.get(pk=r['room_id'])
+        status_bool= False
+        if b['status'] == 'pending':
+            status_bool=True
+
         try:
             newBooking = Bookings(room=r_obj, start_time=b['start_time'], end_time=b['end_time'],
                                   date=b['booking_date'],
-                                  company=b['company'], email=b['email'], booked_by=b['booked_by'], status=b['status'])
+                                  company=b['company'], email=b['email'], booked_by=b['booked_by'], status=status_bool)
             newBooking.save()
             return True
         except:
