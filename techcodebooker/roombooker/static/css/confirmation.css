@@ -1,9 +1,29 @@
-.step-3-form-submission {
-    text-align: center;
+.middle-center {
+    /*height: 100%;*/
+    padding-bottom: 5%;
 }
 
-.step-3-submission-btn {
+.submission-form-container {
+    text-align: center;
     margin-top: 2%;
-    margin-bottom: 2%;
+}
 
+.confirmation-data {
+    padding: 1%;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.listed-data-items {
+    margin-top: 1%;
+}
+
+.step-3-back-btn {
+    margin-top: 2%;
+    width: 9%;
+}
+
+#reservation-status {
+    color: gray;
+    font-size: 16px;
 }
