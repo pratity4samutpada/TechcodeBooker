@@ -115,17 +115,23 @@ Validate.validateTime = function(){
         },
         success: function(result){
             var button = $("#submit-btn");
+            var status = $("id_Booking-status");
             if(result.hasOwnProperty('error')){
-            button.prop("disabled",true);
-            alert(result.error)}
+                $("#user-message").text(result.error)
+                button.prop("disabled",true);
+            }
             else{
+                if(result.hasOwnProperty('pending')){
+                      $("#id_Booking-status").val(true);
+                      $("#user-message").text(result.pending);
+                   }else{
+                       $("#id_Booking-status").val(false);
+                       $("#user-message").text("");
+                    }
             button.prop("disabled",false);
-            alert(result.success);
             }
         }
    })
-
-    //get time info from form, query db. For bookings on date, see if startTime and endTime are in a suitable range.
 }
 
 Bookings.init();

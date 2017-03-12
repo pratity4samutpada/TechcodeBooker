@@ -41,7 +41,12 @@ class BookingWizard(SessionWizardView):
                 room = Rooms.objects.get(pk=id)
                 new_context['data_from_step_1']=room
                 if self.steps.step1 == 3:
-                    new_context['data_from_step_2'] = self.get_cleaned_data_for_step('Booking')
+                    booking = self.get_cleaned_data_for_step('Booking')
+                    new_context['data_from_step_2'] = booking
+                    if booking.status:
+                        new_context['message'] = {'msg':"Your reservation will be pending approval. An email will be sent to the Community Manager."}
+                    else:
+                        new_context['message'] = {'msg':"An email with reservation details will be sent to the address you provided."}
                 context.update(new_context)
             return context
 
@@ -50,18 +55,14 @@ class BookingWizard(SessionWizardView):
     def newBookingObject(self, room, booking, status):
         r, b, s = room, booking, status
         r_obj = Rooms.objects.get(pk=r['room_id'])
-
-        if s['status'] == 'confirmed':
-            statusBool = False
-
-            try:
-                newBooking = Bookings(room=r_obj, start_time=b['start_time'], end_time=b['end_time'],
+        try:
+            newBooking = Bookings(room=r_obj, start_time=b['start_time'], end_time=b['end_time'],
                                   date=b['booking_date'],
-                                  company=b['company'], email=b['email'], booked_by=b['booked_by'], status=statusBool)
-                newBooking.save()
-                return True
-            except:
-                return False
+                                  company=b['company'], email=b['email'], booked_by=b['booked_by'], status=b['status'])
+            newBooking.save()
+            return True
+        except:
+            return False
 
     #This is the method that is invoked when all the forms have been completed by the user.
     #form_list is the list of objects containing the user's form information.
@@ -96,23 +97,25 @@ def get_room_info(request):
 #Gets time info & room info from form and checks whether or not the time is available for that room.
 def validate_time(request):
 
-    v_start = request.GET.get('start')
-    v_end = request.GET.get('end')
+    v_start = int(request.GET.get('start'))
+    v_end = int(request.GET.get('end'))
     day = request.GET.get('day')
     month = request.GET.get('month')
     year = request.GET.get('year')
     room = request.GET.get('room')
-    d = datetime.date(int(year),int(month),int(day))
-    bookings_on_d =Bookings.objects.filter(date=d,room=int(room))
 
+    d = datetime.date(int(year),int(month),int(day))
+
+    bookings_on_d =Bookings.objects.filter(date=d,room=int(room))
     context = {}
 
-    if is_conflict(bookings_on_d,int(v_start),int(v_end)):
+    if is_conflict(bookings_on_d,v_start,v_end):
         context['error']='Cannot reserve room for time that is already booked.'
+    elif gt_2_hours(v_start,v_end):
+        context['pending']='Reservations longer than two hours require community manager approval.'
     else: context['success']='All good.'
 
     return HttpResponse(json.dumps(context),content_type="application/json")
-
 
 #Handles different cases of overlapping times.
 def is_conflict(bookings,v_start,v_end):
@@ -127,3 +130,5 @@ def is_conflict(bookings,v_start,v_end):
             return True
         return False
 
+def gt_2_hours(start,end):
+    return (end - start) > 2
