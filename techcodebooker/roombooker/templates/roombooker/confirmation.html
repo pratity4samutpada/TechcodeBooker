@@ -8,19 +8,23 @@
 
 {% block content %}
 
-<div class = "container">
-    <div class = "row">
-        <div class = "step-3-form-submission" data-room-id="{{data_from_step_1.id}}" id="selected-room">
-            <form action="" method="post">
-                <h2>Do you wish to confirm your booking {{data_from_step_1.room_name}}?</h2>
-                <h3 hidden>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</h3>
-                {% csrf_token %}
-                {{ wizard.management_form }}
-                {{ wizard.form }}
-                <input class="btn-primary btn-lg step-3-submission-btn" type="submit" value="{% trans 'Confirm Booking' %}"/>
-            </form>
-        </div>
+<div class="middle-center">
+    <div id="user">
+    <img src="{{data_from_step_1.room_image.url}}"/>
+    {{data_from_step_1.room_name}}
+    {{data_from_step_2.date}}
+    {{data_from_step_2.start_time}}
+    {{data_from_step_2.end_time}}
     </div>
+
+    <form action="" method="post">
+        <h3>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</h3>
+    {% csrf_token %}
+    {{ wizard.management_form }}
+    {{ wizard.form }}
+
+    <input class="btn btn-primary btn-lg" type="submit" value="{% trans 'Confirm Booking' %}"/>
+    </form>
+
 </div>
-<script src="{% static 'js/calendar.js' %}"></script>
 {% endblock %}
