@@ -9,6 +9,7 @@ Roombooker.init = function(){
     })
 };
 
+
 Roombooker.bindEventListeners = function(){
 
     $(".room-option").off().on("click",Roombooker.selectRoom);
@@ -16,7 +17,8 @@ Roombooker.bindEventListeners = function(){
 
 
 Roombooker.selectRoom = function(){
-    $("#avail-title").fadeIn()
+    $("#avail-title").show();
+    $(".form-1-btn").show();
     $(".room-option").removeClass("selected");
     $(this).addClass("selected");
     var roomId = $(this).attr("data-value");
@@ -40,7 +42,7 @@ Roombooker.showRoomInfo = function(roomId){
             var cap = resFields.room_capacity
             $("#room-name").html(name)
             $("#room-facilities").html(fac)
-            $("#room-capacity").html(cap)
+            $("#room-capacity").html('Room Capacity : ' + cap)
         }
    })
 };

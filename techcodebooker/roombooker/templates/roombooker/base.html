@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/roombooker.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/booking.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/general.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/confirmation.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/done.css' %}">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -29,9 +31,9 @@
         <span class="header-right-side">
             <a class="home" href="#">Home</a>
             {% if user.is_anonymous %}
-            <a href="{% url 'login' %}">login</a>
+            <a href="{% url 'login' %}" class = "login">Login</a>
             {% else %}
-            <a href="{% url 'logout' %}">logout</a>
+            <a href="{% url 'logout' %}" class = "login">Logout</a>
             {% endif %}
         </span>
     </div>

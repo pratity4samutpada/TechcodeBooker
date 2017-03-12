@@ -8,7 +8,7 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container" id="body-background">
     <div class="row">
         <div class="col-md-8" id="calendar">
             <div class="month">
@@ -25,19 +25,19 @@
 
         <div class="col-md-4 form-background">
             <div data-room-id="{{data_from_step_1.id}}" id="selected-room">
-                <img src="{{data_from_step_1.room_image.url}}">
+                <img class = "image-from-step-1" src="{{data_from_step_1.room_image.url}}">
                 <h4>{{data_from_step_1.room_name}}</h4>
             </div>
-        <h3>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</h3>
-            <form action="" method="post">
+        <h3 hidden>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</h3>
+            <form action="" method="post" class = "step-2-form">
                 {% csrf_token %}
                 {{ wizard.management_form }}
                 {{ wizard.form }}
                 <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
-            <input disabled class="btn-block" id="submit-btn" type="submit" value="{% trans 'Submit' %}" />
+            <input disabled class="btn-block btn-primary" id="submit-btn" type="submit" value="{% trans 'Submit' %}" />
 
             </form>
-                <a href="/booker"><button class="btn btn-danger btn-lg center-block button-margin" name="wizard_goto_step" value="{{ wizard.steps.prev }}">Back</button></a>
+                <a href="/booker"><button class="btn btn-danger btn-md center-block button-margin" name="wizard_goto_step" value="{{ wizard.steps.prev }}">Back</button></a>
           </div>
     </div>
 </div>

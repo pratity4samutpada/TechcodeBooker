@@ -1,6 +1,14 @@
 body {
-    margin: auto;
+    height:100%;
+    width:100%;
 }
+
+html {
+    margin: 0;
+    height:100%;
+    width:100%;
+}
+
 
 a:link, a:visited {
     color:black;
@@ -20,7 +28,8 @@ a:active{
 
 .logo img {
     margin-left: 2%;
-    /*margin-top: 0.5%;*/
+    margin-top: 0.5%;
+    width: 15%;
 }
 
 
@@ -30,8 +39,13 @@ a:active{
 /*}*/
 
 .home{
-    margin-left: 63%;
-    margin-right: 1%;
+    margin-left: 69%;
+    margin-right: 3%;
+    vertical-align: bottom;
+}
+
+.login {
+    vertical-align: bottom;
 }
 
 /*for roombooker.html*/
@@ -39,7 +53,7 @@ a:active{
     background-color: #1F2C5C;
     color: white;
     width: 100%;
-    background-image: url("https://images.pexels.com/photos/1984/black-and-white-city-man-people.jpg?h=350&auto=compress&cs=tinysrgb");
+    background-image: url("https://images.pexels.com/photos/251603/pexels-photo-251603.jpeg?h=350&auto=compress&cs=tinysrgb");
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: cover;
@@ -56,42 +70,59 @@ a:active{
 }
 
 .available-rooms {
-    margin-top: 5%;
+    padding: 5%;
     font-size: 25px;
     font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-/*.img-container {*/
-    /*margin-top: 5%;*/
-    /*margin-left: 6%;*/
-/*}*/
+.img-container {
+    padding: 1%;
+}
+.img-grid {
+    padding: 3%;
+    margin-bottom: 1%;
+}
 
-/*.img-divs {*/
-    /*padding: 1%;*/
-    /*margin-left: 2%;*/
-
-/*}*/
+.room-img {
+    height: 130px;
+}
 
 .second-container {
     text-align: center;
-    /*background-image: url("https://images.pexels.com/photos/263189/pexels-photo-263189.jpeg?h=350&auto=compress&cs=tinysrgb");*/
-    /*background-repeat: no-repeat;*/
-    /*background-position: 0 0;*/
-    /*background-size: cover;*/
-
-    /*margin-left: 3%;*/
 }
 
 .available-room-info {
-    margin-top: 5%;
+    padding: 5%;
     font-size: 25px;
     font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+
+.description-container {
+    /*background: rgba(0, 0, 0, .4);*/
+    /*padding: 2%;*/
 }
 
 .room-description {
     margin-top: 4%;
     font-size: 18px;
     color: white;
+}
 
+.room-name {
+    text-transform: uppercase;
+}
+
+#room-name {
+    font-size: 20px;
+    padding: 5%;
+    font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.room-detail {
+    font-size: 20px;
 }
 
 .form-1-container {
@@ -102,7 +133,8 @@ a:active{
 }
 
 .form-1-btn {
-    margin-bottom: 0%;
+    padding: 1%;
+    width: 20%;
 
 }
 
@@ -110,14 +142,11 @@ a:active{
     /*margin-top: 3%;*/
 /*}*/
 .footer {
-    text-align: center;
+   text-align: center;
     color: #9dafc0;
     background-color: #1F2C5C;
-    width:100%;
-    height:5em;
-    position:fixed;
-    display:block;
-    bottom:0;
+    color: #9dafc0;
+    height: 100px;
 }
 
 
@@ -127,7 +156,7 @@ a:active{
 }
 
 .selected{
--webkit-box-shadow: 0px 0px 24px 2px rgba(235,30,235,1)!important;;
--moz-box-shadow: 0px 0px 24px 2px rgba(235,30,235,1)!important;;
-box-shadow: 0px 0px 24px 2px rgba(235,30,235,1) !important;
+-webkit-box-shadow: 0px 0px 24px 2px rgba(241,141,0,1)!important;;
+-moz-box-shadow: 0px 0px 24px 2px rgba(241,141,0,1)!important;;
+box-shadow: 0px 0px 24px 2px rgba(241,141,0,1) !important;
 }

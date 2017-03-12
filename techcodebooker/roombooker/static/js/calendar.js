@@ -23,13 +23,7 @@ Calendar.init = function(){
     }
 
 Calendar.generateCalendar = function() {
-    // var date = new Date();
-    // var start = new Date();
-    // var end = new Date();
-    // start.setDate(date.getDate());
-    // end.setDate(date.getDate() + 30);
-
-    var cols =7;
+    var cols =8;
     var rows = 25;
 
     for (var i = 0; i < rows; i++) {

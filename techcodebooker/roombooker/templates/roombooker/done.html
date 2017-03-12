@@ -8,15 +8,21 @@
 
 {% block content %}
 
-{{ wizard.management_form }}
+<div class = "container">
+    <div class = "row">
+        <div class = "col-md-12 thanks-container">
+            {{ wizard.management_form }}
+            {%if error%}
+                <p>{{error}}</p>
+            {%endif%}
+            <h2 class = "thank-you">Thank You!</h2>
+            {%for data in form_data%}
+                <div hidden>{{data}}</div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
 
-{%if error%}
-<p>{{error}}</p>
-{%endif%}
 
-ROOM BOOKED BABY!
-{%for data in form_data%}
-<p>{{data}}</p>
-{%endfor%}
 
 {% endblock %}

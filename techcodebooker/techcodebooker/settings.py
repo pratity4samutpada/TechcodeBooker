@@ -109,7 +109,7 @@ LOGIN_URL = 'login'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Jersualem'
+TIME_ZONE = 'America/Chicago'
 
 USE_I18N = True
 

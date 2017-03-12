@@ -10,16 +10,16 @@
     <div class = "container-fluid room-selection-container">
         <div class = "row">
             <div class="col-md-6 first-container">
-                <div class = "available-rooms">Available Rooms</div>
-                <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+                <div class = "available-rooms">Our Conference Rooms</div>
+                <p hidden>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
                  <div class="row img-container">
                      {%for room in view.rooms%}
-                     <div class="col-md-4 img-divs">
-                         <div data-value={{room.id}} class="thumbnail room-option clickable">
-                                 <img src="{{room.room_image.url}}" alt="Lights" style="width:100%">
-                                 <div class="caption">
-                                     <p>{{room.room_name}}</p>
-                                 </div>
+                     <div class="col-md-4 img-grid">
+                         <div data-value={{room.id}} class="room-option clickable">
+                                 <img src="{{room.room_image.url}}" alt="Lights" style="width:100%" class = "room-img">
+                             </div>
+                         <div class="caption">
+                             <p class="room-name">{{room.room_name}}</p>
                          </div>
                      </div>
                      {%endfor%}
@@ -29,17 +29,19 @@
             <div class="col-md-6 second-container">
                 <div id="avail-title" class = "available-room-info" style="display:none;">Room Information</div>
                 <div class = "description-container">
-                    <h2 id="room-name" class="room-name">Welcome to Techcode Booker</h2>
+                    <div id="room-name" class="room-name">Welcome to Techcode Booker</div>
                     <div class = "room-description">
-                        <div id="room-facilities" class="room-detail">Pick any room to get started.</div>
+                        <div id="room-facilities" class="room-detail">Step 1: Select a conference room to get started</div>
                         <div id="room-capacity" class="room-detail"></div>
                     </div>
                 </div>
                 <div class = "form-1-container">
                     <form action="" method="post">{% csrf_token %}
+                        <div hidden>
                         {{ wizard.management_form }}
                         {{ wizard.form }}
-                    <input class="btn-primary btn-lg" type="submit" value="{% trans 'Book Now' %}" />
+                        </div>
+                    <input type="submit" value="{% trans 'Book Now' %}" class = "form-1-btn btn-primary" style="display:none;">
                 </form>
                 </div>
             </div>
