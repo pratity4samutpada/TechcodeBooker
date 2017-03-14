@@ -28,8 +28,7 @@
         <span class="logo">
             <a href="http://www.techcode.com/en/"><img src="{% static 'img/techcode_logo.png' %}" alt="My image" class="logo"> </a>
         </span>
-        <span class="header-right-side">
-            <a class="home" href="#">Home</a>
+        <span class="header-right-side navbar-right">
             {% if user.is_anonymous %}
             <a href="{% url 'login' %}" class = "login">Login</a>
             {% else %}

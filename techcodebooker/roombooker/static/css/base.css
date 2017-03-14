@@ -30,17 +30,10 @@ a:active{
     width: 15%;
 }
 
-.home{
-    margin-left: 69%;
-    margin-right: 3%;
-    /*vertical-align: bottom;*/
+.header-right-side {
+    margin-right: 2%;
+    margin-top: 1%;
 }
-
-.login {
-    /*vertical-align: bottom;*/
-
-}
-
 
 .footer {
     text-align: center;
