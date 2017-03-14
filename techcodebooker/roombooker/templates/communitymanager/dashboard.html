@@ -1,8 +1,41 @@
 <!DOCTYPE html>
 {% extends "roombooker/base.html" %}
 {%block content%}
-<div class="container">
+<div class="container-fluid dashboard-nav">
+    <div class="row" class = "dashboard-nav">
+        <div class="col-md-4" id="overview-selector">
+            <button type="button" class="btn btn-default dashboard-btns">Overview</button>
+        </div>
+        <div class="col-md-4" id="bookings-selector">
+            <button type="button" class="btn btn-default dashboard-btns">Bookings</button>
+        </div>
+        <div class="col-md-4" id="analytics-selector">
+            <button type="button" class="btn btn-default dashboard-btns">Analytics</button>
+        </div>
+    </div>
+</div>
+<div class = "container-fluid dashboard-body">
+    <div class = "row">
+        <div class="col-md-6 body-default-view" id="dashboard-pending-bookings-container">Pending Bookings
+            <div id="pending-bookings"></div>
+        </div>
+        <div class="col-md-6 body-default-view" id="dashboard-companies-container">col</div>
+        <div class="w-100"></div>
+        <div class="col-md-6 body-default-view" id="dashboard-rooms-container">col</div>
+        <div class="col-md-6 body-default-view">col</div>
+        <!--<div class = "col-md-3">-->
 
+        <!--</div>-->
+        <!--<div class = "col-md-3">-->
+
+        <!--</div>-->
+        <!--<div class = "col-md-3">-->
+
+        <!--</div>-->
+        <!--<div class = "col-md-3">-->
+
+        <!--</div>-->
+    </div>
 </div>
 
 <!--{%if not bookings%}-->

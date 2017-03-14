@@ -1,0 +1,28 @@
+.dashboard-nav {
+    background-color: #1F2C5C;
+    width: 100%;
+    padding: 1%;
+    text-align: center;
+}
+
+.dashboard-btns {
+    border-radius: 25px;
+}
+.body-default-view {
+    border: 1px solid black;
+    height: 200px;
+    text-align: center;
+}
+
+#pending-bookings {
+
+}
+
+.pending-booking-rows {
+    height: 30px;
+    background-color: red;
+}
+
+.pending-booking-cols {
+    background-color: green;
+}

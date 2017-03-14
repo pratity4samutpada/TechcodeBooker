@@ -17,13 +17,13 @@
 <script src="{% static 'js/calendar.js' %}"></script>
 
 <div class="container" id="body-background">
-    <div class="row">
-        <div id="calendar-container" class="col-md-8">
+    <div class="row" >
+        <div id="calendar-container" class="col-md-8" style="box-sizing: border-box;">
             <div id="calendar">
             </div>
         </div>
 
-        <div class="col-md-4 form-background">
+        <div class="col-md-4 form-background" style="box-sizing: border-box;">
             <div data-room-id="{{data_from_step_1.id}}" id="selected-room">
                 <img class = "image-from-step-1" src="{{data_from_step_1.room_image.url}}">
                 <h4>{{data_from_step_1.room_name}}</h4>

@@ -1,6 +1,14 @@
 body {
     margin: 0;
 }
+
+
+#calendar-container {
+
+}
+#calendar {
+
+}
 .form-background {
     margin-top: 4%;
 }
@@ -31,6 +39,7 @@ input[type=text]:focus {
     margin:1em;
     background-color: #c12e2a;
     width: 50%;
+    margin-left: 25%;
 }
 
 #submit-btn {
@@ -44,6 +53,3 @@ input[type=text]:focus {
 h4 {
     text-align: center;
 }
-
-
-
