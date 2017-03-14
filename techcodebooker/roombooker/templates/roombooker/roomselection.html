@@ -1,6 +1,6 @@
 {% extends "roombooker/base.html" %}
 {% load i18n %}
-
+{% load static %}
 {% block head %}
 {{ wizard.form.media }}
 {% endblock %}
@@ -54,4 +54,6 @@
             </div>
         </div>
     </div>
+<script src="{% static 'js/roombooker.js' %}"></script>
+
 {% endblock %}

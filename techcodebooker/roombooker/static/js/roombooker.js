@@ -11,7 +11,6 @@ Roombooker.init = function(){
 
 
 Roombooker.bindEventListeners = function(){
-
     $(".room-option").off().on("click",Roombooker.selectRoom);
 };
 

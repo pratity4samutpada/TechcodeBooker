@@ -44,63 +44,6 @@ input[type=text]:focus {
 h4 {
     text-align: center;
 }
-#calendar {
-    margin-top: 4%;
-    display: inline-block;
-    position: relative;
-    float: left;
-    background-color: white;
-    height:800px;
-    overflow-x:scroll;
-    overflow-y:scroll;
-}
-
-.month {
-    padding: 30px 25px;
-    width: 100%;
-    background: #0091db;
-}
 
 
-/* Month list */
-.month ul {
-    margin: 0;
-    padding: 0;
-}
-
-.month ul li {
-    color: white;
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    list-style: none;
-    text-align: center;
-}
-
-/* Previous button inside month header */
-.month .prev {
-    float: left;
-    padding-top: 10px;
-}
-
-/* Next button */
-.month .next {
-    float: right;
-    padding-top: 10px;
-}
-
-.rows:first-child{
-    /*margin: 0;*/
-}
-.rows {
-    border: 1px solid black;
-    height: 50px;
-}
-
-.columns {
-    width: 12.5%;
-    height: 50px;
-    display: inline-block;
-    border: 1px solid black;
-}
 
