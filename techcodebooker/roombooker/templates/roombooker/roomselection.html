@@ -1,6 +1,6 @@
 {% extends "roombooker/base.html" %}
 {% load i18n %}
-{% load static %}
+{% load static %}}
 {% block head %}
 {{ wizard.form.media }}
 {% endblock %}
@@ -9,38 +9,19 @@
 
     <div class = "container-fluid room-selection-container">
         <div class = "container-fluid page-title">
-        <div class = "row">
-            <div class="col-md-12 page-title">
-                Our Conference Rooms
+            <div class = "row">
+                <div class="col-md-12 page-title">
+                    Our Conference Rooms
+                </div>
+
             </div>
         </div>
-</div>
-        <div class = "row">
-            <div class="col-md-6 second-container">
-                <div id="avail-title" class = "available-room-info" style="display:none;">Room Information</div>
-                <div class = "description-container">
-                    <div id="room-name" class="room-name">Welcome to Techcode Booker</div>
-                    <div class = "room-description">
-                        <div id="room-facilities" class="room-detail">Step 1: Select a conference room to get started</div>
-                        <div id="room-capacity" class="room-detail"></div>
-                    </div>
-                </div>
-                <div class = "form-1-container">
-                    <form action="" method="post">{% csrf_token %}
-                        <div hidden>
-                        {{ wizard.management_form }}
-                        {{ wizard.form }}
-                        </div>
-                    <input type="submit" value="{% trans 'Book Now' %}" class = "form-1-btn btn-primary" style="display:none;">
-                </form>
-                </div>
-            </div>
-            <div class="col-md-6 first-container">
+        <div class="col-xs-12 col-md-6 first-container">
                 <div class = "available-rooms">Gallery</div>
                 <p hidden>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
                  <div class="row img-container">
                      {%for room in view.rooms%}
-                     <div class="col-md-4 img-grid">
+                     <div class="col-xs-4 col-md-4 img-grid">
                          <div data-value={{room.id}} class="room-option clickable">
                                  <img src="{{room.room_image.url}}" alt="Lights" style="width:100%" class = "room-img">
                              </div>
@@ -50,10 +31,28 @@
                      </div>
                      {%endfor%}
                  </div>
-
-            </div>
+        </div>
+        <div class = "row">
+                <div class="col-xs-12 col-md-6 second-container">
+                    <div id="avail-title" class = "available-room-info" style="display:none;">Room Information</div>
+                    <div class = "description-conta iner">
+                        <div id="room-name" class="room-name">Welcome to Techcode Booker</div>
+                        <div class = "room-description">
+                            <div id="room-facilities" class="room-detail">Step 1: Select a conference room to get started</div>
+                            <div id="room-capacity" class="room-detail"></div>
+                        </div>
+                    </div>
+                    <div class = "form-1-container">
+                        <form action="" method="post">{% csrf_token %}
+                            <div hidden>
+                            {{ wizard.management_form }}
+                            {{ wizard.form }}
+                            </div>
+                        <input type="submit" value="{% trans 'Book Now' %}" class = "form-1-btn btn-primary btn-lg" style="display:none;">
+                    </form>
+                    </div>
+                </div>
         </div>
     </div>
 <script src="{% static 'js/roombooker.js' %}"></script>
-
 {% endblock %}

@@ -30,26 +30,18 @@ a:active{
     width: 15%;
 }
 
-.home{
-    margin-left: 69%;
-    margin-right: 3%;
-    /*vertical-align: bottom;*/
+.header-right-side {
+    margin-right: 2%;
+    margin-top: 1%;
 }
-
-.login {
-    /*vertical-align: bottom;*/
-
-}
-
 
 .footer {
-    text-align: center;
-    color: #9dafc0;
-    background-color: #1F2C5C;
-    color: #9dafc0;
-    height: 7%;
-    bottom: 0;
-    width: 100%;
+        text-align: center;
+        color: #9dafc0;
+        background-color: #1F2C5C;
+        height:3em;
+        width: 100%;
+        bottom: 0;
 }
 
 .clickable{
@@ -64,5 +56,17 @@ a:active{
  -webkit-box-shadow: 3px 3px 23px 0 rgba(50, 50, 50, 0.75);
 	-moz-box-shadow:    3px 3px 23px 0 rgba(50, 50, 50, 0.75);
 		 box-shadow:         3px 3px 23px 0 rgba(50, 50, 50, 0.75);
+}
+
+/*cellphone view*/
+@media (max-width:700px){
+
+    .footer{
+        display:none;
+    }
+
+    .footer-txt{
+        display:none;
+    }
 }
 
