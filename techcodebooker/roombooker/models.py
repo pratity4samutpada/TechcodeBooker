@@ -17,7 +17,7 @@ class Companies (models.Model):
     def __str__(self):
         return self.company_name
 
-#Each Bookings object should be unique, identified by a unique start_datetime.
+#Each Bookings object should be unique.
 class Bookings (models.Model):
 
         def combine_dt(self,date,time):
@@ -25,7 +25,9 @@ class Bookings (models.Model):
 
         room = models.ForeignKey('Rooms', on_delete=models.CASCADE)
         start_time = models.IntegerField("From")
+        start_minutes = models.FloatField("Start minute.",default=0)
         end_time = models.IntegerField("To")
+        end_minutes = models.FloatField("End Minutes",default=0)
         date = models.DateField("Date", default=timezone.now)
         booking_time = models.DateField("Time the booking was made",auto_now_add=True)
         company = models.ForeignKey('Companies',on_delete=models.CASCADE)
