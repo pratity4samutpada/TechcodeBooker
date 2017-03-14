@@ -39,19 +39,26 @@ Validate.validateTime = function(){
     var month = js313("#id_Booking-booking_date_month option:selected").val();
     var day = js313("#id_Booking-booking_date_day option:selected").val();
     var room = js313("#selected-room").attr("data-room-id");
+    var s_minute = js313("#id_Booking-start_minutes option:selected").val();
+    var e_minute = js313("#id_Booking-end_minutes option:selected").val();
+    alert(s_minute)
+    alert(e_minute)
 
     js313.ajax({
         url:"validatetime",
         method:"GET",
         data: {
             start: startTime,
+            s_minute: s_minute,
             end: endTime,
+            e_minute: e_minute,
             year: year,
             month: month,
             day: day,
             room: room
         },
         success: function(result){
+        alert(result)
             var button = js313("#submit-btn");
             var status = js313("id_Booking-status");
 

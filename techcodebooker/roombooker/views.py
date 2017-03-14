@@ -47,10 +47,10 @@ class BookingWizard(SessionWizardView):
                 new_context['data_from_step_2'] = booking
                 if booking['status'] == 'pending':
                     new_context['message'] = {
-                        'msg': "Your reservation is longer than two hours and will be pending approval. An email will be sent to the Community Manager."}
+                        'msg': "Your reservation is longer than two hours and will be pending approval. An email has been sent to the Community Manager."}
                 else:
                     new_context['message'] = {
-                        'msg': "An email with reservation details will be sent to the address you provided."}
+                        'msg': "An email with reservation details has been sent to the address you provided."}
             context.update(new_context)
         return context
 
@@ -62,7 +62,8 @@ class BookingWizard(SessionWizardView):
         if b['status'] == 'pending':
             status_bool = True
         try:
-            newBooking = Bookings(room=r_obj, start_time=b['start_time'], end_time=b['end_time'],
+            newBooking = Bookings(room=r_obj, start_time=b['start_time'], start_minutes=b['start_minutes'],
+                                  end_time=b['end_time'], end_minutes=b['end_minutes'],
                                   date=b['booking_date'],
                                   company=b['company'], email=b['email'], booked_by=b['booked_by'], status=status_bool)
             newBooking.save()
@@ -101,13 +102,16 @@ def get_room_info(request):
 
 # Gets time info & room info from form and checks whether or not the time is available for that room.
 def validate_time(request):
-    v_start = int(request.GET.get('start'))
-    v_end = int(request.GET.get('end'))
+    start = int(request.GET.get('start'))
+    end = int(request.GET.get('end'))
+    s_minute = float(request.GET.get('s_minute'))
+    e_minute = float(request.GET.get('e_minute'))
     day = request.GET.get('day')
     month = request.GET.get('month')
     year = request.GET.get('year')
     room = request.GET.get('room')
-
+    v_start = start + s_minute
+    v_end = end + e_minute
     d = datetime.date(int(year), int(month), int(day))
 
     bookings_on_d = Bookings.objects.filter(date=d, room=int(room))
@@ -125,14 +129,17 @@ def validate_time(request):
 
 # Handles different cases of overlapping times.
 def is_conflict(bookings, v_start, v_end):
+    print(bookings)
     for booking in bookings:
-        if booking.start_time == v_start:
+        st = booking.start_time + booking.start_minutes
+        et = booking.end_time + booking.end_minutes
+        if st == v_start:
             return True
-        if booking.start_time > v_start & v_end > booking.start_time:
+        if (st > v_start) & (v_end > st):
             return True
-        if booking.end_time > v_start & booking.end_time < v_end:
+        if (et > v_start) & (et < v_end):
             return True
-        if booking.start_time < v_start & booking.end_time >= v_end:
+        if (st < v_start) & (et >= v_end):
             return True
         return False
 

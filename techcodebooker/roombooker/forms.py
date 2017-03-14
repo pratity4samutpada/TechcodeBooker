@@ -14,8 +14,10 @@ class booking_form(forms.Form):
     email = forms.EmailField(widget = forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email'}))
     booked_by = forms.CharField(max_length=200,widget = forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Name'}))
     booking_date = forms.DateField(initial=datetime.date.today, widget=SelectDateWidget(attrs={'class':'book-date'}))
-    start_time = forms.ChoiceField(choices=((i,str(i)+':00') for i in range(24)), widget=forms.Select())
-    end_time = forms.ChoiceField(choices=((i,str(i)+':00') for i in range(24)), widget=forms.Select())
+    start_time = forms.ChoiceField(choices=((i,str(i).zfill(2)) for i in range(24)), widget=forms.Select())
+    start_minutes = forms.ChoiceField(choices=((0,":00"),(0.5,":30")), widget=forms.Select(attrs={'class':'book-date'}))
+    end_time = forms.ChoiceField(choices=((i,str(i).zfill(2)) for i in range(24)), widget=forms.Select())
+    end_minutes = forms.ChoiceField(choices=((0, ":00"), (0.5, ":30")), widget=forms.Select(attrs={'class':'book-date'}))
     status = forms.CharField(initial="",widget=forms.HiddenInput())
 
     def __init__(self, *args, **kwargs):
@@ -23,6 +25,8 @@ class booking_form(forms.Form):
         self.fields['email'].label = ""
         self.fields['company'].label=""
         self.fields['booked_by'].label=""
+        self.fields['start_minutes'].label=""
+        self.fields['end_minutes'].label=""
 
     def clean_booking_date(self):
         date = self.cleaned_data['booking_date']
