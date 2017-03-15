@@ -10,19 +10,36 @@
 }
 .body-default-view {
     border: 1px solid black;
-    height: 200px;
+    /*height: 200px;*/
     text-align: center;
 }
 
-#pending-bookings {
+#pending-bookings-container {
+    width: 200px;
+    height: 200px;
 
 }
 
-.pending-booking-rows {
-    height: 30px;
-    background-color: red;
-}
+/*.pending-booking-rows {*/
+    /*height: 30px;*/
+    /*background-color: red;*/
+/*}*/
 
-.pending-booking-cols {
-    background-color: green;
+/*.pending-booking-cols {*/
+    /*background-color: green;*/
+/*}*/
+
+/*.pending-button-container {*/
+    /*display: inline;*/
+/*}*/
+
+#delete_pending {
+    background-color: rgba(216, 12, 24, 1);
+    border-radius: 25px;
+    display: inline;
+}
+#approve_pending {
+    background-color: rgba(111, 186, 44, 1);
+    border-radius: 25px;
+    display: inline;
 }

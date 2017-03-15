@@ -2,7 +2,7 @@
 {% extends "roombooker/base.html" %}
 {%block content%}
 <div class="container-fluid dashboard-nav">
-    <div class="row" class = "dashboard-nav">
+    <div class="row" class="dashboard-nav">
         <div class="col-md-4" id="overview-selector">
             <button type="button" class="btn btn-default dashboard-btns">Overview</button>
         </div>
@@ -14,10 +14,41 @@
         </div>
     </div>
 </div>
-<div class = "container-fluid dashboard-body">
-    <div class = "row">
-        <div class="col-md-6 body-default-view" id="dashboard-pending-bookings-container">Pending Bookings
-            <div id="pending-bookings"></div>
+<div class="container-fluid dashboard-body">
+    <div class="row">
+        <div class="col-md-6 body-default-view">
+            {%if not bookings%}
+            <div>No bookings</div>
+            {%else%}
+            <div class="container">
+            <table class="table table-striped" id="pending-bookings-container">
+            <tr>
+            <th>Company</th>
+            <th>Room</th>
+            <th>Booking Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Deny</th>
+            <th>Approve</th>
+            </tr>
+            {%for booking in bookings%}
+            <tr>
+            <td>{{booking.company}}</td>
+            <td>{{booking.room}}</td>
+            <td>{{booking.date}}</td>
+            <td>{{booking.start_time}}</td>
+            <td>{{booking.end_time}}</td>
+            <td>
+                <input type="submit" value=" - " class = "button" id = "delete_pending">
+            </td>
+            <td>
+                <input type="submit" value="&#10004" class = "button" id = "approve_pending">
+            </td>
+            </tr>
+            {%endfor%}
+            </table>
+            </div>
+            {%endif%}
         </div>
         <div class="col-md-6 body-default-view" id="dashboard-companies-container">col</div>
         <div class="w-100"></div>
@@ -42,26 +73,28 @@
 <!--<div>No bookings</div>-->
 <!--{%else%}-->
 <!--<div class="container">-->
-    <!--<table class="table table-striped">-->
-        <!--<tr>-->
-            <!--<th>Company</th>-->
-            <!--<th>Room</th>-->
-            <!--<th>Booking Date</th>-->
-            <!--<th>Start Time</th>-->
-            <!--<th>End Time</th>-->
-        <!--</tr>-->
-        <!--{%for booking in bookings%}-->
-        <!--<tr>-->
-            <!--<td>{{booking.company}}</td>-->
-            <!--<td>{{booking.room}}</td>-->
-            <!--<td>{{booking.date}}</td>-->
-            <!--<td>{{booking.start_time}}</td>-->
-            <!--<td>{{booking.end_time}}</td>-->
-        <!--</tr>-->
-        <!--{%endfor%}-->
-    <!--</table>-->
+<!--<table class="table table-striped">-->
+<!--<tr>-->
+<!--<th>Company</th>-->
+<!--<th>Room</th>-->
+<!--<th>Booking Date</th>-->
+<!--<th>Start Time</th>-->
+<!--<th>End Time</th>-->
+<!--</tr>-->
+<!--{%for booking in bookings%}-->
+<!--<tr>-->
+<!--<td>{{booking.company}}</td>-->
+<!--<td>{{booking.room}}</td>-->
+<!--<td>{{booking.date}}</td>-->
+<!--<td>{{booking.start_time}}</td>-->
+<!--<td>{{booking.end_time}}</td>-->
+<!--</tr>-->
+<!--{%endfor%}-->
+<!--</table>-->
 <!--</div>-->
 <!--{%endif%}-->
+
+
 
 
 {%endblock%}

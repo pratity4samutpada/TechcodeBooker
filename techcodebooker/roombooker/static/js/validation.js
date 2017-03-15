@@ -72,7 +72,7 @@ Validate.validateTime = function(){
                       js313("#user-message").text(result.pending);
                    }else{
                        js313("#id_Booking-status").val("approved");
-                       js313("#user-message").text("");
+                       js313("#user-message").text(result.success);
                     }
             button.prop("disabled",false);
             }

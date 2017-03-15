@@ -47,10 +47,10 @@ class BookingWizard(SessionWizardView):
                 new_context['data_from_step_2'] = booking
                 if booking['status'] == 'pending':
                     new_context['message'] = {
-                        'msg': "Your reservation is longer than two hours and will be pending approval. An email has been sent to the Community Manager."}
+                        'msg': "Your reservation is longer than two hours and will be pending approval. An email will be sent to the Community Manager."}
                 else:
                     new_context['message'] = {
-                        'msg': "An email with reservation details has been sent to the address you provided."}
+                        'msg': "An email with reservation details will be sent to the address you provided."}
             context.update(new_context)
         return context
 
@@ -122,7 +122,7 @@ def validate_time(request):
     elif gt_2_hours(v_start, v_end):
         context['pending'] = 'Reservations longer than two hours require community manager approval.'
     else:
-        context['success'] = 'All good.'
+        context['success'] = 'This time slot is currently available.'
 
     return HttpResponse(json.dumps(context), content_type="application/json")
 

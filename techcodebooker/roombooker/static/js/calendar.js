@@ -27,7 +27,7 @@ Calendar.getEventData = function(){
 
 Calendar.createCalendar = function(eventData){
 		$('#calendar').weekCalendar({
-			timeslotsPerHour: 4,
+			timeslotsPerHour: 2,
 			readonly: true,
 			use24Hour: true,
 			height: function($calendar){

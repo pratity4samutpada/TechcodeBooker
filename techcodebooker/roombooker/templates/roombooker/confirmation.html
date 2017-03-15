@@ -6,31 +6,28 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="container-fluid middle-center">
     <div class = "row">
         <div class="col-md-12 submission-form-container">
             <ul class = "confirmation-data">
-                <li class = "listed-data-items"><img src="{{data_from_step_1.room_image.url}}"/>
+                <li class = "listed-data-items"><img style="height:150px;" src="{{data_from_step_1.room_image.url}}"/>
                 <li class = "listed-data-items">Selected Room: {{data_from_step_1.room_name}}</li>
                 <li class = "listed-data-items">Start-time: {{data_from_step_2.start_time}}:{{data_from_step_2.start_minutes}}</li>
-                <li class = "listed-data-items">End-time: {{data_from_step_2.end_time}}:{{data_from_step_2.end_minutes}}</li>
+                <li class = "listed-data-items">End-time: {{data_from_step_2.end_time}}:{{data_from_step_2.start_minutes}}</li>
                 <li class = "listed-data-items">Date: {{data_from_step_2.booking_date}}</li>
                 <li class = "listed-data-items" id="reservation-status">{{ message.msg }}</li>
             </ul>
-
+            <div>
             <form action="" method="post" class = "form-3-step">
-                <h3 hidden>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</h3>
                 {% csrf_token %}
                 {{ wizard.management_form }}
                 {{ wizard.form }}
-                <br class="form-3-btn-container">
-                    <input class="btn btn-primary" type="submit" value="{% trans 'Confirm Booking' %}"/></br>
+                <div class="form-3-btn-container">
+                    <input class="btn btn-primary" type="submit" value="{% trans 'Confirm Booking' %}"/><br>
                     <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}" class = "btn btn-danger step-3-back-btn" formnovalid>{% trans "Back" %}</button>
-                </span>
+                </div>
             </form>
         </div>
     </div>
-
 </div>
 {% endblock %}
