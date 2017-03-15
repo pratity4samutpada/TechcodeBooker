@@ -16,24 +16,7 @@
 
             </div>
         </div>
-        <div class="col-xs-12 col-md-6 first-container">
-                <div class = "available-rooms">Gallery</div>
-                <p hidden>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
-                 <div class="row img-container">
-                     {%for room in view.rooms%}
-                     <div class="col-xs-4 col-md-4 img-grid">
-                         <div data-value={{room.id}} class="room-option clickable">
-                                 <img src="{{room.room_image.url}}" alt="Lights" style="width:100%" class = "room-img">
-                             </div>
-                         <div class="caption">
-                             <p class="room-name" id = "room-name-img-label">{{room.room_name}}</p>
-                         </div>
-                     </div>
-                     {%endfor%}
-                 </div>
-        </div>
-        <div class = "row">
-                <div class="col-xs-12 col-md-6 second-container">
+        <div class="col-xs-12 col-md-6 second-container">
                     <div id="avail-title" class = "available-room-info" style="display:none;">Room Information</div>
                     <div class = "description-conta iner">
                         <div id="room-name" class="room-name">Welcome to Techcode Booker</div>
@@ -52,7 +35,23 @@
                     </form>
                     </div>
                 </div>
+        <div class="col-xs-12 col-md-6 first-container">
+                <div class = "available-rooms">Gallery</div>
+                <p hidden>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+                 <div class="row img-container">
+                     {%for room in view.rooms%}
+                     <div class="col-xs-4 col-md-4 img-grid">
+                         <div data-value={{room.id}} class="room-option clickable">
+                                 <img src="{{room.room_image.url}}" alt="Lights" style="width:100%" class = "room-img">
+                             </div>
+                         <div class="caption">
+                             <p class="room-name" id = "room-name-img-label">{{room.room_name}}</p>
+                         </div>
+                     </div>
+                     {%endfor%}
+                 </div>
         </div>
+
     </div>
 <script src="{% static 'js/roombooker.js' %}"></script>
 {% endblock %}

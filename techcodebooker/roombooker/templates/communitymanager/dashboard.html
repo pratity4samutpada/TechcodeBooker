@@ -16,8 +16,36 @@
 </div>
 <div class="container-fluid dashboard-body">
     <div class="row">
-        <div class="col-md-6 body-default-view" id="dashboard-pending-bookings-container">Pending Bookings
-            <div id="pending-bookings"></div>
+        <div class="col-md-6 body-default-view">
+            {%if not bookings%}
+            <div>No bookings</div>
+            {%else%}
+            <div class="container">
+            <table class="table table-striped" id="pending-bookings-container">
+            <tr>
+            <th>Company</th>
+            <th>Room</th>
+            <th>Booking Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+                <th>Approve</th>
+            </tr>
+            {%for booking in bookings%}
+            <tr>
+            <td>{{booking.company}}</td>
+            <td>{{booking.room}}</td>
+            <td>{{booking.date}}</td>
+            <td>{{booking.start_time}}</td>
+            <td>{{booking.end_time}}</td>
+            <td class = "button-container">
+                <input type="submit" value=" - " class = "button" id = "delete_button">
+                <input type="submit" value="&#10004" class = "button" id = "approve_pending">
+            </td>
+            </tr>
+            {%endfor%}
+            </table>
+            </div>
+            {%endif%}
         </div>
         <div class="col-md-6 body-default-view" id="dashboard-companies-container">col</div>
         <div class="w-100"></div>
@@ -62,6 +90,8 @@
 <!--</table>-->
 <!--</div>-->
 <!--{%endif%}-->
+
+
 
 
 {%endblock%}

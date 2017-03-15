@@ -10,11 +10,13 @@
 }
 .body-default-view {
     border: 1px solid black;
-    height: 200px;
+    /*height: 200px;*/
     text-align: center;
 }
 
-#pending-bookings {
+#pending-bookings-container {
+    width: 200px;
+    height: 200px;
 
 }
 
