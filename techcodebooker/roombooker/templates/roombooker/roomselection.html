@@ -7,48 +7,15 @@
 
 {% block content %}
 
-<!--<div class="container-fluid">-->
-    <!---->
-    <!--<div class="row">-->
-        <!---->
-        <!--<div class="col-md-12"></div>-->
-        <!---->
-        <!--<div class="col-md-6"></div>-->
-        <!---->
-        <!--<div class="col-md-6"></div>-->
-    <!--</div>-->
-    <!---->
-    <!---->
-    <!---->
-<!--</div>-->
-
-
 <div class = "container-fluid room-selection-container">
     <div class = "row">
         <div class="col-md-12">
             <h3 class="page-title">Our Conference Rooms</h3>
         </div>
 
-        <!--GALLERY CONTAINER-->
+       <!--description container-->
 
-        <div class="col-xs-12 col-md-6 first-container">
-                <div class = "available-rooms">Gallery</div>
-                <p hidden>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
-                 <div class="img-container">
-                     {%for room in view.rooms%}
-                     <div class="col-xs-4 col-md-4 img-grid">
-                         <div data-value={{room.id}} class="room-option clickable">
-                                 <img src="{{room.room_image.url}}" alt="Lights" style="width:100%" class = "room-img">
-                             </div>
-                         <div class="caption">
-                             <p class="room-name" id = "room-name-img-label">{{room.room_name}}</p>
-                         </div>
-                     </div>
-                     {%endfor%}
-                 </div>
-        </div>
-
-        <div class="col-xs-12 col-md-6 second-container">
+        <div class="col-xs-12 col-md-5 second-container">
             <div id="avail-title" class = "available-room-info" style="display:none;">Room Information</div>
             <div class = "description-container">
                 <div id="room-name" class="room-name">Welcome to Techcode Booker</div>
@@ -68,8 +35,24 @@
             </div>
         </div>
 
-        <!--GALLERY CONTAINER-->
-        
+         <!--GALLERY CONTAINER-->
+
+        <div class="col-xs-12 col-md-7 first-container">
+                <div class = "available-rooms">Gallery</div>
+                <p hidden>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+                 <div class="img-container">
+                     {%for room in view.rooms%}
+                     <div class="col-xs-4 col-md-4 img-grid">
+                         <div data-value={{room.id}} class="room-option clickable">
+                                 <img src="{{room.room_image.url}}" alt="Lights" style="width:100%" class = "room-img">
+                             </div>
+                         <div class="caption">
+                             <p class="room-name" id = "room-name-img-label">{{room.room_name}}</p>
+                         </div>
+                     </div>
+                     {%endfor%}
+                 </div>
+        </div>
 
             </div>
     </div>
