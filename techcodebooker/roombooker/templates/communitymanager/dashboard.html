@@ -1,25 +1,29 @@
-<!DOCTYPE html>
 {% extends "roombooker/base.html" %}
-{%block content%}
+{% load i18n %}
+{% load static %}}
+{% block head %}
+{{ wizard.form.media }}
+{% endblock %}
+
+{% block content %}
 <div class="container-fluid dashboard-nav">
     <div class="row" class="dashboard-nav">
         <div class="col-md-4" id="overview-selector">
-            <button type="button" class="btn btn-default dashboard-btns">Overview</button>
+            <button type="button" class="btn btn-default dashboard-btns" id="overview-button">Overview</button>
         </div>
         <div class="col-md-4" id="bookings-selector">
-            <button type="button" class="btn btn-default dashboard-btns">Bookings</button>
+            <button type="button" class="btn btn-default dashboard-btns" id="bookings-button">Bookings</button>
         </div>
         <div class="col-md-4" id="analytics-selector">
-            <button type="button" class="btn btn-default dashboard-btns">Analytics</button>
+            <button type="button" class="btn btn-default dashboard-btns" id="analytics-button">Analytics</button>
         </div>
     </div>
 </div>
-<div class="container-fluid dashboard-body">
+
+<!--overview view-->
+<div class="container-fluid dashboard-body" id="overview-view">
     <div class="row">
-        <div class="col-md-6 body-default-view">
-            {%if not bookings%}
-            <div>No bookings</div>
-            {%else%}
+        <div class="col-md-6 body-default-view">Pending Bookings
             <div class="container">
             <table class="table table-striped" id="pending-bookings-container">
             <tr>
@@ -31,70 +35,91 @@
             <th>Deny</th>
             <th>Approve</th>
             </tr>
-            {%for booking in bookings%}
-            <tr>
-            <td>{{booking.company}}</td>
-            <td>{{booking.room}}</td>
-            <td>{{booking.date}}</td>
-            <td>{{booking.start_time}}</td>
-            <td>{{booking.end_time}}</td>
-            <td>
-                <input type="submit" value=" - " class = "button" id = "delete_pending">
-            </td>
-            <td>
-                <input type="submit" value="&#10004" class = "button" id = "approve_pending">
-            </td>
-            </tr>
-            {%endfor%}
+                {%if not bookings%}
+                <div>No pending bookings</div>
+                {%else%}
+                {%for booking in bookings%}
+                {%if booking.status%}
+                    <tr>
+                    <td>{{booking.company}}</td>
+                    <td>{{booking.room}}</td>
+                    <td>{{booking.date}}</td>
+                    <td>{{booking.start_time}}</td>
+                    <td>{{booking.end_time}}</td>
+                    <td>
+                        <input type="submit" value=" - " class = "button" id = "delete_pending">
+                    </td>
+                    <td>
+                        <input type="submit" value="&#10004" class = "button" id = "approve_pending">
+                    </td>
+                    </tr>
+            {%endif%}
+                {%endfor%}
+                {%endif%}
             </table>
             </div>
-            {%endif%}
         </div>
-        <div class="col-md-6 body-default-view" id="dashboard-companies-container">col</div>
+        <div class="col-md-6 body-default-view" id="dashboard-companies-container">Rooms
+            <table class="table table-striped">
+                <tr>
+                    <th>Room</th>
+                    <th>Edit</th>
+                </tr>
+                {% for room in rooms%}
+                <tr style="text-align:left">
+                    <td>{{room.room_name}}</td>
+                    <td>
+                        <input type="submit" value="+" class = "button dashboard-edit-room-btns">
+                    </td>
+                </tr>
+                <tr style="text-align:left">
+                    <td hidden class ="dashboard-rm-description"><b>Room Description:</b> {{room.room_fac}}<b> Capacity:</b> {{room.room_capacity}}</td>
+                    <td hidden class ="dashboard-rm-description"><input type="submit" value="do something" class = "button"></td>
+                </tr>
+            {%endfor%}
+
+            </table>
+        </div>
+        </div>
         <div class="w-100"></div>
-        <div class="col-md-6 body-default-view" id="dashboard-rooms-container">col</div>
-        <div class="col-md-6 body-default-view">col</div>
-        <!--<div class = "col-md-3">-->
+    <div class = "row">
+        <div class="col-md-6 body-default-view" id="dashboard-rooms-container">col
+            <table class="table table-striped">
+                <tr>
+                    <th>Company</th>
+                    <th>Edit</th>
+                </tr>
+                {% for company in companies%}
+                <tr style="text-align:left">
+                    <td>{{company.company_name}}</td>
+                    <td>
+                        <input type="submit" value=" - " class = "button">
+                    </td>
+                </tr>
+            {%endfor%}
+            </table>
+        </div>
 
-        <!--</div>-->
-        <!--<div class = "col-md-3">-->
+        <div class="col-md-6 body-default-view" id="fourth-section"></div>
 
-        <!--</div>-->
-        <!--<div class = "col-md-3">-->
-
-        <!--</div>-->
-        <!--<div class = "col-md-3">-->
-
-        <!--</div>-->
     </div>
 </div>
+<!--bookings view-->
+<div class="container-fluid dashboard-body" id="bookings-view">
+    <div class="row">
+        <div class="col-md-6">
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/dashboard.js' %}"></script>
 
-<!--{%if not bookings%}-->
-<!--<div>No bookings</div>-->
-<!--{%else%}-->
-<!--<div class="container">-->
-<!--<table class="table table-striped">-->
-<!--<tr>-->
-<!--<th>Company</th>-->
-<!--<th>Room</th>-->
-<!--<th>Booking Date</th>-->
-<!--<th>Start Time</th>-->
-<!--<th>End Time</th>-->
-<!--</tr>-->
-<!--{%for booking in bookings%}-->
-<!--<tr>-->
-<!--<td>{{booking.company}}</td>-->
-<!--<td>{{booking.room}}</td>-->
-<!--<td>{{booking.date}}</td>-->
-<!--<td>{{booking.start_time}}</td>-->
-<!--<td>{{booking.end_time}}</td>-->
-<!--</tr>-->
-<!--{%endfor%}-->
-<!--</table>-->
-<!--</div>-->
-<!--{%endif%}-->
-
-
-
+<!--analytics view-->
+<div class="container-fluid dashboard-body" id="analytics-view">
+    <div class="row">
+        <div class="col-md-6">
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/dashboard.js' %}"></script>
 
 {%endblock%}

@@ -5,13 +5,28 @@
     text-align: center;
 }
 
-.dashboard-btns {
-    border-radius: 25px;
-}
 .body-default-view {
     border: 1px solid black;
     /*height: 200px;*/
     text-align: center;
+}
+
+#overview-view {
+
+}
+
+.dashboard-edit-room-btns {
+
+}
+
+#bookings-view {
+    display: none;
+
+
+}
+
+#analytics-view {
+    display: none;
 }
 
 #pending-bookings-container {
@@ -33,13 +48,17 @@
     /*display: inline;*/
 /*}*/
 
-#delete_pending {
-    background-color: rgba(216, 12, 24, 1);
-    border-radius: 25px;
-    display: inline;
-}
-#approve_pending {
-    background-color: rgba(111, 186, 44, 1);
-    border-radius: 25px;
-    display: inline;
+/*#delete_pending {*/
+    /*background-color: rgba(216, 12, 24, 1);*/
+    /*border-radius: 25px;*/
+    /*display: inline;*/
+/*}*/
+/*#approve_pending {*/
+    /*background-color: rgba(111, 186, 44, 1);*/
+    /*border-radius: 25px;*/
+    /*display: inline;*/
+/*}*/
+
+#fourth-section {
+    height: 100px;
 }
