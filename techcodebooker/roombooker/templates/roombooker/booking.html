@@ -36,7 +36,6 @@
                 <p id="user-message"></p>
                 <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
             <input disabled class="btn-block btn-primary" id="submit-btn" type="submit" value="{% trans 'Submit' %}" />
-
             </form>
                 <a href="/booker"><button class="btn btn-danger btn-md center-block button-margin" name="wizard_goto_step" value="{{ wizard.steps.prev }}">Back</button></a>
           </div>
