@@ -28,7 +28,8 @@
             <th>Booking Date</th>
             <th>Start Time</th>
             <th>End Time</th>
-                <th>Approve</th>
+            <th>Deny</th>
+            <th>Approve</th>
             </tr>
             {%for booking in bookings%}
             <tr>
@@ -37,8 +38,10 @@
             <td>{{booking.date}}</td>
             <td>{{booking.start_time}}</td>
             <td>{{booking.end_time}}</td>
-            <td class = "button-container">
-                <input type="submit" value=" - " class = "button" id = "delete_button">
+            <td>
+                <input type="submit" value=" - " class = "button" id = "delete_pending">
+            </td>
+            <td>
                 <input type="submit" value="&#10004" class = "button" id = "approve_pending">
             </td>
             </tr>
