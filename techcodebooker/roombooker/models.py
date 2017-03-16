@@ -20,9 +20,6 @@ class Companies (models.Model):
 #Each Bookings object should be unique.
 class Bookings (models.Model):
 
-        def combine_dt(self,date,time):
-           return dt.datetime.combine(date,time)
-
         room = models.ForeignKey('Rooms', on_delete=models.CASCADE)
         start_time = models.IntegerField("From")
         start_minutes = models.FloatField("Start minute.",default=0)
@@ -37,7 +34,7 @@ class Bookings (models.Model):
 
 
         def __str__(self):
-            return "Booking from: "+str(self.start_time)+" to "+str(self.end_time)
+            return "Booking from: "+str(self.start_time)+" to "+str(self.end_time)+" on "+self.date.strftime("%Y-%m-%d")
 
 
 

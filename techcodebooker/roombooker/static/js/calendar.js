@@ -22,7 +22,6 @@ Calendar.getEventData = function(){
    })
         };
 
-
 Calendar.createCalendar = function(eventData){
 		$('#calendar').weekCalendar({
 			timeslotsPerHour: 2,

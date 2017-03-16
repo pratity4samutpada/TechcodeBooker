@@ -43,17 +43,18 @@ a:active{
         color: #9dafc0;
         background-color: #1F2C5C;
         height:3em;
-        padding: 1rem;
-        width: 100%;
+        /*width: 100%;*/
         bottom: 0;
         position: absolute;
         display:block;
         right: 0;
+        bottom: 0;
         left: 0;
 }
 
 .footer-text{
     position:relative;
+
 }
 
 .clickable{

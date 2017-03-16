@@ -1,0 +1,13 @@
+{% extends "roombooker/base.html" %}
+{%block content%}
+<div class="container-fluid dashboard-nav">
+    <div class="row" class="dashboard-nav">
+        <div class="col-md-4" id="overview-selector">
+            <a href="dashboard"><button type="button" class="btn btn-default dashboard-btns" id="overview-button">Overview</button></a>
+        </div>
+        <div class="col-md-4" id="bookings-selector">
+            <a href="bookingsdash"><button type="button" class="btn btn-default dashboard-btns" id="bookings-button">Bookings</button></a>
+        </div>
+    </div>
+</div>
+{%endblock%}

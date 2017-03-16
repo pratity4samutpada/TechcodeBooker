@@ -1,26 +1,20 @@
 {% extends "roombooker/base.html" %}
-{% load i18n %}
+
 {% load static %}}
 {% block head %}
-{{ wizard.form.media }}
 {% endblock %}
-
-{% block content %}
+{%block content%}
 <div class="container-fluid dashboard-nav">
     <div class="row" class="dashboard-nav">
         <div class="col-md-4" id="overview-selector">
-            <button type="button" class="btn btn-default dashboard-btns" id="overview-button">Overview</button>
+            <a href="dashboard"><button type="button" class="btn btn-default dashboard-btns" id="overview-button">Overview</button></a>
         </div>
         <div class="col-md-4" id="bookings-selector">
-            <button type="button" class="btn btn-default dashboard-btns" id="bookings-button">Bookings</button>
-        </div>
-        <div class="col-md-4" id="analytics-selector">
-            <button type="button" class="btn btn-default dashboard-btns" id="analytics-button">Analytics</button>
+            <a href="bookingsdash"><button type="button" class="btn btn-default dashboard-btns" id="bookings-button">Bookings</button></a>
         </div>
     </div>
 </div>
 
-<!--overview view-->
 <div class="container-fluid dashboard-body" id="overview-view">
     <div class="row">
         <div class="col-md-6 body-default-view">Pending Bookings
@@ -106,61 +100,4 @@
 
     </div>
 </div>
-<!--bookings view-->
-<div class="container-fluid dashboard-body" id="bookings-view">
-    <div class = "row">
-        <div class="col-md-12">
-            <div class="btn-group">
-                <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">Search By<span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Company</a></li>
-                    <li><a href="#">Date</a></li>
-                    <li><a href="#">Room Name</a></li>
-                    <li><a href="#">Start-time</a></li>
-                    <li class="disabled"><a href="#">Edit / Delete</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-    <!--<div class="row">-->
-        <!--<div class="col-md-6">-->
-            <!--<form action="" method="post" class = "search-by-form">-->
-                <!--{% csrf_token %}-->
-                <!--{{ form.as_p }}-->
-            <!--<input disabled class="btn-block btn-primary" id="submit-btn" type="submit" value="{% trans 'Submit' %}" />-->
-            <!--</form>-->
-        <!--</div>-->
-    <!--</div>-->
-</div>
-<script src="{% static 'js/dashboard.js' %}"></script>
-
-<!--analytics view-->
-<div class="container-fluid dashboard-body" id="analytics-view">
-    <div class="row">
-        <div class="col-md-12">
-            <div class = "container">
-                <table class="table table-striped">
-                    <tr>
-                        <th>Company Name</th>
-                        <th>Total Hours Booked</th>
-                    </tr>
-                    {%if not Companies%}
-                    <div>No current companies</div>
-                    {%else%}
-                    {%for company in companies%}
-                    <tr>
-                        <td>{{company.company_name}}</td>
-                        <td>{{company.company_name}}</td>
-                    </tr>
-                    {%endfor%}
-                    {%endif%}
-                </table>
-
-            </div>
-        </div>
-    </div>
-</div>
-<script src="{% static 'js/dashboard.js' %}"></script>
-
 {%endblock%}

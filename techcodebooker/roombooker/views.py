@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 import json, datetime
 from django.core import serializers
+from django.core.mail import send_mail
 
 # The forms for BookingWizard.
 FORMS = [
@@ -86,6 +87,8 @@ class BookingWizard(SessionWizardView):
         # If newBookingObject returns False, it means something went wrong updating the db, so it just adds an error msg to the context.
         if not self.newBookingObject(room, booking, status):
             context['error'] = 'There was a problem adding the data to the database.'
+        elif not send_email(room,booking,status):
+            context['error'] = 'There was a problem sending the email.'
 
         return render_to_response('roombooker/done.html', context)
 
@@ -146,3 +149,16 @@ def is_conflict(bookings, v_start, v_end):
 
 def gt_2_hours(start, end):
     return (end - start) > 2
+
+def send_email(room,booking,status):
+    try:
+        send_mail(
+            'Subject here',
+            'Here is the message.',
+            'from@example.com',
+            ['to@example.com'],
+            fail_silently=False,
+            )
+        return True
+    except:
+        return False
