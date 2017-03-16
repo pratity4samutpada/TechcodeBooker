@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load static %}
+
+{% csrf_token %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room Booker</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/roombooker.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/booking.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/confirmation.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/done.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+    {% block head %}{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width">
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+
+        <div class ="head">
+            <span class="logo">
+            <a href="http://www.techcode.com/en/"><img src="{% static 'img/techcode_logo.png' %}" alt="My image" class="logo"> </a>
+            </span>
+            <span class="header-right-side navbar-right">
+            {% if user.is_anonymous %}
+            <a href="{% url 'login' %}" class = "login">Login</a>
+            {% else %}
+            <a href="{% url 'logout' %}" class = "login">Logout</a>
+            {% endif %}
+            </span>
+        </div>
+
+    <div class="navbar navbar-inverse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Bookings</a></li>
+            <li><a href="#about">Pending</a></li>
+            <li><a href="#contact">Rooms</a></li>
+            <li><a href="#contact">Companies</a></li>
+        </ul>
+    </div>
+</nav>
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

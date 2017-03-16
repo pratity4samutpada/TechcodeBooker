@@ -9,6 +9,19 @@
     border: 1px solid black;
     /*height: 200px;*/
     text-align: center;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.dashboard-page-title {
+    color: rgba(216, 12, 24, 1);
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 0.1em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 1%;
+    margin-bottom: 1%;
+
 }
 
 #overview-view {
