@@ -33,6 +33,10 @@ input[type=text]:focus {
     border: 2px solid #555;
 }
 
+label{
+    margin:5px;
+}
+
 .button-margin{
     margin:1em;
     background-color: #c12e2a;
