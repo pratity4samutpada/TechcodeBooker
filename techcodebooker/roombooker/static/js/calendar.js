@@ -1,6 +1,3 @@
-
-//Namespace for the calendar, which should be populated with reserved times for the selected room.
-
 Calendar = {};
 
 Calendar.init = function(){

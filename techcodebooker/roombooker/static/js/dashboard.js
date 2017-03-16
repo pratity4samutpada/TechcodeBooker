@@ -6,7 +6,9 @@ Dashboard.init = function() {
     $(document).ready(function() {
         Dashboard.chooseView();
         Dashboard.toggleRoomInfo();
-})
+        $(".dropdown-toggle").dropdown('toggle');
+});
+
 };
 
 
@@ -26,7 +28,7 @@ Dashboard.chooseView = function() {
     });
 
     $("#analytics-button").click(function() {
-        $("#analytics-view").hide();
+        $("#analytics-view").show();
         $("#overview-view").hide();
         $("#bookings-view").hide();
 

@@ -77,13 +77,15 @@
                     <td hidden class ="dashboard-rm-description"><input type="submit" value="do something" class = "button"></td>
                 </tr>
             {%endfor%}
-
             </table>
+            <div class = "add-room-btn-container">
+                    <input type="submit" value="+" class = "button" id = "add-room">
+            </div>
         </div>
         </div>
         <div class="w-100"></div>
     <div class = "row">
-        <div class="col-md-6 body-default-view" id="dashboard-rooms-container">col
+        <div class="col-md-6 body-default-view" id="dashboard-rooms-container">Companies
             <table class="table table-striped">
                 <tr>
                     <th>Company</th>
@@ -106,6 +108,21 @@
 </div>
 <!--bookings view-->
 <div class="container-fluid dashboard-body" id="bookings-view">
+    <div class = "row">
+        <div class="col-md-12">
+            <div class="btn-group">
+                <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">Search By<span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Company</a></li>
+                    <li><a href="#">Date</a></li>
+                    <li><a href="#">Room Name</a></li>
+                    <li><a href="#">Start-time</a></li>
+                    <li class="disabled"><a href="#">Edit / Delete</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
     <!--<div class="row">-->
         <!--<div class="col-md-6">-->
             <!--<form action="" method="post" class = "search-by-form">-->
@@ -121,7 +138,26 @@
 <!--analytics view-->
 <div class="container-fluid dashboard-body" id="analytics-view">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
+            <div class = "container">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Company Name</th>
+                        <th>Total Hours Booked</th>
+                    </tr>
+                    {%if not Companies%}
+                    <div>No current companies</div>
+                    {%else%}
+                    {%for company in companies%}
+                    <tr>
+                        <td>{{company.company_name}}</td>
+                        <td>{{company.company_name}}</td>
+                    </tr>
+                    {%endfor%}
+                    {%endif%}
+                </table>
+
+            </div>
         </div>
     </div>
 </div>

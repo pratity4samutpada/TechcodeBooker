@@ -19,6 +19,12 @@
 
 }
 
+.add-room-btn-container {
+    text-align: center;
+    border: 1px dashed #1F2C5C;
+    margin-bottom: 1%;
+}
+
 #bookings-view {
     display: none;
     margin-top: 4%;
