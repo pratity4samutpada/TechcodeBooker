@@ -3,6 +3,7 @@ Calendar = {};
 Calendar.init = function(){
     $(document).ready(function(){
         Calendar.getEventData();
+        Calendar.hideFooter()
     })
 };
 
@@ -52,5 +53,10 @@ Calendar.createCalendar = function(eventData){
 
 
 	};
+
+Calendar.hideFooter=function(){
+	$("#footer").css("display","none");
+};
+
 
 Calendar.init();
