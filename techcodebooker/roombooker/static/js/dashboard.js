@@ -8,9 +8,13 @@ Dashboard.init = function() {
 });
 
 };
+Dashboard.bindEventListeners = function(){
+    $(".edit-room").off().on("click",Dashboard.showRoomDesc)
+}
 
-Dashboard.changeDashView(){
-
+Dashboard.showRoomDesc = function(){
+    var value = $(this).val()
+    $("#"+value).slideToggle()
 }
 
 Dashboard.init();

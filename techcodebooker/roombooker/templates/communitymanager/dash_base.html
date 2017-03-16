@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 {% load static %}
-
-{% csrf_token %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,10 +8,6 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/roombooker.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/booking.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/confirmation.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/done.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
     {% block head %}{% endblock %}
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -39,7 +33,7 @@
             </span>
         </div>
 
-    <div class="navbar navbar-inverse">
+    <div class="navbar navbar-inverse manager-options">
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">Bookings</a></li>
             <li><a href="#about">Pending</a></li>
@@ -50,6 +44,5 @@
 </nav>
 {% block content %}
 {% endblock %}
-
 </body>
 </html>
