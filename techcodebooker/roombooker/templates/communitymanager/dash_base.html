@@ -35,14 +35,15 @@
 
     <div class="navbar navbar-inverse manager-options">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Bookings</a></li>
-            <li><a href="#about">Pending</a></li>
-            <li><a href="#contact">Rooms</a></li>
-            <li><a href="#contact">Companies</a></li>
+            <li id="main" class="dash-nav-item active"><a href="#">Main</a></li>
+            <li id="bookings" class="dash-nav-item"><a href="#about">Bookings</a></li>
+            <li id="rooms" class="dash-nav-item"><a href="#contact">Rooms</a></li>
+            <li id="companies" class="dash-nav-item"><a href="#contact">Companies</a></li>
         </ul>
     </div>
 </nav>
 {% block content %}
 {% endblock %}
+<script src="{%static 'js/community_nav.js'%}"></script>
 </body>
 </html>

@@ -1,0 +1,37 @@
+{% extends "admin/base.html" %}
+{%load static%}
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block extrastyle %}
+<style>
+    #header{
+        background-color:white;
+    }
+
+    #user-tools{
+        color:purple;
+
+    }
+
+    #user-tools a:link{
+        color:purple;
+    }
+
+    #user-tools a:active{
+        color:purple;
+    }
+    #user-tools a:visited{
+        color:purple;
+    }
+
+</style>
+{%endblock%}
+
+{% block branding %}
+<span class="logo">
+            <a href="http://www.techcode.com/en/"><img src="{% static 'img/techcode_logo.png' %}" alt="My image" class="logo"> </a>
+        </span>
+{% endblock %}
+
+
+{% block nav-global %}{% endblock %}

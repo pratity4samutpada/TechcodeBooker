@@ -9,9 +9,9 @@ def dashboard(request):
     bookings = Bookings.objects.all().order_by('-date')
     companies = Companies.objects.all()
     context = {'rooms':rooms,'bookings':bookings,'companies':companies}
-    return render(request,'communitymanager/dashboard.html',context)
+    return render(request,'communitymanager/main.html',context)
 
-def bookings_dash(request):
-    bookings = Bookings.objects.all()
-    context={'bookings':bookings}
-    return render(request,'communitymanager/bookings_dash.html',context)
+def switch_view(request):
+    template_name = request.GET.get('template')
+    template_path = "communitymanager/{}.html".format(template_name)
+    return render(request,template_path)
