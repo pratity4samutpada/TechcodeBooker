@@ -3,6 +3,7 @@
 <html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
 <head>
 <title>{% block title %}{% endblock %}</title>
+     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}" />
 {% block extrastyle %}{% endblock %}
 {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
@@ -56,6 +57,17 @@
         {% endblock %}
         {% block nav-global %}{% endblock %}
     </div>
+
+
+ <div class="navbar navbar-inverse manager-options">
+            <ul class="nav navbar-nav">
+                <li id="main" class="dash-nav-item active"><a href="/admin">Main</a></li>
+                <li id="bookings" class="dash-nav-item"><a href="/admin/roombooker/bookings">Bookings</a></li>
+                <li id="rooms" class="dash-nav-item"><a href="/admin/roombooker/rooms/">Rooms</a></li>
+                <li id="companies" class="dash-nav-item"><a href="/admin/roombooker/companies">Companies</a></li>
+            </ul>
+        </div>
+
     <!-- END Header -->
     {% block breadcrumbs %}
     <div class="breadcrumbs">
