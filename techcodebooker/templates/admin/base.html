@@ -9,6 +9,12 @@
 {% block extrahead %}{% endblock %}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
 </head>
+ <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/069e057bef.js"></script>
+
+
 {% load i18n %}
 
 <body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}"
@@ -83,6 +89,6 @@
     {% block footer %}<div id="footer"></div>{% endblock %}
 </div>
 <!-- END Container -->
-
+<script src="{%static 'js/adminextra.js'%}"></script>
 </body>
 </html>

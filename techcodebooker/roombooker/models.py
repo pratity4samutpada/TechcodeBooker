@@ -32,6 +32,14 @@ class Bookings (models.Model):
         booked_by = models.CharField('Full Name', max_length=50)
         status=models.BooleanField('Pending',default=False)
 
+        @property
+        def whole_start_time(self):
+            return "{0}:{1}".format(str(self.start_time),str(int(self.start_minutes)*60).zfill(2))
+
+        @property
+        def whole_end_time(self):
+            return "{0}:{1}".format(str(self.end_time), str(int(self.end_minutes) * 60).zfill(2))
+
 
         def __str__(self):
             return "Booking from: "+str(self.start_time)+" to "+str(self.end_time)+" on "+self.date.strftime("%Y-%m-%d")

@@ -1,0 +1,20 @@
+{%if not pending%}
+<div>No pending bookings</div>
+{%else%}
+<table>
+    <caption>Pending Bookings</caption>
+    {%for item in pending%}
+    <tbody>
+        <tr>
+        <th scope="row">{{item.room}}</th>
+        <td>{{item.date}}</td>
+        <td>{{item.whole_start_time}}</td>
+        <td>{{item.whole_end_time}}</td>
+        <td>{{item.company}}</td>
+        <td><button class="btn btn-success"><a href="./roombooker/bookings/{{item.id}}/delete/"><i class="fa fa-ban" aria-hidden="true"></i> Cancel</a></button></td>
+        <td><button value="{{item.id}}" class="approve-pending"><i class="fa fa-check-square-o" aria-hidden="true"></i> Approve</button></td>
+        </tr>
+    </tbody>
+    {%endfor%}
+</table>
+{%endif%}

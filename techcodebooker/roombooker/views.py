@@ -162,3 +162,13 @@ def send_email(room,booking,status):
         return True
     except:
         return False
+
+# def approve(request):
+#         id = request.POST.get('id')
+#         booking = Bookings.objects.get(pk=int(id))
+#         booking.status = False
+#         booking.save()
+#         msg = "Booking on {0} from {1} to {2} approved.".format(booking.date.strftime("%Y-%m-%d"),
+#                                                             booking.whole_start_time, booking.whole_end_time)
+#         context = {'msg': msg}
+#         return HttpResponse(context)

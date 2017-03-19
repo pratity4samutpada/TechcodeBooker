@@ -11,11 +11,12 @@
 
 {% block content %}
 <div id="content-main">
-    <div>
-        {%for item in app_list.1.models.0.object_name%}
-            {{item}}
-        {%endfor%}
-    </div>
+<div id="pending-msg"></div>
+
+<div class="module">
+{%load booker_extras%}
+{%pending_bookings%}
+</div>
 
 {% if app_list %}
     {% for app in app_list %}
