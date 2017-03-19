@@ -1,0 +1,45 @@
+{% extends "communitymanager/dash_base.html" %}
+{%block content%}
+<div class="container-fluid index" id="index-view">
+    <div class="row">
+        <div class="col-md-12 body-default-view">
+            <div class="container">
+                 {%if not bookings%}
+                <div>No pending bookings</div>
+                {%else%}
+            <table class="table table-sm" id="pending-bookings-container">
+            <caption>Pending Bookings</caption>
+            <thead class="thead-inverse">
+            <tr>
+            <th>Company</th>
+            <th>Room</th>
+            <th>Booking Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Deny</th>
+            <th>Approve</th>
+            </tr>
+            </thead>
+                {%for booking in bookings%}
+                    <tr>
+                    <td>{{booking.company}}</td>
+                    <td>{{booking.room}}</td>
+                    <td>{{booking.date}}</td>
+                    <td>{{booking.whole_start_time}}</td>
+                    <td>{{booking.whole_end_time}}</td>
+                    <td>
+                        <input type="submit" value=" - " class = "button" id = "delete_pending">
+                    </td>
+                    <td>
+                        <input type="submit" value="&#10004" class = "button" id = "approve_pending">
+                    </td>
+                    </tr>
+                {%endfor%}
+                {%endif%}
+            </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+{%endblock%}

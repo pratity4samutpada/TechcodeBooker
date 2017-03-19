@@ -1,6 +1,6 @@
 from .forms import room_form, booking_form, confirm_booking
 from formtools.wizard.views import SessionWizardView
-from .models import Rooms, Bookings
+from .models import Rooms, Bookings, Companies
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 import json, datetime
@@ -60,14 +60,17 @@ class BookingWizard(SessionWizardView):
         r, b, s = room, booking, status
         r_obj = Rooms.objects.get(pk=r['room_id'])
         status_bool = False
+
         if b['status'] == 'pending':
             status_bool = True
         try:
             newBooking = Bookings(room=r_obj, start_time=b['start_time'], start_minutes=b['start_minutes'],
                                   end_time=b['end_time'], end_minutes=b['end_minutes'],
                                   date=b['booking_date'],
-                                  company=b['company'], email=b['email'], booked_by=b['booked_by'], status=status_bool)
+                                  company=b['company'], note=b['note'], email=b['email'], booked_by=b['booked_by'], status=status_bool)
+
             newBooking.save()
+            print(newBooking.note)
             return True
         except:
             return False
@@ -132,7 +135,6 @@ def validate_time(request):
 
 # Handles different cases of overlapping times.
 def is_conflict(bookings, v_start, v_end):
-    print(bookings)
     for booking in bookings:
         st = booking.start_time + booking.start_minutes
         et = booking.end_time + booking.end_minutes
@@ -144,7 +146,7 @@ def is_conflict(bookings, v_start, v_end):
             return True
         if (st < v_start) & (et >= v_end):
             return True
-        return False
+    return False
 
 
 def gt_2_hours(start, end):

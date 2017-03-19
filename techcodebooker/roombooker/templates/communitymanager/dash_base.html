@@ -35,10 +35,10 @@
 
     <div class="navbar navbar-inverse manager-options">
         <ul class="nav navbar-nav">
-            <li id="main" class="dash-nav-item active"><a href="#">Main</a></li>
-            <li id="bookings" class="dash-nav-item"><a href="#about">Bookings</a></li>
-            <li id="rooms" class="dash-nav-item"><a href="#contact">Rooms</a></li>
-            <li id="companies" class="dash-nav-item"><a href="#contact">Companies</a></li>
+            <li id="main" class="dash-nav-item active"><a href="{%url 'dashboard'%}">Main</a></li>
+            <li id="bookings" class="dash-nav-item"><a href="{%url 'bookings'%}">Bookings</a></li>
+            <li id="rooms" class="dash-nav-item"><a href="{%url 'rooms'%}">Rooms</a></li>
+            <li id="companies" class="dash-nav-item"><a href="{%url 'companies'%}">Companies</a></li>
         </ul>
     </div>
 </nav>

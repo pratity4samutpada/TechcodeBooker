@@ -4,14 +4,22 @@ from django.shortcuts import render
 import json
 from django.core import serializers
 
-def dashboard(request):
-    rooms = Rooms.objects.all()
-    bookings = Bookings.objects.all().order_by('-date')
-    companies = Companies.objects.all()
-    context = {'rooms':rooms,'bookings':bookings,'companies':companies}
-    return render(request,'communitymanager/main.html',context)
+def index(request):
+    bookings = Bookings.objects.filter(status=True).order_by('-date')
+    context = {'bookings':bookings}
+    return render(request,'communitymanager/index.html',context)
 
-def switch_view(request):
-    template_name = request.GET.get('template')
-    template_path = "communitymanager/{}.html".format(template_name)
-    return render(request,template_path)
+def bookings(request):
+    bookings = Bookings.objects.all().order_by('-date')
+    context={'bookings':bookings}
+    return render(request,'communitymanager/bookings.html',context)
+
+def rooms(request):
+    rooms = Rooms.objects.all()
+    context={'rooms':rooms}
+    return render(request, 'communitymanager/rooms.html',context)
+
+def companies(request):
+    companies = Companies.objects.all()
+    context = {'companies':companies}
+    return render(request, 'communitymanager/companies.html',context)

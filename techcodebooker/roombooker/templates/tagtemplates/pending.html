@@ -6,13 +6,15 @@
     {%for item in pending%}
     <tbody>
         <tr>
-        <th scope="row">{{item.room}}</th>
-        <td>{{item.date}}</td>
-        <td>{{item.whole_start_time}}</td>
-        <td>{{item.whole_end_time}}</td>
-        <td>{{item.company}}</td>
-        <td><button class="btn btn-success"><a href="./roombooker/bookings/{{item.id}}/delete/"><i class="fa fa-ban" aria-hidden="true"></i> Cancel</a></button></td>
-        <td><button value="{{item.id}}" class="approve-pending"><i class="fa fa-check-square-o" aria-hidden="true"></i> Approve</button></td>
+        <th scope="row">{{item.info.room}}</th>
+        <td>{{item.info.date}}</td>
+        <td>{{item.info.whole_start_time}}</td>
+        <td>{{item.info.whole_end_time}}</td>
+        <td>{{item.info.company}}</td>
+        <td><button class="cancel-pending"><a href="./roombooker/bookings/{{item.info.id}}/delete/"><i class="fa fa-ban" aria-hidden="true"></i> Cancel</a></button></td>
+        <td><form novalidate id="bookings_form" enctype="multipart/form-data" action method="post" >
+            {% csrf_token %}{{item.form}}<input name="_save" type="submit" value="Approve"></form></td>
+
         </tr>
     </tbody>
     {%endfor%}

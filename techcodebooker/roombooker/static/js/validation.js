@@ -41,8 +41,7 @@ Validate.validateTime = function(){
     var room = js313("#selected-room").attr("data-room-id");
     var s_minute = js313("#id_Booking-start_minutes option:selected").val();
     var e_minute = js313("#id_Booking-end_minutes option:selected").val();
-    alert(s_minute)
-    alert(e_minute)
+
 
     js313.ajax({
         url:"validatetime",
@@ -58,7 +57,7 @@ Validate.validateTime = function(){
             room: room
         },
         success: function(result){
-        alert(result)
+
             var button = js313("#submit-btn");
             var status = js313("id_Booking-status");
 

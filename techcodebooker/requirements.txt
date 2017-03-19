@@ -1,1 +1,2 @@
 django-formtools
+django-admin-views

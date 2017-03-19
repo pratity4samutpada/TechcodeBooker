@@ -6,11 +6,13 @@ from django.contrib.auth import views as authviews
 
 urlpatterns = [
     url(r'^$', BookingWizard.as_view(FORMS)),
-    url(r'^dashboard$', views_dash.dashboard, name='dashboard'),
+    url(r'^dashboard$', views_dash.index, name='dashboard'),
+    url(r'^dashboard/rooms$', views_dash.rooms,name='rooms'),
+    url(r'^dashboard/companies$',views_dash.companies,name='companies'),
+    url(r'^dashboard/bookings$',views_dash.bookings,name='bookings'),
     url(r'^getroominfo$', views.get_room_info, name='getroominfo'),
     url(r'^validatetime$', views.validate_time, name='validatetime'),
     url(r'^populatecal$',views_calendar.populate, name='populatecal'),
-    url(r'^switchview$',views_dash.switch_view, name='switchview'),
     url(r'^login$', authviews.login ,name='login'),
     url(r'^logout$', authviews.logout, {'next_page': '/booker'}, name='logout'),
 

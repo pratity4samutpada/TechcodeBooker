@@ -31,15 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'roombooker',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'roombooker',
     'formtools',
-    'roombooker.templatetags'
+    'roombooker.templatetags',
+    'admin_views'
 ]
 
 MIDDLEWARE = [

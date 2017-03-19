@@ -18,6 +18,7 @@ class booking_form(forms.Form):
     start_minutes = forms.ChoiceField(choices=((0,":00"),(0.5,":30")), widget=forms.Select(attrs={'class':'book-date'}))
     end_time = forms.ChoiceField(choices=((i,str(i).zfill(2)) for i in range(24)), widget=forms.Select())
     end_minutes = forms.ChoiceField(choices=((0, ":00"), (0.5, ":30")), widget=forms.Select(attrs={'class':'book-date'}))
+    note = forms.CharField(max_length=200, widget = forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Notes, requests, etc.'}))
     status = forms.CharField(initial="",widget=forms.HiddenInput())
 
     def __init__(self, *args, **kwargs):
@@ -27,6 +28,8 @@ class booking_form(forms.Form):
         self.fields['booked_by'].label=""
         self.fields['start_minutes'].label=""
         self.fields['end_minutes'].label=""
+        self.fields['note'].label=""
+
 
     def clean_booking_date(self):
         date = self.cleaned_data['booking_date']
@@ -40,4 +43,5 @@ class booking_form(forms.Form):
 
 class confirm_booking(forms.Form):
     status = forms.CharField(initial="confirmed", widget=forms.HiddenInput())
+
 
