@@ -10,12 +10,16 @@ class Rooms (models.Model):
     room_fac = models.CharField("Room Facilities",max_length=999)
     def __str__(self):
        return self.room_name
+    class Meta:
+        verbose_name_plural = "rooms"
 
 #List of all the companies that can book a room.
 class Companies (models.Model):
     company_name = models.CharField(max_length=200)
     def __str__(self):
         return self.company_name
+    class Meta:
+        verbose_name_plural = "companies"
 
 #Each Bookings object should be unique.
 class Bookings (models.Model):
@@ -43,6 +47,9 @@ class Bookings (models.Model):
 
         def __str__(self):
             return "Booking from: "+str(self.start_time)+" to "+str(self.end_time)+" on "+self.date.strftime("%Y-%m-%d")
+
+        class Meta:
+            verbose_name_plural = "bookings"
 
 
 
