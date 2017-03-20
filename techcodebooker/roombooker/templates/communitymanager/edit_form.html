@@ -4,16 +4,20 @@
     <div class="row">
         <div class="col-md-12 body-default-view">
             <div class="container">
-<form method="POST" class="edit-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
-        {%if not new%}
-        <button type="submit" name="delete" class="delete btn btn-danger" onclick="return confirm('Confirm Delete?')">Delete</button>
-        {%endif%}
-    </form>
-        <div>
-            <a href="{{request.META.HTTP_REFERER}}"><button class="cancel btn btn-warning">Cancel</button></a>
-        </div>
+                <form method="POST" class="edit-form" enctype="multipart/form-data">{% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="save btn btn-default">Save</button>
+                    {%if not new%}
+                    <button type="submit" name="delete" class="delete btn btn-danger"
+                            onclick="return confirm('Confirm Delete?')">Delete
+                    </button>
+                    {%endif%}
+                </form>
+                <div>
+                    <a href="{{request.META.HTTP_REFERER}}">
+                        <button class="cancel btn btn-warning">Cancel</button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

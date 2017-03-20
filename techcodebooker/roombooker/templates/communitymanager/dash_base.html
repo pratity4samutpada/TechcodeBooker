@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'includes/css/style.css'%}">
     {% block head %}{% endblock %}
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+    <script src="{%static 'includes/js/jquery.tablesorter.min.js'%}"></script>
 </head>
 <body>
 
@@ -37,14 +38,13 @@
     <div class="navbar navbar-inverse manager-options">
         <ul class="nav navbar-nav">
             <li id="main" class="dash-nav-item active"><a href="{%url 'dashboard'%}">Main</a></li>
-            <li id="bookings" class="dash-nav-item"><a href="{%url 'bookings'%}">Bookings</a></li>
-            <li id="rooms" class="dash-nav-item"><a href="{%url 'rooms'%}">Rooms</a></li>
-            <li id="companies" class="dash-nav-item"><a href="{%url 'companies'%}">Companies</a></li>
+            <li id="bookings" class="dash-nav-item"><a href="{% url 'show_model' model='bookings' %}">Bookings</a></li>
+            <li id="rooms" class="dash-nav-item"><a href="{% url 'show_model' model='rooms' %}">Rooms</a></li>
+            <li id="companies" class="dash-nav-item"><a href="{% url 'show_model' model='companies'%}">Companies</a></li>
         </ul>
     </div>
 </nav>
 {% block content %}
 {% endblock %}
-<script src="{%static 'js/community.js'%}"></script>
 </body>
 </html>
