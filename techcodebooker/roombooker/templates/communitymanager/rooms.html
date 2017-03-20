@@ -1,3 +1,29 @@
 {% extends "communitymanager/dash_base.html" %}
 {%block content%}
+
+<div class="container-fluid module">
+     <div class="row">
+        <div class="col-md-12 body-default-view">
+            <div class="container">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Room Name</th>
+                        <th>Room Capacity</th>
+                        <th>Room Facilities</th>
+                        <th>Room Notes</th>
+                    </tr>
+                    {%for room in rooms%}
+                        <tr>
+                            <td>{{room.room_name}}</td>
+                            <td>{{room.room_capacity}}</td>
+                            <td>{{room.room_fac}}</td>
+                            <td>{{room.room_notes}}</td>
+                        </tr>
+                    {%endfor%}
+                </table>
+            </div>
+        </div>
+     </div>
+</div>
+
 {%endblock%}

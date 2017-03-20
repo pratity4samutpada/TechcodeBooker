@@ -1,3 +1,27 @@
 {% extends "communitymanager/dash_base.html" %}
+
 {%block content%}
+
+<div class="container-fluid module">
+     <div class="row">
+        <div class="col-md-12 body-default-view">
+            <div class="container">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Companies</th>
+                        <th>Total Monthly Hours</th>
+                        <th>Total Hours</th>
+                    </tr>
+                    {%for companies in companies%}
+                        <tr>
+                            <td>{{companies.company_name}}</td>
+                        </tr>
+                    {%endfor%}
+                </table>
+            </div>
+        </div>
+     </div>
+</div>
+
+
 {%endblock%}
