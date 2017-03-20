@@ -1,13 +1,13 @@
 {% extends "communitymanager/dash_base.html" %}
+{%load static%}
 {%block content%}
-<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-
 <div class="container-fluid module">
-     <div class="row">
+    <div class="row">
         <div class="col-md-12 body-default-view">
             <div class="container">
-                <table class="table table-striped">
-                    <tr>
+                    <table id="booking-table" class="table table-striped tablesorter">
+                        <thead>
+                        <tr>
                         <th>Room</th>
                         <th>Company</th>
                         <th>Date</th>
@@ -16,9 +16,10 @@
                         <th>Booked by</th>
                         <th>Email</th>
                         <th>Note</th>
-                        <th></th>
-                    </tr>
-                    {%for booking in bookings%}
+                        </tr>
+                        </thead>
+                        <tbody class="list">
+                        {%for booking in bookings%}
                         <tr>
                             <td>{{booking.room}}</td>
                             <td>{{booking.company}}</td>
@@ -28,20 +29,27 @@
                             <td>{{booking.booked_by}}</td>
                             <td>{{booking.email}}</td>
                             <td>{{booking.note}}</td>
-                            <td><a href="{% url 'edit_booking' id=booking.id %}"><button class="btn btn-sm btn-success">Edit</button></a></td>
+                            <td><a href="{% url 'edit_instance' model='bookings' id=booking.id %}">
+                                <button class="btn btn-sm btn-success">Edit</button>
+                            </a></td>
                         </tr>
-                    {%endfor%}
-                </table>
-                <div>
-                    <a href="{% url 'new_booking' %}"><button class="btn btn-default">Add New Booking</button></a>
+                        {%endfor%}
+                        </tbody>
+                    </table>
+                    <div>
+                        <a href="{% url 'new_instance' model='bookings'%}">
+                            <button class="btn btn-default">Add New Booking</button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-     </div>
-</div>
-
-
-
-
-
+    </div>
+<script>
+    $(document).ready(function()
+    {
+        $("#booking-table").tablesorter( {sortList: [[0,0], [1,0]]} );
+    }
+);
+</script>
 {%endblock%}

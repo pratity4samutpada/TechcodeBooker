@@ -23,7 +23,6 @@ Community.pendingAction = function(){
         },
         success: function(result){
             $("#"+bookingId).fadeOut()
-            alert(result.msg)
             $("#pending-action-msg").text(result.msg)
         }
    })

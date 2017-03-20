@@ -5,9 +5,6 @@ from django.http import HttpResponse
 
 # Register your models here.
 
-class BookingsAdmin(admin.ModelAdmin):
-    list_display = ('room','company','date','whole_start_time','whole_end_time',)
-
-admin.site.register(Bookings,BookingsAdmin)
+admin.site.register(Bookings)
 admin.site.register(Companies)
 admin.site.register(Rooms)
