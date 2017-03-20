@@ -1,7 +1,8 @@
 from .models import Rooms, Bookings,Companies
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 import json
+from .forms import CompanyForm
 from django.core import serializers
 
 def index(request):
@@ -39,5 +40,13 @@ def pendingaction(request):
     return HttpResponse(json.dumps(msg),content_type='application/json')
 
 def edit_company(request,id):
-    instance = Companies.objects.get(pk=id)
-    return render(request,'communitymanager/edit_company.html',{'instance':instance})
+    company = Companies.objects.get(pk=id)
+    print(company)
+    if request.method == 'POST':
+        form = CompanyForm(request.POST, instance=company)
+        if form.is_valid():
+            form.save()
+            return redirect('companies')
+    else:
+        form = CompanyForm(instance=company)
+        return render(request, 'communitymanager/edit_company.html', {'form': form})

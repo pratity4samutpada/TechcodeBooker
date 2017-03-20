@@ -1,4 +1,14 @@
 {% extends "communitymanager/dash_base.html" %}
 {%block content%}
-<p style="padding-top:200px;">{{instance}}</p>
+<div class="container-fluid index" id="index-view">
+    <div class="row">
+        <div class="col-md-12 body-default-view">
+            <div class="container">
+<form method="POST" class="edit-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+            </div>
+        </div>
+    </div>
 {%endblock%}

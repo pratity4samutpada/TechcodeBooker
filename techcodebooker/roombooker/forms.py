@@ -44,4 +44,7 @@ class booking_form(forms.Form):
 class confirm_booking(forms.Form):
     status = forms.CharField(initial="confirmed", widget=forms.HiddenInput())
 
-
+class CompanyForm(forms.ModelForm):
+    class Meta:
+        model = Companies
+        fields ='__all__'
