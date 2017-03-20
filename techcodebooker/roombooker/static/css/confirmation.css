@@ -27,3 +27,7 @@
     color: gray;
     font-size: 16px;
 }
+
+#footer {
+    display: none;
+}
