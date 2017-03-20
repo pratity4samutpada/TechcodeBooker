@@ -34,9 +34,11 @@ Roombooker.showRoomInfo = function(roomId){
             var name = resFields.room_name
             var fac = resFields.room_fac
             var cap = resFields.room_capacity
+            var notes = resFields.room_notes
             $("#room-name").html(name)
-            $("#room-facilities").html(fac)
-            $("#room-capacity").html('Room Capacity : ' + cap)
+            $("#room-facilities").html('Facilities: ' + fac)
+            $("#room-capacity").html('Capacity: ' + cap)
+            $("#room-notes").html('*Additional room notes: ' + notes)
         }
    })
 };

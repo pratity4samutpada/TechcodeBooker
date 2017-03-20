@@ -102,7 +102,7 @@ def get_room_info(request):
     id = request.GET.get('id')
     room = []
     room.append(Rooms.objects.get(pk=id))
-    result = serializers.serialize('json', room, fields=('room_name', 'room_capacity', 'room_fac'))
+    result = serializers.serialize('json', room, fields=('room_name', 'room_capacity', 'room_fac', 'room_notes'))
     return HttpResponse(result, content_type='application/json')
 
 

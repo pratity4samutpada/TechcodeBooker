@@ -70,7 +70,7 @@
 
     <!-- END Header -->
     {% block breadcrumbs %}
-    <div class="breadcrumbs">
+    <div class="breadcrumbs header-override">
     <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
     {% if title %} &rsaquo; {{ title }}{% endif %}
     </div>

@@ -3,6 +3,7 @@
 {% load static %}}
 {% block head %}
 {{ wizard.form.media }}
+<link rel="stylesheet" type="text/css" href="{% static 'css/roombooker.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -22,6 +23,7 @@
                 <div class = "room-description">
                     <div id="room-facilities" class="room-detail">Step 1: Select a conference room to get started</div>
                     <div id="room-capacity" class="room-detail"></div>
+                    <div id ="room-notes" class = "room-detail"></div>
                 </div>
             </div>
             <div class = "form-1-container">
@@ -30,7 +32,7 @@
                         {{ wizard.management_form }}
                         {{ wizard.form }}
                     </div>
-                    <input type="submit" value="{% trans 'Book Now' %}" class = "form-1-btn btn-primary btn-lg" style="display:none;">
+                    <input type="submit" value="{% trans 'Book Now' %}" class = "form-1-btn btn-lg" id="xtra-style" style="display:none;">
                 </form>
             </div>
         </div>
