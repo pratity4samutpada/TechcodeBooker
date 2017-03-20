@@ -11,6 +11,7 @@
                         <th>Room Capacity</th>
                         <th>Room Facilities</th>
                         <th>Room Notes</th>
+                        <th></th>
                     </tr>
                     {%for room in rooms%}
                         <tr>
@@ -18,6 +19,7 @@
                             <td>{{room.room_capacity}}</td>
                             <td>{{room.room_fac}}</td>
                             <td>{{room.room_notes}}</td>
+                            <td><button class="btn btn-sm btn-success"><a href="{% url 'edit_room' id=room.id %}">Edit</a></button></td>
                         </tr>
                     {%endfor%}
                 </table>
