@@ -9,12 +9,13 @@
                 <table class="table table-striped">
                     <tr>
                         <th>Companies</th>
-                        <th>Total Monthly Hours</th>
                         <th>Total Hours</th>
                     </tr>
-                    {%for companies in companies%}
+                    {%for company in companies%}
                         <tr>
-                            <td>{{companies.company_name}}</td>
+                            <td>{{company.company_name}}</td>
+                            <td>{{company.total_hours}}</td>
+                            <td><button class="btn btn-sm btn-success"><a href="{% url 'edit_company' id=company.id %}">Edit</a></button></td>
                         </tr>
                     {%endfor%}
                 </table>

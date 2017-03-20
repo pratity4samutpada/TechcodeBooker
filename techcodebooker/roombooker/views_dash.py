@@ -37,3 +37,7 @@ def pendingaction(request):
         booking.save()
         msg['msg']="Pending booking was approved."
     return HttpResponse(json.dumps(msg),content_type='application/json')
+
+def edit_company(request,id):
+    instance = Companies.objects.get(pk=id)
+    return render(request,'communitymanager/edit_company.html',{'instance':instance})
