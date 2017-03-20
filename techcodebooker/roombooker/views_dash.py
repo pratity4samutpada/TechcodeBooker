@@ -62,7 +62,6 @@ def new_company(request):
         return render(request, 'communitymanager/edit_company.html', {'form': form})
 
 
-
 def edit_room(request,id):
     room = Rooms.objects.get(pk=id)
     print(room)
@@ -70,7 +69,18 @@ def edit_room(request,id):
         form = RoomForm(request.POST, instance=room)
         if form.is_valid():
             form.save()
-            return redirect('room')
+            return redirect('rooms')
     else:
         form = RoomForm(instance=room)
         return render(request, 'communitymanager/edit_room.html', {'form': form})
+
+
+def new_room(request):
+    if request.method=="POST":
+        form=RoomForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('rooms')
+    else:
+        form=RoomForm()
+        return render(request,'communitymanager/edit_room.html',{"form":form})

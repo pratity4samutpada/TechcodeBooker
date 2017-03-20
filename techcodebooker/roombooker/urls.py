@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^$', BookingWizard.as_view(FORMS)),
     url(r'^dashboard$', views_dash.index, name='dashboard'),
     url(r'^dashboard/rooms$', views_dash.rooms,name='rooms'),
+    url(r'^dashboard/rooms/new$',views_dash.new_room,name='new_room'),
     url(r'^dashboard/rooms/(?P<id>[0-9]+)$', views_dash.edit_room, name='edit_room'),
     url(r'^dashboard/companies$',views_dash.companies,name='companies'),
     url(r'^dashboard/companies/new$',views_dash.new_company,name='new_company'),
