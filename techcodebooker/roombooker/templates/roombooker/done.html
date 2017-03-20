@@ -1,7 +1,9 @@
 {% extends "roombooker/base.html" %}
 {% load i18n %}
+{% load static %}}
 {% block head %}
 {{ wizard.form.media }}
+<link rel="stylesheet" type="text/css" href="{% static 'css/done.css' %}">
 {% endblock %}
 {%load staticfiles%}
 {% block content %}
