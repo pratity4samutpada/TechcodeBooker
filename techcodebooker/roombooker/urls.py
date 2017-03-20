@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^dashboard/rooms$', views_dash.rooms,name='rooms'),
     url(r'^dashboard/companies$',views_dash.companies,name='companies'),
     url(r'^dashboard/bookings$',views_dash.bookings,name='bookings'),
+    url(r'^pendingaction$',views_dash.pendingaction,name='pendingaction'),
     url(r'^getroominfo$', views.get_room_info, name='getroominfo'),
     url(r'^validatetime$', views.validate_time, name='validatetime'),
     url(r'^populatecal$',views_calendar.populate, name='populatecal'),

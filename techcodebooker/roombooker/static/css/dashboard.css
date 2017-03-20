@@ -3,6 +3,10 @@ div.navbar.manager-options{
     border-radius:0;
 }
 
-div.container-fluid.index{
+div.container-fluid{
     padding-top:10%;
+}
+
+#pending-bookings-container{
+    border:1px solid black;
 }

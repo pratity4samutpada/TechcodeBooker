@@ -23,3 +23,17 @@ def companies(request):
     companies = Companies.objects.all()
     context = {'companies':companies}
     return render(request, 'communitymanager/companies.html',context)
+
+def pendingaction(request):
+    action = request.GET.get('action')
+    id = int(request.GET.get('id'))
+    booking = Bookings.objects.get(pk=id)
+    msg ={}
+    if action == 'delete':
+        booking.delete()
+        msg['msg']="Pending booking was deleted."
+    else:
+        booking.status=False
+        booking.save()
+        msg['msg']="Pending booking was approved."
+    return HttpResponse(json.dumps(msg),content_type='application/json')

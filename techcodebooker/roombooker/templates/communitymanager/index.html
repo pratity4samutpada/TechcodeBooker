@@ -3,11 +3,11 @@
 <div class="container-fluid index" id="index-view">
     <div class="row">
         <div class="col-md-12 body-default-view">
-            <div class="container">
+            <div id="pending-bookings-container" class="container">
                  {%if not bookings%}
                 <div>No pending bookings</div>
                 {%else%}
-            <table class="table table-sm" id="pending-bookings-container">
+            <table class="table table-sm">
             <caption>Pending Bookings</caption>
             <thead class="thead-inverse">
             <tr>
@@ -21,22 +21,23 @@
             </tr>
             </thead>
                 {%for booking in bookings%}
-                    <tr>
+                    <tr id="{{booking.id}}">
                     <td>{{booking.company}}</td>
                     <td>{{booking.room}}</td>
                     <td>{{booking.date}}</td>
                     <td>{{booking.whole_start_time}}</td>
                     <td>{{booking.whole_end_time}}</td>
                     <td>
-                        <input type="submit" value=" - " class = "button" id = "delete_pending">
+                        <button data-booking-id={{booking.id}} value="delete" class = "delete-pending pending-action" >Cancel</button>
                     </td>
                     <td>
-                        <input type="submit" value="&#10004" class = "button" id = "approve_pending">
+                        <button data-booking-id={{booking.id}} type="submit" value="approve" class = "approve-pending pending-action">Approve</button>
                     </td>
                     </tr>
                 {%endfor%}
                 {%endif%}
             </table>
+                <div id="pending-action-msg"></div>
             </div>
         </div>
     </div>

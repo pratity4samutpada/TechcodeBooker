@@ -36,7 +36,7 @@ class Bookings (models.Model):
         company = models.ForeignKey('Companies',on_delete=models.CASCADE)
         email = models.EmailField('Your Email')
         booked_by = models.CharField('Full Name', max_length=50)
-        note = models.CharField('Notes',max_length=300,null=True)
+        note = models.CharField('Notes',max_length=300,null=True,blank=True)
         status=models.BooleanField('Pending',default=False)
 
         @property
@@ -48,12 +48,13 @@ class Bookings (models.Model):
             return "{0}:{1}".format(str(self.end_time), str(int(self.end_minutes) * 60).zfill(2))
 
         def save(self, *args, **kwargs):
-            start = int(self.start_time) + float(self.start_minutes)
-            end = int(self.end_time) + float(self.end_minutes)
-            num_hours = end - start
-            company = self.company
-            company.total_hours+=num_hours
-            company.save()
+            if not self.status:
+                start = int(self.start_time) + float(self.start_minutes)
+                end = int(self.end_time) + float(self.end_minutes)
+                num_hours = end - start
+                company = self.company
+                company.total_hours+=num_hours
+                company.save()
             super(Bookings, self).save(*args, **kwargs)  # Call the "real" save() method.
 
 
