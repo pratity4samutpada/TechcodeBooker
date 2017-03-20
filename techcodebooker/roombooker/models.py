@@ -8,7 +8,7 @@ class Rooms (models.Model):
     room_image = models.ImageField(upload_to="roomimages")
     room_capacity = models.IntegerField()
     room_fac = models.CharField("Room Facilities",max_length=999)
-    room_notes = models.CharField("Notes",max_length=300,null=True)
+    room_notes = models.CharField("Notes",max_length=300,null=True,blank=True)
     def __str__(self):
        return self.room_name
     class Meta:

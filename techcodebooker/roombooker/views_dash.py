@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 import json
 from .forms import CompanyForm,RoomForm
-from django.core import serializers
+
 
 def index(request):
     bookings = Bookings.objects.filter(status=True).order_by('-date')
@@ -43,6 +43,9 @@ def edit_company(request,id):
     company = Companies.objects.get(pk=id)
     print(company)
     if request.method == 'POST':
+        if request.POST.get('delete'):
+            company.delete()
+            return redirect('companies')
         form = CompanyForm(request.POST, instance=company)
         if form.is_valid():
             form.save()
@@ -60,6 +63,7 @@ def new_company(request):
         else:
             form = CompanyForm()
         return render(request, 'communitymanager/edit_company.html', {'form': form})
+
 
 
 def edit_room(request,id):
