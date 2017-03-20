@@ -15,8 +15,34 @@ button.delete,button.delete{
     margin:20px;
 }
 
+.delete-pending {
+    background-color: rgba(216, 12, 24, 1);
+    border: none;
+    color: white;
+    padding: 5%;
+}
 
+.approve-pending {
+    background-color: rgba(0, 121, 195, 1);
+    border: none;
+    color: white;
+    padding: 5%;
+}
 
+#edit-form-container {
+    /*display: inline-block;*/
+    background-color: rgba(0, 121, 195, 0.2);
+    padding: 4%;
+    width: 90%;
+    margin-left: 4%;
+    float: left;
+    clear: left;
+    text-align: left;
+}
+
+.save {
+    margin-bottom: 2%;
+}
 
 /*FOR TABS IN THE INDEX DON'T TOUCH FOR NOW*/
 #exTab1 .tab-content {
@@ -48,3 +74,4 @@ button.delete,button.delete{
   background-color: #428bca;
   padding : 5px 15px;
 }
+

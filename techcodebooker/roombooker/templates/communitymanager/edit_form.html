@@ -3,9 +3,9 @@
 <div class="container-fluid index" id="index-view">
     <div class="row">
         <div class="col-md-12 body-default-view">
-            <div class="container">
+            <div class="container" id="edit-form-container">
                 <form method="POST" class="edit-form" enctype="multipart/form-data">{% csrf_token %}
-                    {{ form.as_p }}
+                    {{ form.as_p}}
                     <button type="submit" class="save btn btn-default">Save</button>
                     {%if not new%}
                     <button type="submit" name="delete" class="delete btn btn-danger"

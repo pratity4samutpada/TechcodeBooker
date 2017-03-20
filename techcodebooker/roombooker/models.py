@@ -28,7 +28,7 @@ class Bookings (models.Model):
 
         room = models.ForeignKey('Rooms', on_delete=models.CASCADE)
         start_time = models.IntegerField("From")
-        start_minutes = models.FloatField("Start minute.",default=0)
+        start_minutes = models.FloatField("Start Minutes",default=0)
         end_time = models.IntegerField("To")
         end_minutes = models.FloatField("End Minutes",default=0)
         date = models.DateField("Date", default=timezone.now)
