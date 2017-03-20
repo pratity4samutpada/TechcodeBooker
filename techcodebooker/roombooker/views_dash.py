@@ -51,6 +51,17 @@ def edit_company(request,id):
         form = CompanyForm(instance=company)
         return render(request, 'communitymanager/edit_company.html', {'form': form})
 
+def new_company(request):
+        if request.method == "POST":
+            form = CompanyForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('companies')
+        else:
+            form = CompanyForm()
+        return render(request, 'communitymanager/edit_company.html', {'form': form})
+
+
 
 def edit_room(request,id):
     room = Rooms.objects.get(pk=id)
