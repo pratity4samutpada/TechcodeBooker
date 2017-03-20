@@ -53,3 +53,8 @@ class RoomForm(forms.ModelForm):
     class Meta:
         model = Rooms
         fields ='__all__'
+
+class BookingForm(forms.ModelForm):
+    class Meta:
+        model = Bookings
+        fields='__all__'

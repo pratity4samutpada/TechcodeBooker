@@ -47,6 +47,7 @@ class Bookings (models.Model):
         def whole_end_time(self):
             return "{0}:{1}".format(str(self.end_time), str(int(self.end_minutes) * 60).zfill(2))
 
+
         def save(self, *args, **kwargs):
             if not self.status:
                 start = int(self.start_time) + float(self.start_minutes)

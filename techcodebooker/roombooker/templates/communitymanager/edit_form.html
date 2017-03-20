@@ -7,10 +7,12 @@
 <form method="POST" class="edit-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
-        <button type="submit" name="delete" class="delete btn btn-danger" onclick="return confirm('Delete this company?')">Delete</button>
+        {%if not new%}
+        <button type="submit" name="delete" class="delete btn btn-danger" onclick="return confirm('Confirm Delete?')">Delete</button>
+        {%endif%}
     </form>
         <div>
-            <a href="{%url 'companies'%}"><button class="cancel btn btn-warning">Cancel</button></a>
+            <a href="{{request.META.HTTP_REFERER}}"><button class="cancel btn btn-warning">Cancel</button></a>
         </div>
             </div>
         </div>

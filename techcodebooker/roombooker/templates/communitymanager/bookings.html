@@ -1,3 +1,46 @@
 {% extends "communitymanager/dash_base.html" %}
 {%block content%}
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
+<div class="container-fluid module">
+     <div class="row">
+        <div class="col-md-12 body-default-view">
+            <div class="container">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Room</th>
+                        <th>Company</th>
+                        <th>Date</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Booked by</th>
+                        <th>Email</th>
+                        <th>Note</th>
+                    </tr>
+                    {%for booking in bookings%}
+                        <tr>
+                            <td>{{booking.room}}</td>
+                            <td>{{booking.company}}</td>
+                            <td>{{booking.date}}</td>
+                            <td>{{booking.whole_start_time</td>
+                            <td>{{booking.whole_end_time}}</td>
+                            <td>{{booking.booked_by}}</td>
+                            <td>{{booking.email}}</td>
+                            <td>{{booking.note}}</td>
+                            <td><button class="btn btn-sm btn-success"><a href="{% url 'edit_booking' id=booking.id %}">Edit</a></button></td>
+                        </tr>
+                    {%endfor%}
+                </table>
+                <div>
+                    <button class="btn btn-default"><a href="{% url 'new_booking' %}">Add New Booking</a></button>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>
+
+
+
+
+
 {%endblock%}
