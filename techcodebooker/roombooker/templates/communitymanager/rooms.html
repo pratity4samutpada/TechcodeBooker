@@ -19,12 +19,12 @@
                             <td>{{room.room_capacity}}</td>
                             <td>{{room.room_fac}}</td>
                             <td>{{room.room_notes}}</td>
-                            <td><button class="btn btn-sm btn-success"><a href="{% url 'edit_room' id=room.id %}">Edit</a></button></td>
+                            <td><a href="{% url 'edit_room' id=room.id %}"><button class="btn btn-sm btn-success">Edit</button></a></td>
                         </tr>
                     {%endfor%}
                 </table>
                 <div>
-                    <button class="btn btn-default"><a href="{% url 'new_room' %}">Add New Room</a></button>
+                    <a href="{% url 'new_room' %}"><button class="btn btn-default">Add New Room</button></a>
                 </div>
             </div>
         </div>
