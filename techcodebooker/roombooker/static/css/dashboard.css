@@ -114,3 +114,12 @@ button.delete, button.save{
 div.save-delete-container {
     display: inline-block;
 }
+
+.add-new {
+    background-color: rgba(31, 44, 92, 1);
+    color: white;
+}
+
+.add-new:hover {
+    color: white;
+}
