@@ -52,8 +52,8 @@ div.container.module{
 }
 
 button.delete, button.save{
-    margin-bottom:1em;
-    display:block;
+    margin-bottom:2em;
+    display:inline-block;
 }
 
 .delete-pending {
@@ -71,7 +71,6 @@ button.delete, button.save{
 }
 
 #edit-form-container {
-    /*display: inline-block;*/
     background-color: #8dbdd8;
     padding: 4%;
     width: 60%;
@@ -85,6 +84,7 @@ button.delete, button.save{
 
 .save {
     margin-bottom: 2%;
+    margin-right: 2%;
 }
 
 /*FOR TABS IN THE INDEX DON'T TOUCH FOR NOW*/
@@ -100,13 +100,9 @@ button.delete, button.save{
   padding : 5px 15px;
 }
 
-/* remove border radius for the tab */
-
 #exTab1 .nav-pills > li > a {
   border-radius: 0;
 }
-
-/* change border radius for the tab , apply corners on top*/
 
 #exTab3 .nav-pills > li > a {
   border-radius: 4px 4px 0 0 ;
@@ -127,14 +123,3 @@ button.delete, button.save{
 .add-new:hover {
     color: white;
 }
-
-
-
-
-
-/*label{*/
-    /*display:inline-block;*/
-    /*width:100px;*/
-    /*text-align: right;*/
-/*}*/
-
