@@ -2,9 +2,10 @@
 {%load static%}
 {%block content%}
 <div class="container module" id="index-view">
+    <h3 class="cm-page-title">Techcode Booker Community Manager Page</h3>
     <div class="row">
         <div class="col-md-12 body-default-view">
-            <h3>{% now "jS F Y" %}</h3>
+            <h3 class = "date-header">{% now "jS F Y" %}</h3>
             <div id="pending-bookings-container" class="container-fluid">
                 {%if not bookings%}
                 <div>No pending bookings</div>

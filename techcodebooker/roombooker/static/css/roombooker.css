@@ -1,4 +1,4 @@
-/*#Desktop organize colums info(left) Gallery(right)*/
+
 @media(min-width:700px){
 }
 
@@ -11,17 +11,8 @@ body {
     height: 100%;
 }
 
-
-/*for roombooker.html*/
 .room-selection-container {
-    background-color: rgba(255, 255, 255, .7);
-    /*background-image: url("https://images.pexels.com/photos/273238/pexels-photo-273238.jpeg?h=350&auto=compress&cs=tinysrgb");*/
-    /*background-repeat: no-repeat;*/
-    /*background-position: 0 0;*/
-    /*background-size: cover;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-
+    background-color: rgba(255, 255, 255, .8);
 }
 
 .page-title {
@@ -36,13 +27,6 @@ body {
 
 .first-container {
     text-align: center;
-
-
-    /*margin-left: 3%;*/
-    /*background-image: url("https://images.pexels.com/photos/296883/pexels-photo-296883.jpeg?h=350&auto=compress&cs=tinysrgb");*/
-    /*background-repeat: no-repeat;*/
-    /*background-position: 0 0;*/
-    /*background-size: cover;*/
 }
 
 .available-rooms {
@@ -60,17 +44,14 @@ body {
     padding: 3%;
     margin-bottom: 1%;
 }
-
 .room-img {
-    height: 175px;
-    border-radius: 100px;
+    height: 150px;
     background-position: 50% 50%;
     box-shadow: 2px 2px 2px #888888;
 }
 
 .second-container {
     text-align: center;
-
 }
 
 .available-room-info {
@@ -81,37 +62,28 @@ body {
     letter-spacing: 0.2em;
 }
 
-
-.description-container {
-    /*background: rgba(0, 0, 0, .4);*/
-    /*padding: 2%;*/
-
-}
-
 .room-description {
     margin-top: 4%;
     font-size: 18px;
-    /*/color: white;*/
     width: 50%;
     vertical-align: text-top;
     margin-left: 25%;
-    background-color: rgba(241, 141, 0, 1);
+    background-color: rgba(0, 145, 219, .5);
     border-radius: 2px;
-
 }
 
 .room-name {
     text-transform: uppercase;
-
 }
 
 #room-name-img-label {
-    /*background-color: rgba(0, 0, 0, 0.4);*/
     padding: 1%;
     font-weight:800;
     font-style: italic;
     letter-spacing: 0.2em;
     margin-top: 2%;
+    background-color: rgba(0, 145, 219, .1);
+    border-radius: 2px;
 }
 
 #room-name {
@@ -126,15 +98,12 @@ body {
 .room-detail {
     font-size: 20px;
     padding: 2%;
-    /*background-color: rgba(0, 121, 195, 0.7);*/
     border-radius: 2px;
     height: 20%;
 }
 
 #room-facilities {
     font-size: 20px;
-    font-style: italic;
-
 }
 
 #room-capacity {
@@ -145,20 +114,17 @@ body {
 #room-notes {
     font-size: 12px;
     font-style: italic;
-
 }
 
 .form-1-container {
     margin-top: 20%;
     color: black;
-
-
 }
 
 input#xtra-style {
     padding: 1%;
     width: 35%;
-    background-color: rgba(0, 141, 195, 1);
+    background-color: rgba(241, 141, 0, 1);
     color: white;
     border: none;
     border-radius: 10px;
@@ -169,6 +135,5 @@ input#xtra-style {
 -webkit-box-shadow: 0px 0px 24px 2px rgba(31, 44, 92,1)!important;;
 -moz-box-shadow: 0px 0px 24px 2px rgba(31, 44, 92,1)!important;;
 box-shadow: 0px 0px 24px 2px rgba(31, 44, 92, 1) !important;
-    border-radius: 100px;
 }
 

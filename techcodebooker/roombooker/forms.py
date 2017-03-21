@@ -55,6 +55,10 @@ class RoomForm(forms.ModelForm):
         fields ='__all__'
 
 class BookingForm(forms.ModelForm):
+    start_time = forms.ChoiceField(choices=((i, str(i).zfill(2)) for i in range(24)), widget=forms.Select())
+    start_minutes = forms.ChoiceField(choices=((0, ":00"), (0.5, ":30")), widget=forms.Select(attrs={'class': 'book-date'}))
+    end_time = forms.ChoiceField(choices=((i, str(i).zfill(2)) for i in range(24)), widget=forms.Select())
+    end_minutes = forms.ChoiceField(choices=((0, ":00"), (0.5, ":30")), widget=forms.Select(attrs={'class': 'book-date'}))
     class Meta:
         model = Bookings
         fields='__all__'

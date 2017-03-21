@@ -3,7 +3,6 @@ body {
     width:100%;
     padding-top: 4%;
     /*position:relative;*/
-    /*padding-bottom: 6rem;*/
 }
 
 
@@ -43,14 +42,13 @@ a:active{
     color: #9dafc0;
     background-color: #1F2C5C;
     height:3em;
-    /*width: 100%;*/
     bottom: 0;
-    /*position: absolute;*/
-    /*display:block;*/
     padding-right: 0;
     padding-left: 0;
     margin-right: auto;
     margin-left: auto;
+    width: 100%;
+    /*position: fixed;*/
 }
 
 .footer-text{

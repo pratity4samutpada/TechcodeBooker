@@ -5,6 +5,8 @@
     <div class="row">
         <div class="col-md-12 body-default-view">
             <div class="container">
+                <div class="title">Bookings</div>
+                <div class="bookings-table-description">List of bookings for the next 30 days</div>
                     <table id="booking-table" class="table table-striped tablesorter">
                         <thead>
                         <tr>
@@ -38,7 +40,7 @@
                     </table>
                     <div>
                         <a href="{% url 'new_instance' model='bookings'%}">
-                            <button class="btn btn-primary">Add New Booking</button>
+                            <button class="btn add-new">Add New Booking</button>
                         </a>
                     </div>
                 </div>

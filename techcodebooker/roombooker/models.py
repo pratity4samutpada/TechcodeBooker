@@ -34,7 +34,7 @@ class Bookings (models.Model):
         date = models.DateField("Date", default=timezone.now)
         booking_time = models.DateField("Time the booking was made",auto_now_add=True)
         company = models.ForeignKey('Companies',on_delete=models.CASCADE)
-        email = models.EmailField('Your Email')
+        email = models.EmailField('Email')
         booked_by = models.CharField('Full Name', max_length=50)
         note = models.CharField('Notes',max_length=300,null=True,blank=True)
         status=models.BooleanField('Pending',default=False)

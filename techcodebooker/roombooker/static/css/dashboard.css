@@ -24,12 +24,36 @@ div.container{
 div.container.module{
     background-color:white;
 }
+.cm-page-title {
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 0.1em;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    color: rgb(31, 44, 92);
+}
 
+.title {
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    letter-spacing: 0.2em;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin-bottom: 1%;
+}
 
+.date-header {
+    font-size: 18px;
+    color: black;
+}
+
+.bookings-table-description {
+    color: white;
+}
 
 button.delete, button.save{
-    margin-bottom:1em;
-    display:block;
+    margin-bottom:2em;
+    display:inline-block;
 }
 
 .delete-pending {
@@ -47,11 +71,12 @@ button.delete, button.save{
 }
 
 #edit-form-container {
-    /*display: inline-block;*/
-    background-color: rgba(0, 121, 195, 0.2);
+    background-color: #8dbdd8;
     padding: 4%;
-    width: 90%;
-    margin-left: 4%;
+    width: 60%;
+    margin-left: 23%;
+    margin-top: 2%;
+    margin-bottom: 2%;
     float: left;
     clear: left;
     text-align: left;
@@ -59,6 +84,7 @@ button.delete, button.save{
 
 .save {
     margin-bottom: 2%;
+    margin-right: 2%;
 }
 
 /*FOR TABS IN THE INDEX DON'T TOUCH FOR NOW*/
@@ -74,13 +100,9 @@ button.delete, button.save{
   padding : 5px 15px;
 }
 
-/* remove border radius for the tab */
-
 #exTab1 .nav-pills > li > a {
   border-radius: 0;
 }
-
-/* change border radius for the tab , apply corners on top*/
 
 #exTab3 .nav-pills > li > a {
   border-radius: 4px 4px 0 0 ;
@@ -92,3 +114,12 @@ button.delete, button.save{
   padding : 5px 15px;
 }
 
+
+.add-new {
+    background-color: rgba(31, 44, 92, 1);
+    color: white;
+}
+
+.add-new:hover {
+    color: white;
+}
