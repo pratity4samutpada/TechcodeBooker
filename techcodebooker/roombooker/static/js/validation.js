@@ -4,11 +4,11 @@
 Validate = {}
 
 
-//Validate.init = function(){
+
     js313(document).ready(function(){
          Validate.bindEventListeners();
     })
-//    }
+
 
 Validate.bindEventListeners = function(){
     js313("#id_Booking-start_time").off().on("change",Validate.adjustEndTime).on("change",Validate.validateTime);
@@ -78,4 +78,3 @@ Validate.validateTime = function(){
         }
    })
 }
-//Validate.init();
