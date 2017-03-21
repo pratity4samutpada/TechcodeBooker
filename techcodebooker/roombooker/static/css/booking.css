@@ -22,7 +22,14 @@
 }
 
 
-input[type=text] {
+input[input-text] {
+    width: 100%;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+input[type=text]{
     width: 100%;
     margin: 10px 0;
     box-sizing: border-box;
