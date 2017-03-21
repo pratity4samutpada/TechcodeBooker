@@ -42,6 +42,11 @@ div.container.module{
     margin-bottom: 1%;
 }
 
+.date-header {
+    font-size: 18px;
+    color: black;
+}
+
 .bookings-table-description {
     color: white;
 }
@@ -69,8 +74,10 @@ button.delete, button.save{
     /*display: inline-block;*/
     background-color: #8dbdd8;
     padding: 4%;
-    width: 90%;
-    margin-left: 4%;
+    width: 60%;
+    margin-left: 23%;
+    margin-top: 2%;
+    margin-bottom: 2%;
     float: left;
     clear: left;
     text-align: left;
@@ -111,9 +118,6 @@ button.delete, button.save{
   padding : 5px 15px;
 }
 
-div.save-delete-container {
-    display: inline-block;
-}
 
 .add-new {
     background-color: rgba(31, 44, 92, 1);
@@ -123,3 +127,14 @@ div.save-delete-container {
 .add-new:hover {
     color: white;
 }
+
+
+
+
+
+/*label{*/
+    /*display:inline-block;*/
+    /*width:100px;*/
+    /*text-align: right;*/
+/*}*/
+
