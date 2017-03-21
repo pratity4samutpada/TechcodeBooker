@@ -14,8 +14,8 @@
             <ul class = "confirmation-data">
                 <li class = "listed-data-items"><img style="height:150px;" src="{{data_from_step_1.room_image.url}}"/>
                 <li class = "listed-data-items">Selected Room: {{data_from_step_1.room_name}}</li>
-                <li class = "listed-data-items">Start-time: {{data_from_step_2.start_time}}:{{data_from_step_2.start_minutes}}</li>
-                <li class = "listed-data-items">End-time: {{data_from_step_2.end_time}}:{{data_from_step_2.start_minutes}}</li>
+                <li class = "listed-data-items">Start-time: {{data_from_step_2.start_time}}:{{start_minutes}}</li>
+                <li class = "listed-data-items">End-time: {{data_from_step_2.end_time}}:{{end_minutes}}</li>
                 <li class = "listed-data-items">Date: {{data_from_step_2.booking_date}}</li>
                 <li class = "listed-data-items" id="reservation-status">{{ message.msg }}</li>
             </ul>
@@ -31,5 +31,6 @@
             </form>
         </div>
     </div>
+</div>
 </div>
 {% endblock %}

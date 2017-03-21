@@ -45,6 +45,8 @@ class BookingWizard(SessionWizardView):
             new_context['data_from_step_1'] = room
             if self.steps.step1 == 3:
                 booking = self.get_cleaned_data_for_step('Booking')
+                new_context['start_minutes'] = str(int(float(booking['start_minutes']) * 60)).zfill(2)
+                new_context['end_minutes'] = str(int(float(booking['end_minutes']) * 60)).zfill(2)
                 new_context['data_from_step_2'] = booking
                 if booking['status'] == 'pending':
                     new_context['message'] = {
