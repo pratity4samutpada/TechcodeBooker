@@ -111,7 +111,7 @@ body {
     font-style: italic;
     letter-spacing: 0.2em;
     margin-top: 2%;
-    background-color: rgba(0, 145, 219, .1);
+    background-color: rgba(0, 145, 219, .2);
 }
 
 #room-name {
