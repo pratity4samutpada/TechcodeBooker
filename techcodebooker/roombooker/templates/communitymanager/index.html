@@ -1,10 +1,11 @@
 {% extends "communitymanager/dash_base.html" %}
 {%load static%}
 {%block content%}
-<div class="container-fluid index" id="index-view">
+<div class="container module" id="index-view">
     <div class="row">
         <div class="col-md-12 body-default-view">
-            <div id="pending-bookings-container" class="container">
+            <h3>{% now "jS F Y" %}</h3>
+            <div id="pending-bookings-container" class="container-fluid">
                 {%if not bookings%}
                 <div>No pending bookings</div>
                 {%else%}

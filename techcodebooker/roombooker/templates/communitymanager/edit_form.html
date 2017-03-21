@@ -1,9 +1,11 @@
 {% extends "communitymanager/dash_base.html" %}
 {%block content%}
-<div class="container-fluid index" id="index-view">
+<div class="container module" id="edit-view">
     <div class="row">
         <div class="col-md-12 body-default-view">
-            <div class="container" id="edit-form-container">
+            <div class="container-fluid" id="edit-form-container">
+            <h3>You are {%if new%} creating a new{%else%} editing an{%endif%} entry in the list of {{title}}</h3>
+            <div class="form-container container-fluid">
                 <form method="POST" class="edit-form" enctype="multipart/form-data">{% csrf_token %}
                     {{ form.as_p}}
                     <div class = "save-delete-container">

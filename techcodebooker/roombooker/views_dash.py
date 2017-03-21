@@ -7,14 +7,15 @@ from django.contrib.auth.decorators import login_required
 
 models = {'rooms': Rooms, 'bookings': Bookings, 'companies': Companies}
 
-
+# Associated url: /booker/dashboard
+# Displays the index page of the community manager dashboard.
 @login_required
 def index(request):
     bookings = Bookings.objects.filter(status=True).order_by('-date')
     context = {'bookings': bookings}
     return render(request, 'communitymanager/index.html', context)
 
-
+#Retrieves relevant querysets of models used in the dashboard.
 def get_model(model):
     current_date = datetime.date.today()
     models = {}
@@ -23,7 +24,7 @@ def get_model(model):
     models['bookings'] = Bookings.objects.filter(date__gte=current_date).order_by('-date')
     return models[model]
 
-
+#Retrieves modelform subclasses to be used in the updating and creation views for models in the dashboard.
 def get_modelform(model):
     modelforms = {}
     modelforms['rooms'] = RoomForm
@@ -31,7 +32,8 @@ def get_modelform(model):
     modelforms['bookings'] = BookingForm
     return modelforms[model]
 
-
+# Associated url: booker/dashboard/MODEL NAME(companies,bookings,or rooms)
+# Returns the template depending on the value of the "model" argument passed from the url.
 @login_required
 def show_model(request, model):
     render_model = get_model(model)
@@ -39,7 +41,7 @@ def show_model(request, model):
     url = 'communitymanager/{}.html'.format(model)
     return render(request, url, context)
 
-
+# View linked to ajax request. Handles user action on pending bookings which are displayed in the index.
 def pendingaction(request):
     action = request.GET.get('action')
     id = int(request.GET.get('id'))
@@ -54,7 +56,8 @@ def pendingaction(request):
         msg['msg'] = "Pending booking was approved."
     return HttpResponse(json.dumps(msg), content_type='application/json')
 
-
+# Associated url: booker/dashboard/MODEL NAME/ID
+# View for rendering model editing forms.
 @login_required
 def edit_instance(request, model, id):
     instance = models[model].objects.get(pk=id)
@@ -73,9 +76,10 @@ def edit_instance(request, model, id):
             return redirect(url)
     else:
         form = ModForm(instance=instance)
-        return render(request, 'communitymanager/edit_form.html', {'form': form})
+        return render(request, 'communitymanager/edit_form.html', {'form': form,'title':model})
 
-
+# Associated url: booker/dashboard/MODEL NAME/new
+# View for rendering forms for new models.
 @login_required
 def new_instance(request, model):
     ModForm = get_modelform(model)
@@ -90,4 +94,4 @@ def new_instance(request, model):
             return redirect(url)
     else:
         form = ModForm()
-    return render(request, 'communitymanager/edit_form.html', {'form': form, 'new': True})
+    return render(request, 'communitymanager/edit_form.html', {'form': form, 'new': True, 'title':model})

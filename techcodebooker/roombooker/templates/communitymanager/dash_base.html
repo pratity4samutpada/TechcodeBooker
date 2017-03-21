@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav id="techcode-header" class="navbar navbar-default navbar-fixed-top">
 
         <div class ="head">
             <span class="logo">
@@ -35,9 +35,9 @@
             </span>
         </div>
 
-    <div class="navbar navbar-inverse manager-options">
+    <div id="manager-options" class="navbar navbar-inverse manager-options">
         <ul class="nav navbar-nav">
-            <li id="main" class="dash-nav-item active"><a href="{%url 'dashboard'%}">Main</a></li>
+            <li id="main" class="dash-nav-item"><a href="{%url 'dashboard'%}">Main</a></li>
             <li id="bookings" class="dash-nav-item"><a href="{% url 'show_model' model='bookings' %}">Bookings</a></li>
             <li id="rooms" class="dash-nav-item"><a href="{% url 'show_model' model='rooms' %}">Rooms</a></li>
             <li id="companies" class="dash-nav-item"><a href="{% url 'show_model' model='companies'%}">Companies</a></li>
