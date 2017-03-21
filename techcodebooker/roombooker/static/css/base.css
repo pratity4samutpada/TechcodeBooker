@@ -51,6 +51,7 @@ a:active{
     padding-left: 0;
     margin-right: auto;
     margin-left: auto;
+    position:fixed;
 }
 
 .footer-text{

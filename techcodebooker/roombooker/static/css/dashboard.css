@@ -31,7 +31,7 @@ button.delete,button.delete{
 
 #edit-form-container {
     /*display: inline-block;*/
-    background-color: rgba(0, 121, 195, 0.2);
+    background-color: #8dbdd8;
     padding: 4%;
     width: 90%;
     margin-left: 4%;
@@ -75,3 +75,6 @@ button.delete,button.delete{
   padding : 5px 15px;
 }
 
+div.save-delete-container {
+    display: inline-block;
+}
