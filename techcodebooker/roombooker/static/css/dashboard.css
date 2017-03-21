@@ -46,8 +46,9 @@ div.container.module{
     color: white;
 }
 
-button.delete,button.delete{
-    margin:20px;
+button.delete, button.save{
+    margin-bottom:1em;
+    display:block;
 }
 
 .delete-pending {

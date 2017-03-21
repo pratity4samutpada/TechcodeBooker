@@ -31,13 +31,13 @@
                         <td>{{booking.whole_start_time}}</td>
                         <td>{{booking.whole_end_time}}</td>
                         <td>
-                            <button data-booking-id={{booking.id}} value="delete" class="delete-pending pending-action">
+                            <button data-booking-id={{booking.id}} value="delete" class="delete-pending pending-action btn-danger">
                                 Cancel
                             </button>
                         </td>
                         <td>
                             <button data-booking-id={{booking.id}} type="submit" value="approve"
-                                    class="approve-pending pending-action">Approve
+                                    class="approve-pending pending-action btn-success">Approve
                             </button>
                         </td>
                     </tr>
