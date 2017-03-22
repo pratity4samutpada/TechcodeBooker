@@ -2,6 +2,11 @@ body{
     background-color:rgb(0,121,195);
 }
 
+div.col-md-12.body-default-view{
+    padding:0;
+    min-height:80%;
+}
+
 #techcode-header{
     border:0;
 }
@@ -19,6 +24,7 @@ div.container{
 #pending-bookings-container{
     border:1px solid black;
     background-color:white;
+    padding:0;
 }
 
 div.container.module{
@@ -87,39 +93,6 @@ button.delete, button.save{
     margin-right: 2%;
 }
 
-/*FOR TABS IN THE INDEX DON'T TOUCH FOR NOW*/
-#exTab1 .tab-content {
-  color : white;
-  background-color: #428bca;
-  padding : 5px 15px;
-}
-
-#exTab2 h3 {
-  color : white;
-  background-color: #428bca;
-  padding : 5px 15px;
-}
-
-#exTab1 .nav-pills > li > a {
-  border-radius: 0;
-}
-
-#exTab3 .nav-pills > li > a {
-  border-radius: 4px 4px 0 0 ;
-}
-
-#exTab3 .tab-content {
-  color : white;
-  background-color: #428bca;
-  padding : 5px 15px;
-}
-
-
-.add-new {
-    background-color: rgba(31, 44, 92, 1);
-    color: white;
-}
-
-.add-new:hover {
-    color: white;
+.cal-header{
+    padding-left:2%;
 }

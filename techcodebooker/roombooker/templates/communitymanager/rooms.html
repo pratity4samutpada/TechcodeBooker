@@ -21,7 +21,9 @@
                             <td>{{room.room_capacity}}</td>
                             <td>{{room.room_fac}}</td>
                             <td>{{room.room_notes}}</td>
-                            <td><a href="{% url 'edit_instance' model='rooms' id=room.id %}"><button class="btn btn-sm btn-success">Edit</button></a></td>
+                            <td><a href="{% url 'edit_instance' model='rooms' id=room.id %}"><button class="btn btn-sm btn-success">Edit</button></a>
+                                <a href="{% url 'show_calendar' id=room.id %}"><button class="btn btn-sm btn-primary">Calendar</button></a>
+                            </td>
                         </tr>
                     {%endfor%}
                 </table>

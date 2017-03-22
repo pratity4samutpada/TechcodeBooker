@@ -5,7 +5,7 @@
     <h3 class="cm-page-title">Techcode Booker Community Manager Page</h3>
     <div class="row">
         <div class="col-md-12 body-default-view">
-            <h3 class = "date-header">{% now "jS F Y" %}</h3>
+            <h3 class = "date-header">Today is{% now "jS F Y" %}</h3>
             <div id="pending-bookings-container" class="container-fluid">
                 {%if not bookings%}
                 <div>No pending bookings</div>
@@ -31,7 +31,8 @@
                         <td>{{booking.whole_start_time}}</td>
                         <td>{{booking.whole_end_time}}</td>
                         <td>
-                            <button data-booking-id={{booking.id}} value="delete" class="delete-pending pending-action btn-danger">
+                            <button data-booking-id={{booking.id}} value="delete"
+                                    class="delete-pending pending-action btn-danger">
                                 Cancel
                             </button>
                         </td>
@@ -46,44 +47,25 @@
                 </table>
                 <div id="pending-action-msg"></div>
             </div>
-        </div>
-    </div>
-
-
-    <div class="container">
-        <div id="exTab1" class="container">
-            <ul class="nav nav-pills">
-                <li class="active">
-                    <a href="#1a" data-toggle="tab">Overview</a>
-                </li>
-                <li><a href="#2a" data-toggle="tab">Using nav-pills</a>
-                </li>
-                <li><a href="#3a" data-toggle="tab">Applying clearfix</a>
-                </li>
-                <li><a href="#4a" data-toggle="tab">Background color</a>
-                </li>
-            </ul>
-
-            <div class="tab-content clearfix">
-                <div class="tab-pane active" id="1a">
-                    <h3>Content's background color is the same for the tab</h3>
-                </div>
-                <div class="tab-pane" id="2a">
-                    <h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color
-                        for the tab</h3>
-                </div>
-                <div class="tab-pane" id="3a">
-                    <h3>We applied clearfix to the tab-content to rid of the gap between the tab and the content</h3>
-                </div>
-                <div class="tab-pane" id="4a">
-                    <h3>We use css to change the background color of the content to be equal to the tab</h3>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div id="calendar_pane">
+                            <div id="calendar"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>View Calendar for a Room</h4>
+                        <span>
+                        {%for room in rooms%}
+                                <a href="booker/dashboard/rooms/{{room.id}}/calendar"><button class="cal-select btn btn-primary">{{room.room_name}}</button></a>
+                        {%endfor%}
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
-
-
     </div>
+
 </div>
-</div>
-<script src="{%static 'js/community.js'%}"></script>
 {%endblock%}
