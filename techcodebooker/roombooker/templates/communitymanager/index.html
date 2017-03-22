@@ -8,7 +8,7 @@
             <h3 class = "date-header">{% now "jS F Y" %}</h3>
             <div id="pending-bookings-container" class="container-fluid">
                 {%if not bookings%}
-                <div>No pending bookings</div>
+                <div><b>No pending bookings</b></div>
                 {%else%}
                 <table class="table table-sm">
                     <caption>Pending Bookings</caption>
