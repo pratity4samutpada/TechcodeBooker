@@ -26,6 +26,10 @@ div.container{
     background-color: rgba(240,240,240, .7);
 }
 
+.pending-action {
+    color: white;
+}
+
 div.container.module {
     background-color: white;
     padding: 2%;
@@ -64,16 +68,6 @@ button.delete, button.save{
     display:inline-block;
 }
 
-.delete-pending {
-    background-color: rgba(216, 12, 24, 1);
-    color: white;
-    padding: 5%;
-}
-
-.approve-pending {
-    color: white;
-    padding: 5%;
-}
 
 #edit-form-container {
     background-color: #8dbdd8;
