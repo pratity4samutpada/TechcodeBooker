@@ -29,9 +29,12 @@ div.container{
     background-color: rgba(240,240,240, .7)
 }
 
-div.container.module{
-    background-color:white;
+div.container.module {
+    background-color: white;
+    padding: 2%;
+    border-radius: 15px;
 }
+
 .cm-page-title {
     text-align: center;
     font-size: 25px;
@@ -97,4 +100,9 @@ button.delete, button.save{
 
 .cal-header{
     padding-left:2%;
+}
+
+.room-calendar-view {
+    text-align: left;
+    margin-top: 2%;
 }

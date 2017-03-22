@@ -5,7 +5,7 @@
     <h3 class="cm-page-title">Techcode Booker Community Manager Page</h3>
     <div class="row">
         <div class="col-md-12 body-default-view">
-            <h3 class = "date-header">Today is{% now "jS F Y" %}</h3>
+            <h3 class = "date-header">Today is {% now "jS F Y" %}</h3>
             <div id="pending-bookings-container" class="container-fluid">
                 {%if not bookings%}
                 <div><b>No pending bookings</b></div>
@@ -49,12 +49,7 @@
             </div>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-7">
-                        <div id="calendar_pane">
-                            <div id="calendar"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
+                    <div class="col-md-12 room-calendar-view">
                         <h4>View Calendar for a Room</h4>
                         <span>
                         {%for room in rooms%}
