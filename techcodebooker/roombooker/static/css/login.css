@@ -6,6 +6,11 @@
 
 }
 
-input#id_username{
-    width:15%;
+input#id_username {
+    width: 15%;
+    border:1px solid black;
+}
+
+input#id_password{
+    border: 1px solid black;
 }

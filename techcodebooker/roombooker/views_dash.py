@@ -12,7 +12,8 @@ models = {'rooms': Rooms, 'bookings': Bookings, 'companies': Companies}
 @login_required
 def index(request):
     bookings = Bookings.objects.filter(status=True).order_by('-date')
-    context = {'bookings': bookings}
+    rooms = Rooms.objects.all()
+    context = {'bookings': bookings,'rooms':rooms}
     return render(request, 'communitymanager/index.html', context)
 
 #Retrieves relevant querysets of models used in the dashboard.
@@ -64,7 +65,7 @@ def edit_instance(request, model, id):
     ModForm = get_modelform(model)
     url = '/booker/dashboard/{}'.format(model)
     if request.method == 'POST':
-        if request.POST.get('delete'):
+        if 'delete' in request.POST:
             instance.delete()
             return redirect(url)
         request_args = [request.POST]
@@ -95,3 +96,10 @@ def new_instance(request, model):
     else:
         form = ModForm()
     return render(request, 'communitymanager/edit_form.html', {'form': form, 'new': True, 'title':model})
+
+@login_required
+def show_calendar(request,id):
+    room = Rooms.objects.get(pk=id)
+    context={'room_id':id,'room':room}
+    return render(request, 'communitymanager/calendar.html', context)
+

@@ -8,23 +8,33 @@ Calendar.init = function(){
 };
 
 Calendar.getEventData = function(){
-    var roomId = $("#selected-room").attr("data-room-id");
+    var roomId
+    var cmView = false;
+    var url ="populatecal"
+    if($("#selected-room").length){
+         roomId = $("#selected-room").attr("data-room-id");
+    }else{
+        roomId = $("#calendar").attr("data-id");
+        cmView = true;
+        url = "calendar/populatecal"
+    };
      $.ajax({
-        url:"populatecal",
+        url:url,
         method:"GET",
         data: {
             id: roomId
         },
         success: function(result){
             var eventData = JSON.parse(result)
-            Calendar.createCalendar(eventData)
+            Calendar.createCalendar(eventData,cmView)
         }
    })
         };
 
-Calendar.createCalendar = function(eventData){
+Calendar.createCalendar = function(eventData,cmView){
+        var slots = cmView ? slots = 4 : 2
 		$('#calendar').weekCalendar({
-			timeslotsPerHour: 2,
+			timeslotsPerHour: slots,
 			readonly: true,
 			use24Hour: true,
 			height: function($calendar){
