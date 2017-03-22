@@ -4,19 +4,20 @@
     <div class="row">
         <div class="col-md-12 body-default-view">
             <div class="container-fluid" id="edit-form-container">
-            <h3>You are {%if new%} creating a new{%else%} editing an{%endif%} entry in the list of {{title}}</h3>
-            <div class="form-container container-fluid">
-                <form method="POST" class="edit-form" enctype="multipart/form-data">{% csrf_token %}
-                    {{ form.as_p}}
-                    <div class = "edit-form-btn-container">
-                    <button type="submit" class="save btn btn-success">Save</button>
-                    {%if not new%}
-                    <button type="submit" name="delete" class="delete btn btn-danger"
-                            onclick="return confirm('Confirm Delete?')">Delete
-                    </button>
-                    </div>
-                    {%endif%}
-                </form>
+                <h3>You are {%if new%} creating a new{%else%} editing an{%endif%} entry in the list of {{title}}</h3>
+                <div class="form-container container-fluid">
+                    <form method="POST" class="edit-form" enctype="multipart/form-data">{% csrf_token %}
+                        {{ form.as_p}}
+                        <div class="edit-form-btn-container">
+                            <button type="submit" class="save btn btn-success">Save</button>
+                            {%if not new%}
+                            <button type="submit" name="delete" class="delete btn btn-danger"
+                                    onclick="return confirm('Confirm Delete?')">Delete
+                            </button>
+                        </div>
+                        {%endif%}
+                    </form>
+                </div>
                 <div>
                     <a href="{{request.META.HTTP_REFERER}}">
                         <button class="cancel btn btn-warning btn-sm">Cancel</button>
