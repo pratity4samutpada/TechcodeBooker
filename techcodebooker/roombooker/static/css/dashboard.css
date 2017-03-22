@@ -22,11 +22,8 @@ div.container{
 }
 
 #pending-bookings-container{
-    /*border:2px solid rgb(0,121,195);*/
-    /*background-color:white;*/
-    /*border-radius: 25px;*/
     padding: 1%;
-    background-color: rgba(240,240,240, .7)
+    background-color: rgba(240,240,240, .7);
 }
 
 div.container.module {
@@ -69,14 +66,11 @@ button.delete, button.save{
 
 .delete-pending {
     background-color: rgba(216, 12, 24, 1);
-    border: none;
     color: white;
     padding: 5%;
 }
 
 .approve-pending {
-    background-color: rgba(0, 121, 195, 1);
-    border: none;
     color: white;
     padding: 5%;
 }
@@ -105,4 +99,8 @@ button.delete, button.save{
 .room-calendar-view {
     text-align: left;
     margin-top: 2%;
+}
+
+caption {
+    margin-bottom: 1%;
 }
