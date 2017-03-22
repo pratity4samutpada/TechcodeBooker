@@ -1,11 +1,12 @@
 from .models import Rooms, Bookings, Companies
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-import json, datetime
+import json, datetime, csv
 from .forms import CompanyForm, RoomForm, BookingForm
 from django.contrib.auth.decorators import login_required
 
 models = {'rooms': Rooms, 'bookings': Bookings, 'companies': Companies}
+
 
 # Associated url: /booker/dashboard
 # Displays the index page of the community manager dashboard.
@@ -13,10 +14,11 @@ models = {'rooms': Rooms, 'bookings': Bookings, 'companies': Companies}
 def index(request):
     bookings = Bookings.objects.filter(status=True).order_by('-date')
     rooms = Rooms.objects.all()
-    context = {'bookings': bookings,'rooms':rooms}
+    context = {'bookings': bookings, 'rooms': rooms}
     return render(request, 'communitymanager/index.html', context)
 
-#Retrieves relevant querysets of models used in the dashboard.
+
+# Retrieves relevant querysets of models used in the dashboard.
 def get_model(model):
     current_date = datetime.date.today()
     models = {}
@@ -25,13 +27,15 @@ def get_model(model):
     models['bookings'] = Bookings.objects.filter(date__gte=current_date).order_by('-date')
     return models[model]
 
-#Retrieves modelform subclasses to be used in the updating and creation views for models in the dashboard.
+
+# Retrieves modelform subclasses to be used in the updating and creation views for models in the dashboard.
 def get_modelform(model):
     modelforms = {}
     modelforms['rooms'] = RoomForm
     modelforms['companies'] = CompanyForm
     modelforms['bookings'] = BookingForm
     return modelforms[model]
+
 
 # Associated url: booker/dashboard/MODEL NAME(companies,bookings,or rooms)
 # Returns the template depending on the value of the "model" argument passed from the url.
@@ -41,6 +45,7 @@ def show_model(request, model):
     context = {model: render_model}
     url = 'communitymanager/{}.html'.format(model)
     return render(request, url, context)
+
 
 # View linked to ajax request. Handles user action on pending bookings which are displayed in the index.
 def pendingaction(request):
@@ -56,6 +61,7 @@ def pendingaction(request):
         booking.save()
         msg['msg'] = "Pending booking was approved."
     return HttpResponse(json.dumps(msg), content_type='application/json')
+
 
 # Associated url: booker/dashboard/MODEL NAME/ID
 # View for rendering model editing forms.
@@ -77,7 +83,8 @@ def edit_instance(request, model, id):
             return redirect(url)
     else:
         form = ModForm(instance=instance)
-        return render(request, 'communitymanager/edit_form.html', {'form': form,'title':model})
+        return render(request, 'communitymanager/edit_form.html', {'form': form, 'title': model})
+
 
 # Associated url: booker/dashboard/MODEL NAME/new
 # View for rendering forms for new models.
@@ -95,11 +102,25 @@ def new_instance(request, model):
             return redirect(url)
     else:
         form = ModForm()
-    return render(request, 'communitymanager/edit_form.html', {'form': form, 'new': True, 'title':model})
+    return render(request, 'communitymanager/edit_form.html', {'form': form, 'new': True, 'title': model})
+
 
 @login_required
-def show_calendar(request,id):
+def show_calendar(request, id):
     room = Rooms.objects.get(pk=id)
-    context={'room_id':id,'room':room}
+    context = {'room_id': id, 'room': room}
     return render(request, 'communitymanager/calendar.html', context)
 
+
+@login_required
+def bookings_to_csv(request):
+    output = []
+    response = HttpResponse(content_type='text/csv')
+    writer = csv.writer(response)
+    query_set = get_model('bookings')
+    writer.writerow(['Room', 'Date' 'Start Time', 'End Time', 'Company', 'Booked By', 'Email', 'Notes', 'Pending','<br>'])
+    for booking in query_set:
+        output.append([booking.room, booking.date, booking.whole_start_time, booking.whole_end_time, booking.company,
+                       booking.booked_by, booking.email, booking.note, booking.status,'<br>'])
+    writer.writerows(output)
+    return response

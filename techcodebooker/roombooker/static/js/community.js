@@ -3,16 +3,27 @@ Community = {};
 Community.init = function(){
     $(document).ready(function(){
         Community.bindEventListeners();
+        $("#csv").hide()
     })
 };
 
 Community.bindEventListeners = function(){
     $('.pending-action').off().on("click",Community.pendingAction)
+    $("#exportCsv").off().on("click",Community.exportCsv)
 }
 
-Community.activateTabs = function(){
-    $(".calendar-link").first().addClass('active')
-    $(".tab-pane").first().addClass('active')
+
+Community.exportCsv = function(){
+    $.ajax({
+        url:"exportcsv",
+        method:"GET",
+        success: function(result){
+            console.log(result)
+            var x = [result]
+            $("#csv").html(x).show()
+
+        }
+   })
 }
 
 Community.pendingAction = function(){

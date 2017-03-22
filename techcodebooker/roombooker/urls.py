@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^dashboard/(?P<model>[a-z]+)/new$',views_dash.new_instance,name='new_instance'),
     url(r'^dashboard/(?P<model>[a-z]+)/(?P<id>[0-9]+)$',views_dash.edit_instance,name='edit_instance'),
     url(r'^pendingaction$',views_dash.pendingaction,name='pendingaction'),
+    url(r'^exportcsv$',views_dash.bookings_to_csv,name='exportcsv'),
     url(r'^getroominfo$', views.get_room_info, name='getroominfo'),
     url(r'^validatetime$', views.validate_time, name='validatetime'),
     url(r'^populatecal$',views_calendar.populate, name='populatecal'),

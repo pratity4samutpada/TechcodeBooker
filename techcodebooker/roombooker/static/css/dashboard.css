@@ -98,3 +98,7 @@ button.delete, button.save{
 caption {
     margin-bottom: 1%;
 }
+
+#csv{
+    border: 1px dashed black;
+}
