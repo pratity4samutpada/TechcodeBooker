@@ -102,3 +102,8 @@ caption {
 #csv{
     border: 1px dashed black;
 }
+
+.csv-div {
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
