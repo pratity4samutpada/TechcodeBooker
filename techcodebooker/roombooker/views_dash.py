@@ -47,7 +47,7 @@ def show_model(request, model):
     return render(request, url, context)
 
 
-# View linked to ajax request. Handles user action on pending bookings which are displayed in the index.
+ #Handles ajax request from index page. Handles user action on pending bookings which are displayed in the index.
 def pendingaction(request):
     action = request.GET.get('action')
     id = int(request.GET.get('id'))

@@ -1,5 +1,5 @@
 //Namespace for time validation and other functions involving the booking form.
-//Because of conflicts with the version of jQuery used by the calendar plugin, I had to rewrite the $ as js313 (meaning version 3.1.3).
+//Because of conflicts with the version of jQuery used by the calendar plugin, had to rewrite the $ as js313 (meaning version 3.1.3).
 
 Validate = {}
 
@@ -21,7 +21,7 @@ Validate.adjustEndTime = function(){
     var etOptions = js313("#id_Booking-end_time option");
     for (var i =0; i<etOptions.length; i++){
         var opt = js313(etOptions[i]);
-        if (st >= parseInt(opt.val())){
+        if (st > parseInt(opt.val())){
             opt.hide();
         }else{
             opt.show();

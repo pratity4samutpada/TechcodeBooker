@@ -35,7 +35,6 @@ class BookingWizard(SessionWizardView):
 
     # Grabs info from previous form inputs for use in later form steps.
     def get_context_data(self, form, **kwargs):
-
         context = super(BookingWizard, self).get_context_data(form=form, **kwargs)
         new_context = {}
 
@@ -62,6 +61,11 @@ class BookingWizard(SessionWizardView):
         r, b, s = room, booking, status
         r_obj = Rooms.objects.get(pk=r['room_id'])
         status_bool = False
+
+        # In case the user waited too long on the confirmation page or their time was booked during the booking process.
+        bookings_on_d = Bookings.objects.filter(date=b['booking_date'], room=int(r['room_id']))
+        if is_conflict(bookings_on_d ,b['start_time'],b['start_minutes'],b['end_time'],b['end_minutes']):
+            return False
 
         if b['status'] == 'pending':
             status_bool = True
@@ -91,7 +95,7 @@ class BookingWizard(SessionWizardView):
 
         # If newBookingObject returns False, it means something went wrong updating the db, so it just adds an error msg to the context.
         if not self.newBookingObject(room, booking, status):
-            context['error'] = 'There was a problem adding the data to the database.'
+            context['error'] = 'There was a problem adding the data to the database. Please try again.'
         elif not send_email(room,booking,status):
             context['error'] = 'There was a problem sending the email.'
 
@@ -118,25 +122,25 @@ def validate_time(request):
     month = request.GET.get('month')
     year = request.GET.get('year')
     room = request.GET.get('room')
-    v_start = start + s_minute
-    v_end = end + e_minute
     d = datetime.date(int(year), int(month), int(day))
 
     bookings_on_d = Bookings.objects.filter(date=d, room=int(room))
     context = {}
-
-    if is_conflict(bookings_on_d, v_start, v_end):
+    if (start+s_minute) >= (end+e_minute):
+        context['error'] = 'Not a valid booking time.'
+    elif is_conflict(bookings_on_d, start,s_minute, end, e_minute):
         context['error'] = 'Cannot reserve room for time that is already booked.'
-    elif gt_2_hours(v_start, v_end):
+    elif gt_2_hours(start,s_minute,end,e_minute):
         context['pending'] = 'Reservations longer than two hours require community manager approval.'
     else:
         context['success'] = 'This time slot is currently available.'
-
     return HttpResponse(json.dumps(context), content_type="application/json")
 
 
 # Handles different cases of overlapping times.
-def is_conflict(bookings, v_start, v_end):
+def is_conflict(bookings, start, s_minute,end,e_minute):
+    v_start = start + s_minute
+    v_end = end + e_minute
     for booking in bookings:
         st = booking.start_time + booking.start_minutes
         et = booking.end_time + booking.end_minutes
@@ -151,8 +155,10 @@ def is_conflict(bookings, v_start, v_end):
     return False
 
 
-def gt_2_hours(start, end):
-    return (end - start) > 2
+def gt_2_hours(start,s_minute, end, e_minute):
+    v_start = start + s_minute
+    v_end = end + e_minute
+    return (v_end - v_start) > 2
 
 def send_email(room,booking,status):
     try:

@@ -2,7 +2,8 @@ import json, datetime
 from django.http import HttpResponse
 from .models import Bookings
 
-
+# Handles an ajax request. Requests sent from the community manager page come with dash_id.
+# Retrieves all bookings for the given room id, returns the parsed bookings entries to the calendar plugin.
 def populate(request, dash_id=None):
     result = {}
     current_date = datetime.date.today()
@@ -13,7 +14,7 @@ def populate(request, dash_id=None):
     result["events"] = event_list
     return HttpResponse(json.dumps(result), content_type='application/json')
 
-
+# Parses DB to plugin-readable format.
 def map_event_list(bookings, dash_id=None):
     event_list = []
     for booking in bookings:
